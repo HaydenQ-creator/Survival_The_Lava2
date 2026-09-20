@@ -19,20 +19,27 @@ process_mode = 3
 [sub_resource type="Environment" id="Environment_qoqlk"]
 background_mode = 2
 sky = SubResource("Sky_h7a2f")
+ambient_light_source = 3
 ssao_enabled = true
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
 glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.4
+glow_strength = 1.03
+glow_bloom = 1.0
+fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0, 0, 0, 1)
+fog_light_color = Color(0.30692267, 0.3069227, 0.3069227, 1)
 fog_density = 1.0
 fog_depth_begin = 1651.1
 fog_depth_end = 4000.0
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0946
+volumetric_fog_density = 0.1647
 volumetric_fog_albedo = Color(0.30692267, 0.3069227, 0.3069227, 1)
-volumetric_fog_emission_energy = 5.6
-volumetric_fog_anisotropy = 0.65
+volumetric_fog_emission = Color(0.0142752165, 0.014275218, 0.014275218, 1)
+volumetric_fog_emission_energy = 0.1
+volumetric_fog_anisotropy = 0.73
 volumetric_fog_length = 14.55
 
 [sub_resource type="CSharpScript" id="CSharpScript_qoqlk"]
@@ -118,6 +125,9 @@ particles_anim_loop = false
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l1vy1"]
 lifetime_randomness = 1.0
 gravity = Vector3(8.845, 1.065, -10.72)
+use_scale_3d = true
+scale_3d_min = Vector3(-3.685, -3.685, -3.685)
+scale_3d_max = Vector3(-1.435, -1.435, -1.435)
 turbulence_enabled = true
 turbulence_noise_strength = 20.0
 turbulence_noise_scale = 6.465
@@ -220,7 +230,7 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -474.46793, 323.7788, 361.51245)
 
 [node name="Volcano_smoke_particle" type="GPUParticles3D" parent="." unique_id=331487542]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -473.8138, 883.90576, 369.79562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -462.75623, 858.2087, 369.79562)
 material_override = SubResource("StandardMaterial3D_fquxt")
 amount = 50
 lifetime = 50.0
@@ -231,7 +241,7 @@ process_material = SubResource("ParticleProcessMaterial_my0ti")
 draw_pass_1 = SubResource("QuadMesh_gtilq")
 
 [node name="Ember" type="GPUParticles3D" parent="." unique_id=1610302728]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -269.23114, 326.2982, 855.2127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -271.7354, 326.2982, 854.9345)
 material_override = SubResource("StandardMaterial3D_gtilq")
 amount = 100
 lifetime = 50.0

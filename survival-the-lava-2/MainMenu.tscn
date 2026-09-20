@@ -121,12 +121,13 @@ billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
+grow_amount = -16.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l1vy1"]
 lifetime_randomness = 1.0
 gravity = Vector3(8.845, 1.065, -10.72)
 use_scale_3d = true
-scale_3d_min = Vector3(-3.685, -3.685, -3.685)
+scale_3d_min = Vector3(-25.485, -25.485, -25.485)
 scale_3d_max = Vector3(-1.435, -1.435, -1.435)
 turbulence_enabled = true
 turbulence_noise_strength = 20.0
@@ -161,7 +162,7 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=2100076681]
-transform = Transform3D(0.7132906, 0.5108755, 0.47981533, 0, 0.6846011, -0.7289179, -0.7008684, 0.51993024, 0.48831955, -253.59402, 316.37717, 849.58167)
+transform = Transform3D(0.8089269, 0.4285375, 0.4024833, 0, 0.68460107, -0.72891784, -0.58790916, 0.58964133, 0.5537923, -253.59402, 316.37717, 849.58167)
 current = true
 fov = 50.4
 
@@ -206,7 +207,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -245.15433, 304.30298, 833.58
 transform = Transform3D(0.05764763, 0, -0.998337, 0, 1, 0, 0.998337, 0, 0.05764763, -273.01175, 304.30298, 847.8675)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=799782284]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -477.38995, 816.6559, 384.95587)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -455.60574, 816.6559, 361.77795)
 light_color = Color(1, 0, 0, 1)
 light_energy = 250.0
 light_indirect_energy = 20.0

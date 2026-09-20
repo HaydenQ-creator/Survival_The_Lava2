@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bji4yihmk6205"]
 
-[ext_resource type="Texture2D" path="res://Models/T_smoke_b7.png" id="2_eiy7p"]
 [ext_resource type="Script" uid="uid://cr8fubibydaqa" path="res://MainMenu.cs" id="3_h7a2f"]
 [ext_resource type="PackedScene" uid="uid://c3m3380xyveqx" path="res://Models/TallTree.glb" id="4_qoqlk"]
 [ext_resource type="PackedScene" uid="uid://edy0rv6kpao4" path="res://Models/VolcanoLandBackDrop.glb" id="5_7r1g0"]
 [ext_resource type="AudioStream" uid="uid://b7u04amsjd06v" path="res://Audio/Doktor's Curse Halloween Event Theme Music (High Quality) - Rainbow Six Siege.mp3" id="5_cqjrg"]
 [ext_resource type="AudioStream" uid="uid://beqtmxvf8kll5" path="res://Audio/Earthquake Low-Frequency Rumble - Sound Effect (HD).mp3" id="5_iwfq2"]
+[ext_resource type="Texture2D" uid="uid://curb8subblpcc" path="res://Models/pngs/T_smoke_b7.png" id="6_cqjrg"]
 [ext_resource type="Texture2D" uid="uid://b1xcpoiy8gjmt" path="res://Models/pngs/FireEmber.png" id="7_cqjrg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eiy7p"]
@@ -55,7 +55,11 @@ public partial class StartButton : Button
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fquxt"]
 transparency = 1
-albedo_texture = ExtResource("2_eiy7p")
+albedo_texture = ExtResource("6_cqjrg")
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 359.2
+emission_operator = 1
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -103,7 +107,7 @@ transparency = 1
 albedo_texture = ExtResource("7_cqjrg")
 emission_enabled = true
 emission = Color(0.84294647, 0.32604545, 7.70092e-07, 1)
-emission_energy_multiplier = 11.32
+emission_energy_multiplier = 100.0
 emission_operator = 1
 emission_texture = ExtResource("7_cqjrg")
 billboard_mode = 3
@@ -113,10 +117,14 @@ particles_anim_loop = false
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l1vy1"]
 lifetime_randomness = 1.0
-gravity = Vector3(0, 1.065, -10.72)
+gravity = Vector3(8.845, 1.065, -10.72)
 turbulence_enabled = true
 turbulence_noise_strength = 20.0
+turbulence_noise_scale = 6.465
 turbulence_noise_speed_random = 1.63
+turbulence_influence_min = 0.0
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 1.490116e-06
 
 [sub_resource type="QuadMesh" id="QuadMesh_l1vy1"]
 
@@ -223,7 +231,19 @@ process_material = SubResource("ParticleProcessMaterial_my0ti")
 draw_pass_1 = SubResource("QuadMesh_gtilq")
 
 [node name="Ember" type="GPUParticles3D" parent="." unique_id=1610302728]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -266.4964, 330.1449, 859.2208)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -269.23114, 326.2982, 855.2127)
+material_override = SubResource("StandardMaterial3D_gtilq")
+amount = 100
+lifetime = 50.0
+preprocess = 100.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+process_material = SubResource("ParticleProcessMaterial_l1vy1")
+draw_pass_1 = SubResource("QuadMesh_l1vy1")
+
+[node name="Ember" type="GPUParticles3D" parent="Ember" unique_id=1410339602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5126648, 1.3136597, -3.1202393)
 material_override = SubResource("StandardMaterial3D_gtilq")
 amount = 100
 lifetime = 50.0

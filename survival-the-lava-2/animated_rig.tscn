@@ -12,12 +12,12 @@ animation = &"ArmatureAction"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_l1vy1"]
 states/ArmatureAction/node = SubResource("AnimationNodeAnimation_2fchn")
-states/ArmatureAction/position = Vector2(315, 35)
+states/ArmatureAction/position = Vector2(546, 14)
 "states/ArmatureAction 2/node" = SubResource("AnimationNodeAnimation_71i4j")
-"states/ArmatureAction 2/position" = Vector2(170, 50)
-states/Start/position = Vector2(199, 100)
+"states/ArmatureAction 2/position" = Vector2(381, 93)
+states/Start/position = Vector2(150, 93)
 states/StateMachine/node = SubResource("AnimationNodeStateMachine_1a051")
-states/StateMachine/position = Vector2(223, 43)
+states/StateMachine/position = Vector2(344, -19)
 graph_offset = Vector2(-112, -68)
 
 [node name="AnimatedRig" unique_id=1324601261 instance=ExtResource("1_71i4j")]

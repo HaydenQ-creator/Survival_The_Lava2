@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://bji4yihmk6205"]
 
-[ext_resource type="PackedScene" uid="uid://biqiwtrp4ffa1" path="res://Models/VolcanoLand.glb" id="1_eiy7p"]
-[ext_resource type="Texture2D" uid="uid://rx8wclkn475v" path="res://Models/T_smoke_b7.png" id="2_eiy7p"]
+[ext_resource type="Texture2D" path="res://Models/T_smoke_b7.png" id="2_eiy7p"]
 [ext_resource type="Script" uid="uid://cr8fubibydaqa" path="res://MainMenu.cs" id="3_h7a2f"]
 [ext_resource type="PackedScene" uid="uid://c3m3380xyveqx" path="res://Models/TallTree.glb" id="4_qoqlk"]
+[ext_resource type="PackedScene" uid="uid://edy0rv6kpao4" path="res://Models/VolcanoLandBackDrop.glb" id="5_7r1g0"]
+[ext_resource type="AudioStream" uid="uid://b7u04amsjd06v" path="res://Audio/Doktor's Curse Halloween Event Theme Music (High Quality) - Rainbow Six Siege.mp3" id="5_cqjrg"]
 [ext_resource type="AudioStream" uid="uid://beqtmxvf8kll5" path="res://Audio/Earthquake Low-Frequency Rumble - Sound Effect (HD).mp3" id="5_iwfq2"]
+[ext_resource type="Texture2D" uid="uid://b1xcpoiy8gjmt" path="res://Models/pngs/FireEmber.png" id="7_cqjrg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eiy7p"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -32,6 +34,24 @@ volumetric_fog_albedo = Color(0.30692267, 0.3069227, 0.3069227, 1)
 volumetric_fog_emission_energy = 5.6
 volumetric_fog_anisotropy = 0.65
 volumetric_fog_length = 14.55
+
+[sub_resource type="CSharpScript" id="CSharpScript_qoqlk"]
+script/source = "using Godot;
+using System;
+
+public partial class StartButton : Button
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}
+"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fquxt"]
 transparency = 1
@@ -78,23 +98,27 @@ turbulence_initial_displacement_max = 1.490116e-06
 
 [sub_resource type="QuadMesh" id="QuadMesh_gtilq"]
 
-[sub_resource type="CSharpScript" id="CSharpScript_qoqlk"]
-script/source = "using Godot;
-using System;
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gtilq"]
+transparency = 1
+albedo_texture = ExtResource("7_cqjrg")
+emission_enabled = true
+emission = Color(0.84294647, 0.32604545, 7.70092e-07, 1)
+emission_energy_multiplier = 11.32
+emission_operator = 1
+emission_texture = ExtResource("7_cqjrg")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
-public partial class StartButton : Button
-{
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l1vy1"]
+lifetime_randomness = 1.0
+gravity = Vector3(0, 1.065, -10.72)
+turbulence_enabled = true
+turbulence_noise_strength = 20.0
+turbulence_noise_speed_random = 1.63
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-}
-"
+[sub_resource type="QuadMesh" id="QuadMesh_l1vy1"]
 
 [node name="MainMenu" type="Node3D" unique_id=1211307557]
 
@@ -104,20 +128,6 @@ environment = SubResource("Environment_qoqlk")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1793325220]
 transform = Transform3D(-0.367295, -0.5756963, 0.73052585, 0.7386467, 0.296771, 0.6052504, -0.5652395, 0.76190597, 0.3162337, -909.2117, 322.25644, 807.33765)
 shadow_enabled = true
-
-[node name="VolcanoLand" parent="." unique_id=251203705 instance=ExtResource("1_eiy7p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -473.8138, 322.9904, 369.79562)
-
-[node name="Volcano_smoke_particle" type="GPUParticles3D" parent="VolcanoLand" unique_id=331487542]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 560.9154, 0)
-material_override = SubResource("StandardMaterial3D_fquxt")
-amount = 50
-lifetime = 50.0
-preprocess = 50.0
-speed_scale = 0.5
-randomness = 1.0
-process_material = SubResource("ParticleProcessMaterial_my0ti")
-draw_pass_1 = SubResource("QuadMesh_gtilq")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=699373649]
 anchors_preset = 15
@@ -162,6 +172,15 @@ text = "Quit
 "
 alignment = 0
 
+[node name="Label" type="Label" parent="Control" unique_id=1644683186]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 180.0
+text = "Surival the Lava 2
+sequel to that one game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TallTree" parent="." unique_id=872262718 instance=ExtResource("4_qoqlk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -245.15433, 304.30298, 833.5879)
 
@@ -183,6 +202,37 @@ spot_angle = 51.281963
 stream = ExtResource("5_iwfq2")
 volume_db = -13.61
 autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1703843860]
+stream = ExtResource("5_cqjrg")
+volume_db = -20.425
+autoplay = true
+
+[node name="VolcanoLandBackDrop" parent="." unique_id=744439042 instance=ExtResource("5_7r1g0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -474.46793, 323.7788, 361.51245)
+
+[node name="Volcano_smoke_particle" type="GPUParticles3D" parent="." unique_id=331487542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -473.8138, 883.90576, 369.79562)
+material_override = SubResource("StandardMaterial3D_fquxt")
+amount = 50
+lifetime = 50.0
+preprocess = 50.0
+speed_scale = 0.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_my0ti")
+draw_pass_1 = SubResource("QuadMesh_gtilq")
+
+[node name="Ember" type="GPUParticles3D" parent="." unique_id=1610302728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -266.4964, 330.1449, 859.2208)
+material_override = SubResource("StandardMaterial3D_gtilq")
+amount = 100
+lifetime = 50.0
+preprocess = 100.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+process_material = SubResource("ParticleProcessMaterial_l1vy1")
+draw_pass_1 = SubResource("QuadMesh_l1vy1")
 
 [connection signal="pressed" from="Control/StartButton" to="Control" method="_on_start_button_pressed"]
 [connection signal="pressed" from="Control/QuitButton" to="Control" method="_on_quit_button_pressed"]

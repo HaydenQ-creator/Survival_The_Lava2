@@ -3,9 +3,33 @@
 [ext_resource type="PackedScene" uid="uid://chcf3u4abw43f" path="res://Models/SmallGrassLand.glb" id="1_2fc4d"]
 [ext_resource type="Script" uid="uid://bkm352gaxvt0a" path="res://Scripts/FloatingLand.cs" id="2_rb8h4"]
 [ext_resource type="Script" uid="uid://brldyvn2wgels" path="res://Scripts/Area3d.cs" id="3_v2xtm"]
+[ext_resource type="Texture2D" uid="uid://b1xcpoiy8gjmt" path="res://Models/pngs/FireEmber.png" id="4_votjf"]
+[ext_resource type="Script" uid="uid://gxhivmtq1hjb" path="res://IslandEmber.cs" id="5_46k34"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l1vy1"]
 size = Vector3(4.0771484, 0.83517456, 4.288086)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pqgl"]
+transparency = 1
+albedo_texture = ExtResource("4_votjf")
+emission_enabled = true
+emission = Color(1, 0.50980395, 0, 1)
+emission_energy_multiplier = 50.05
+emission_operator = 1
+emission_texture = ExtResource("4_votjf")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gtilq"]
+lifetime_randomness = 1.0
+gravity = Vector3(0, 20, 0)
+turbulence_enabled = true
+turbulence_noise_scale = 0.0
+turbulence_noise_speed_random = 4.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_l1vy1"]
 
 [node name="FloatingLand" type="Node3D" unique_id=79284974]
 
@@ -16,8 +40,14 @@ script = ExtResource("2_rb8h4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2114882, 0)
 shape = SubResource("BoxShape3D_l1vy1")
 
-[node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=1422971961]
+[node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=1422971961 node_paths=PackedStringArray("TargetNode", "TargetNode2", "TargetNode3", "TargetNode4", "TargetNode5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13771749, 0)
 script = ExtResource("3_v2xtm")
+TargetNode = NodePath("..")
+TargetNode2 = NodePath("../../GPUParticles3D")
+TargetNode3 = NodePath("../../GPUParticles3D2")
+TargetNode4 = NodePath("../../GPUParticles3D3")
+TargetNode5 = NodePath("../../GPUParticles3D4")
 
 [node name="Area3d_CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=1800474869]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9034557, 0)
@@ -25,5 +55,46 @@ shape = SubResource("BoxShape3D_l1vy1")
 
 [node name="SmallGrassLand" parent="StaticBody3D" unique_id=1360604594 instance=ExtResource("1_2fc4d")]
 transform = Transform3D(0.305, 0, 0, 0, 0.305, 0, 0, 0, 0.305, 0, 0, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=358970360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1067584, 1.8186867, 0)
+material_override = SubResource("StandardMaterial3D_7pqgl")
+amount = 15
+speed_scale = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_gtilq")
+draw_pass_1 = SubResource("QuadMesh_l1vy1")
+script = ExtResource("5_46k34")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=889173750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013908148, 1.7914886, -2.1057582)
+material_override = SubResource("StandardMaterial3D_7pqgl")
+amount = 15
+speed_scale = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_gtilq")
+draw_pass_1 = SubResource("QuadMesh_l1vy1")
+script = ExtResource("5_46k34")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="." unique_id=766476153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0238087, 1.8186867, -0.16764069)
+material_override = SubResource("StandardMaterial3D_7pqgl")
+amount = 15
+speed_scale = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_gtilq")
+draw_pass_1 = SubResource("QuadMesh_l1vy1")
+script = ExtResource("5_46k34")
+
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="." unique_id=1201377316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05920303, 1.8186867, 2.0417726)
+material_override = SubResource("StandardMaterial3D_7pqgl")
+amount = 15
+speed_scale = 2.0
+explosiveness = 0.13
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_gtilq")
+draw_pass_1 = SubResource("QuadMesh_l1vy1")
+script = ExtResource("5_46k34")
 
 [connection signal="body_entered" from="StaticBody3D/Area3D" to="StaticBody3D/Area3D" method="_on_body_entered"]

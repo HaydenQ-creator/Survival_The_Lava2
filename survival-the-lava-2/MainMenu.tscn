@@ -42,24 +42,6 @@ volumetric_fog_emission_energy = 0.1
 volumetric_fog_anisotropy = 0.73
 volumetric_fog_length = 14.55
 
-[sub_resource type="CSharpScript" id="CSharpScript_qoqlk"]
-script/source = "using Godot;
-using System;
-
-public partial class StartButton : Button
-{
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-}
-"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fquxt"]
 transparency = 1
 albedo_texture = ExtResource("6_cqjrg")
@@ -180,7 +162,6 @@ offset_right = 307.0
 offset_bottom = 272.0
 text = "Start"
 alignment = 0
-script = SubResource("CSharpScript_qoqlk")
 
 [node name="QuitButton" type="Button" parent="Control" unique_id=2001793964]
 layout_mode = 0
@@ -189,6 +170,15 @@ offset_right = 307.0
 offset_bottom = 406.0
 text = "Quit
 "
+alignment = 0
+
+[node name="TestButton" type="Button" parent="Control" unique_id=1675629714]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 439.0
+offset_right = 308.0
+offset_bottom = 513.0
+text = "Testing Level"
 alignment = 0
 
 [node name="Label" type="Label" parent="Control" unique_id=1644683186]
@@ -267,3 +257,4 @@ draw_pass_1 = SubResource("QuadMesh_l1vy1")
 
 [connection signal="pressed" from="Control/StartButton" to="Control" method="_on_start_button_pressed"]
 [connection signal="pressed" from="Control/QuitButton" to="Control" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/TestButton" to="Control" method="_on_test_button_pressed"]

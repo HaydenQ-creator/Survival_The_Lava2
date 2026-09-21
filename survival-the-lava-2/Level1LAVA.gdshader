@@ -1,12 +1,9 @@
 // NOTE: Shader automatically converted from Godot Engine 4.7.1.stable.mono's StandardMaterial3D.
 shader_type spatial;
-
-
-uniform float time_speed : hint_range(0.0, 10.0) = 0.05;
-
-
-
 render_mode blend_mix, depth_draw_always, cull_back, diffuse_burley, specular_schlick_ggx;
+
+// ANIMATION PARAMETER: Control speed directly here
+uniform float time_speed : hint_range(-2.0, 2.0) = 0.05;
 
 uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
@@ -41,8 +38,8 @@ uniform float heightmap_scale : hint_range(-16.0, 16.0, 0.001);
 uniform int heightmap_min_layers : hint_range(1, 64);
 uniform int heightmap_max_layers : hint_range(1, 64);
 uniform vec2 heightmap_flip;
-varying vec3 uv1_triplanar_pos;
 
+varying vec3 uv1_triplanar_pos;
 uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
 varying vec3 uv1_power_normal;
 
@@ -64,16 +61,12 @@ void vertex() {
 	BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
 	BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
 
-	// UV1 Triplanar: Enabled (with World Triplanar)
-    uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
-    
-    // Multiply TIME by your new speed uniform variable
-   uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset + (TIME + time_speed);
-    
-    uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
-    uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+	// CLEANED: We removed the broken "TIME" addition here entirely
+	uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
+	uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset;
+	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
+	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
 }
-
 
 vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
 	vec4 samp = vec4(0.0);
@@ -84,30 +77,29 @@ vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos
 }
 
 void fragment() {
-	vec4 albedo_tex = triplanar_texture(texture_albedo, uv1_power_normal, uv1_triplanar_pos);
+	// FIXED ANIMATION LOGIC: Multiply the unchangeable TIME constant by our speed, 
+	// then add that moving offset to the static positions.
+	vec3 animated_pos = uv1_triplanar_pos + (TIME * 0.05);
+
+	vec4 albedo_tex = triplanar_texture(texture_albedo, uv1_power_normal, animated_pos);
 	ALBEDO = albedo.rgb * albedo_tex.rgb;
 
-	float metallic_tex = dot(triplanar_texture(texture_metallic, uv1_power_normal, uv1_triplanar_pos), metallic_texture_channel);
+	float metallic_tex = dot(triplanar_texture(texture_metallic, uv1_power_normal, animated_pos), metallic_texture_channel);
 	METALLIC = metallic_tex * metallic;
 	SPECULAR = specular;
 
 	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
-	float roughness_tex = dot(triplanar_texture(texture_roughness, uv1_power_normal, uv1_triplanar_pos), roughness_texture_channel);
+	float roughness_tex = dot(triplanar_texture(texture_roughness, uv1_power_normal, animated_pos), roughness_texture_channel);
 	ROUGHNESS = roughness_tex * roughness;
 
-	// Normal Map: Enabled
-	NORMAL_MAP = triplanar_texture(texture_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
+	NORMAL_MAP = triplanar_texture(texture_normal, uv1_power_normal, animated_pos).rgb;
 	NORMAL_MAP_DEPTH = normal_scale;
 
-	// Bent Normal Map: Enabled
-	BENT_NORMAL_MAP = triplanar_texture(texture_bent_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
+	BENT_NORMAL_MAP = triplanar_texture(texture_bent_normal, uv1_power_normal, animated_pos).rgb;
 
-	// Emission: Enabled
-	vec3 emission_tex = triplanar_texture(texture_emission, uv1_power_normal, uv1_triplanar_pos).rgb;
-	// Emission Operator: Multiply
+	vec3 emission_tex = triplanar_texture(texture_emission, uv1_power_normal, animated_pos).rgb;
 	EMISSION = (emission.rgb * emission_tex) * emission_energy;
 
-	// Refraction: Enabled (with normal map texture)
 	vec3 unpacked_normal = NORMAL_MAP;
 	unpacked_normal.xy = unpacked_normal.xy * 2.0 - 1.0;
 	unpacked_normal.z = sqrt(max(0.0, 1.0 - dot(unpacked_normal.xy, unpacked_normal.xy)));
@@ -115,7 +107,7 @@ void fragment() {
 			NORMAL,
 			TANGENT * unpacked_normal.x + BINORMAL * unpacked_normal.y + NORMAL * unpacked_normal.z,
 			NORMAL_MAP_DEPTH));
-	vec2 ref_ofs = SCREEN_UV - ref_normal.xy * dot(triplanar_texture(texture_refraction, uv1_power_normal, uv1_triplanar_pos), refraction_texture_channel) * refraction;
+	vec2 ref_ofs = SCREEN_UV - ref_normal.xy * dot(triplanar_texture(texture_refraction, uv1_power_normal, animated_pos), refraction_texture_channel) * refraction;
 
 	float ref_amount = 1.0 - albedo.a * albedo_tex.a;
 
@@ -124,10 +116,7 @@ void fragment() {
 	vec4 refraction_view_pos = INV_PROJECTION_MATRIX * ndc;
 	refraction_view_pos.xyz /= refraction_view_pos.w;
 
-	// If the depth buffer is lower then the model's Z position, use the refracted UV, otherwise use the normal screen UV.
-	// At low depth differences, decrease refraction intensity to avoid sudden discontinuities.
 	EMISSION += textureLod(screen_texture, mix(SCREEN_UV, ref_ofs, smoothstep(0.0, 1.0, VERTEX.z - refraction_view_pos.z)), ROUGHNESS * 8.0).rgb * ref_amount * EXPOSURE;
 	ALBEDO *= 1.0 - ref_amount;
-	// Force transparency on the material (required for refraction).
 	ALPHA = 1.0;
 }

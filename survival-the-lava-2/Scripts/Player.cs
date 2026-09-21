@@ -30,16 +30,20 @@ public partial class Player : CharacterBody3D
 
 	public override void _Process(double delta)
 	{
-		if (Input.IsActionJustPressed("left") && IsOnFloor())
+		Vector2 inputVector = Input.GetVector("left", "right", "forward", "backward");
+		if (inputVector != Vector2.Zero && IsOnFloor())
 		{
 			if (!_WalkPlayer.IsPlaying())
 			{
 				_WalkPlayer.Play();
 			}
 		}
-		if (Input.IsActionJustReleased("left"))
+		else
 		{
-			_WalkPlayer.Stop();
+			if (_WalkPlayer.IsPlaying())
+			{
+				_WalkPlayer.Stop();
+			}
 		}
 	}
 
@@ -67,10 +71,12 @@ public partial class Player : CharacterBody3D
 		if (Input.IsActionJustPressed("sprint") && IsOnFloor())
 		{
 			Speed = SprintSpeed;
+			_WalkPlayer.PitchScale = 1.2f;
 		}
 		if (Input.IsActionJustReleased("sprint"))
 		{
 			Speed = NormalSpeed;
+			_WalkPlayer.PitchScale = 1.0f;
 		}
 		
 		Vector2 inputDir = Input.GetVector("left", "right", "forward", "backward");

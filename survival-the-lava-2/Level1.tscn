@@ -32,6 +32,10 @@ glow_normalized = true
 glow_intensity = 1.17
 glow_strength = 1.23
 glow_bloom = 0.2
+fog_enabled = true
+fog_light_color = Color(0.23779804, 0.26129034, 0.29784346, 1)
+fog_light_energy = 16.0
+fog_density = 0.0064
 fog_sky_affect = 0.0
 volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.60122335, 0.6012229, 0.60122293, 1)
@@ -176,7 +180,7 @@ transform = Transform3D(15.644149, 0, 0, 0, 1, 0, 0, 0, 35.58539, 127.62709, 0, 
 transform = Transform3D(15.644149, 0, 0, 0, 1, 0, 0, 0, 35.58539, -216.11748, 0, 0)
 
 [node name="VolcanoLandBackDrop" parent="." unique_id=744439042 instance=ExtResource("3_cove1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8771.465, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8771.465, -63.620605, 0)
 
 [node name="Volcano_smoke_particle" type="GPUParticles3D" parent="VolcanoLandBackDrop" unique_id=680769957]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.633301, 505.02087, -7.0033646)

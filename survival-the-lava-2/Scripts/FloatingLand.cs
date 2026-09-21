@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class FloatingLand : StaticBody3D
+public partial class FloatingLand : AnimatableBody3D
 {
 	// The boolean that the Area3D will trigger
 	public bool is_touched { get; set; } = false;
@@ -9,10 +9,11 @@ public partial class FloatingLand : StaticBody3D
 	[Export]
 	public float DescentSpeed { get; set; } = 0.3f;
 
-	public void OnAreaTriggered(Node3D body)
+	// Changed Node3D to Node to match standard area signal signatures
+	public void OnAreaTriggered(Node body)
 	{
 		// Example: Only activate if a Player enters the area
-		if (body.Name == "Player")
+		if (body.Name == "Player") 
 		{
 			is_touched = true;
 			GD.Print("Boolean activated via signal!");

@@ -66,3 +66,72 @@ size = Vector3(27.748047, 1, 14.4375)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7157898, 10.901064, -18.096222)
 use_collision = true
 size = Vector3(14.941895, 1, 14.4375)
+
+[node name="FloatingIslands" type="Node3D" parent="." unique_id=1541093891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.669596, -9.681646, -16.42502)
+
+[node name="FloatingLand" parent="FloatingIslands" unique_id=204472496 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.896385, 6.2214413, 0)
+
+[node name="FloatingLand2" parent="FloatingIslands" unique_id=67846470 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.39471, 6.2214413, 16.145342)
+
+[node name="FloatingLand3" parent="FloatingIslands" unique_id=164061556 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.35939, 6.2214413, 9.695672)
+
+[node name="FloatingLand4" parent="FloatingIslands" unique_id=1822017746 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.667786, 6.2214413, 0.9551296)
+
+[node name="FloatingLand5" parent="FloatingIslands" unique_id=1179841739 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.046715, 6.2214413, 17.234848)
+
+[node name="FloatingLand8" parent="FloatingIslands" unique_id=434238151 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.45728, 6.2214413, 12.8056755)
+
+[node name="FloatingLand9" parent="FloatingIslands" unique_id=1986263953 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.39499, 6.2214413, 5.313698)
+
+[node name="FloatingLand10" parent="FloatingIslands" unique_id=482968348 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.59277, 6.2214413, 18.771753)
+
+[node name="FloatingLand11" parent="FloatingIslands" unique_id=1601132764 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.550995, 6.2214413, 12.607388)
+
+[node name="FloatingLand12" parent="FloatingIslands" unique_id=351599880 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.656612, 6.2214413, 12.607388)
+
+[node name="FloatingLand13" parent="FloatingIslands" unique_id=1574140062 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.061054, 6.2214413, 16.999912)
+
+[node name="FloatingLand14" parent="FloatingIslands" unique_id=276447801 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.755203, 6.2214413, 5.574808)
+
+[node name="FloatingLand15" parent="FloatingIslands" unique_id=914127147 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.705826, 6.2214413, 8.26721)
+
+[node name="FloatingLand16" parent="FloatingIslands" unique_id=1135638543 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.705826, 6.2214413, 15.230461)
+
+[node name="FloatingLand17" parent="FloatingIslands" unique_id=1517629033 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.260094, 6.2214413, 9.142717)
+
+[node name="FloatingLand18" parent="FloatingIslands" unique_id=809956577 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.948439, 6.2214413, 14.18358)
+
+[node name="FloatingLand19" parent="FloatingIslands" unique_id=1544902620 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.183296, 6.2214413, 10.317097)
+
+[node name="FloatingLand22" parent="FloatingIslands" unique_id=585513005 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.714739, 6.2214413, 3.2889652)
+
+[node name="FloatingLand20" parent="FloatingIslands" unique_id=109394120 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.289536, 6.2214413, 14.772333)
+
+[node name="FloatingLand21" parent="FloatingIslands" unique_id=1773432744 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6008716, 6.2214413, 4.4822445)
+
+[node name="FloatingLand6" parent="FloatingIslands" unique_id=1512763217 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.88599, 6.2214413, 5.659395)
+
+[node name="FloatingLand7" parent="FloatingIslands" unique_id=565477999 instance=ExtResource("2_njov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67442, 6.2214413, 10.195557)

@@ -1,3 +1,288 @@
 [gd_scene format=3 uid="uid://dut0ugtmjqx"]
 
+[ext_resource type="PackedScene" uid="uid://xrcs2nkga2db" path="res://large_grass_land.tscn" id="2_cove1"]
+[ext_resource type="PackedScene" uid="uid://b4j7qan210c6c" path="res://Player.tscn" id="2_mc20k"]
+[ext_resource type="PackedScene" uid="uid://edy0rv6kpao4" path="res://Models/VolcanoLandBackDrop.glb" id="3_cove1"]
+[ext_resource type="Texture2D" uid="uid://cmkr60gqfjpn2" path="res://Models/pngs/lava/Lava005_1K-JPG_Color.jpg" id="4_mlbie"]
+[ext_resource type="Texture2D" uid="uid://6y674wp66rhx" path="res://Models/pngs/lava/Lava005_1K-JPG_NormalGL.jpg" id="5_5py54"]
+[ext_resource type="Texture2D" uid="uid://cumrb1qmvctvg" path="res://Models/pngs/lava/Lava005_1K-JPG_Emission.jpg" id="5_s3sxq"]
+[ext_resource type="Texture2D" uid="uid://f5itqmwsrt7y" path="res://Models/pngs/lava/Lava005_1K-JPG_NormalDX.jpg" id="6_5py54"]
+[ext_resource type="Texture2D" uid="uid://dak08h7dd8oe5" path="res://Models/pngs/lava/Lava005_1K-JPG_Roughness.jpg" id="7_1bjei"]
+[ext_resource type="Texture2D" uid="uid://bx6qq63bqqvsx" path="res://Models/pngs/lava/Lava005_1K-JPG_Displacement.jpg" id="7_5g1s2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cove1"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_dwyiq"]
+sky_material = SubResource("ProceduralSkyMaterial_cove1")
+
+[sub_resource type="Environment" id="Environment_dn5ey"]
+background_mode = 2
+sky = SubResource("Sky_dwyiq")
+glow_enabled = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cove1"]
+load_path = "res://.godot/imported/T_smoke_b7.png-9816ee40de55f1477e1d8f24b1cb18e4.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwyiq"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_cove1")
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 359.2
+emission_operator = 1
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow_amount = 0.703
+
+[sub_resource type="Gradient" id="Gradient_lmyl5"]
+offsets = PackedFloat32Array(0, 0.2674897, 0.5349794, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.8271605, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eiy7p"]
+gradient = SubResource("Gradient_lmyl5")
+
+[sub_resource type="Curve" id="Curve_mlbie"]
+_limits = [0.1500001, 45.608177, 0.0, 1.0]
+_data = [Vector2(0.026022308, 0.1500001), 0.0, 0.0, 0, 0, Vector2(0.35687733, 2.1999998), 0.0, 0.0, 0, 0, Vector2(0.73977697, 7.9), 0.0, 0.0, 0, 0, Vector2(1, 25.540579), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_eiy7p"]
+curve = SubResource("Curve_mlbie")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s3sxq"]
+angle_min = -650.4
+angle_max = 720.0
+gravity = Vector3(0, 5, 0)
+use_scale_3d = true
+scale_3d_min = Vector3(106.435, 106.435, 106.435)
+scale_3d_max = Vector3(441.735, 441.735, 441.735)
+scale_curve = SubResource("CurveTexture_eiy7p")
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_eiy7p")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.99999994
+turbulence_noise_strength = 12.87
+turbulence_noise_scale = 4.714
+turbulence_influence_max = 1.0
+turbulence_initial_displacement_min = -52.5
+turbulence_initial_displacement_max = 1.490116e-06
+
+[sub_resource type="QuadMesh" id="QuadMesh_5py54"]
+
+[sub_resource type="Shader" id="Shader_5py54"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.7.1.stable.mono's StandardMaterial3D.
+shader_type spatial;
+
+
+uniform float time_speed : hint_range(0.0, 10.0) = 0.05;
+
+
+
+render_mode blend_mix, depth_draw_always, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_emission : source_color, hint_default_black, filter_linear_mipmap, repeat_enable;
+uniform vec4 emission : source_color;
+uniform float emission_energy : hint_range(0.0, 100.0, 0.01);
+
+uniform sampler2D texture_refraction : filter_linear_mipmap, repeat_enable;
+uniform float refraction : hint_range(-1.0, 1.0, 0.001);
+uniform vec4 refraction_texture_channel;
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_linear_mipmap;
+uniform sampler2D depth_texture : hint_depth_texture, repeat_disable, filter_nearest;
+
+uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
+uniform float normal_scale : hint_range(-16.0, 16.0);
+
+uniform sampler2D texture_bent_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
+
+uniform sampler2D texture_heightmap : hint_default_black, filter_linear_mipmap, repeat_enable;
+uniform float heightmap_scale : hint_range(-16.0, 16.0, 0.001);
+uniform int heightmap_min_layers : hint_range(1, 64);
+uniform int heightmap_max_layers : hint_range(1, 64);
+uniform vec2 heightmap_flip;
+varying vec3 uv1_triplanar_pos;
+
+uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
+varying vec3 uv1_power_normal;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
+
+	TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
+	TANGENT = inverse(MODEL_NORMAL_MATRIX) * normalize(TANGENT);
+
+	BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
+	BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
+	BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
+	BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
+
+	// UV1 Triplanar: Enabled (with World Triplanar)
+    uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
+    
+    // Multiply TIME by your new speed uniform variable
+    uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset + (TIME * time_speed);
+    
+    uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
+    uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+}
+
+
+vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+	vec4 samp = vec4(0.0);
+	samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+	samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+	samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+	return samp;
+}
+
+void fragment() {
+	vec4 albedo_tex = triplanar_texture(texture_albedo, uv1_power_normal, uv1_triplanar_pos);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(triplanar_texture(texture_metallic, uv1_power_normal, uv1_triplanar_pos), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(triplanar_texture(texture_roughness, uv1_power_normal, uv1_triplanar_pos), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+
+	// Normal Map: Enabled
+	NORMAL_MAP = triplanar_texture(texture_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+
+	// Bent Normal Map: Enabled
+	BENT_NORMAL_MAP = triplanar_texture(texture_bent_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
+
+	// Emission: Enabled
+	vec3 emission_tex = triplanar_texture(texture_emission, uv1_power_normal, uv1_triplanar_pos).rgb;
+	// Emission Operator: Multiply
+	EMISSION = (emission.rgb * emission_tex) * emission_energy;
+
+	// Refraction: Enabled (with normal map texture)
+	vec3 unpacked_normal = NORMAL_MAP;
+	unpacked_normal.xy = unpacked_normal.xy * 2.0 - 1.0;
+	unpacked_normal.z = sqrt(max(0.0, 1.0 - dot(unpacked_normal.xy, unpacked_normal.xy)));
+	vec3 ref_normal = normalize(mix(
+			NORMAL,
+			TANGENT * unpacked_normal.x + BINORMAL * unpacked_normal.y + NORMAL * unpacked_normal.z,
+			NORMAL_MAP_DEPTH));
+	vec2 ref_ofs = SCREEN_UV - ref_normal.xy * dot(triplanar_texture(texture_refraction, uv1_power_normal, uv1_triplanar_pos), refraction_texture_channel) * refraction;
+
+	float ref_amount = 1.0 - albedo.a * albedo_tex.a;
+
+	float refraction_depth_tex = textureLod(depth_texture, ref_ofs, 0.0).r;
+	vec4 ndc = OUTPUT_IS_SRGB ? vec4(vec3(SCREEN_UV, refraction_depth_tex) * 2.0 - 1.0, 1.0) : vec4(SCREEN_UV * 2.0 - 1.0, refraction_depth_tex, 1.0);
+	vec4 refraction_view_pos = INV_PROJECTION_MATRIX * ndc;
+	refraction_view_pos.xyz /= refraction_view_pos.w;
+
+	// If the depth buffer is lower then the model's Z position, use the refracted UV, otherwise use the normal screen UV.
+	// At low depth differences, decrease refraction intensity to avoid sudden discontinuities.
+	EMISSION += textureLod(screen_texture, mix(SCREEN_UV, ref_ofs, smoothstep(0.0, 1.0, VERTEX.z - refraction_view_pos.z)), ROUGHNESS * 8.0).rgb * ref_amount * EXPOSURE;
+	ALBEDO *= 1.0 - ref_amount;
+	// Force transparency on the material (required for refraction).
+	ALPHA = 1.0;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bjei"]
+render_priority = 0
+shader = SubResource("Shader_5py54")
+shader_parameter/time_speed = 1.0
+shader_parameter/albedo = Color(0.93983006, 0.8904601, 0.8931231, 1)
+shader_parameter/texture_albedo = ExtResource("4_mlbie")
+shader_parameter/albedo_texture_size = Vector2i(1024, 1024)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("7_1bjei")
+shader_parameter/specular = 1.0
+shader_parameter/metallic = 1.0
+shader_parameter/texture_emission = ExtResource("5_s3sxq")
+shader_parameter/emission = Color(1, 1, 0, 1)
+shader_parameter/emission_energy = 16.0
+shader_parameter/refraction = 1.0
+shader_parameter/refraction_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/texture_normal = ExtResource("6_5py54")
+shader_parameter/normal_scale = 9.15
+shader_parameter/texture_bent_normal = ExtResource("5_5py54")
+shader_parameter/texture_heightmap = ExtResource("7_5g1s2")
+shader_parameter/heightmap_scale = 5.0
+shader_parameter/heightmap_min_layers = 8
+shader_parameter/heightmap_max_layers = 32
+shader_parameter/heightmap_flip = Vector2(1, 1)
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(-0.245, -0.245, -0.245)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_gtilq"]
+material = SubResource("ShaderMaterial_1bjei")
+
 [node name="Level1" type="Node3D" unique_id=935952789]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1239027017]
+environment = SubResource("Environment_dn5ey")
+
+[node name="CharacterBody3D" parent="." unique_id=25935713 instance=ExtResource("2_mc20k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.737401, 0)
+
+[node name="SmallGrassLand" parent="." unique_id=1360604594 instance=ExtResource("2_cove1")]
+
+[node name="SmallGrassLand2" parent="." unique_id=961515720 instance=ExtResource("2_cove1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.09828, 0, 0)
+
+[node name="VolcanoLandBackDrop" parent="." unique_id=744439042 instance=ExtResource("3_cove1")]
+transform = Transform3D(4.135, 0, 0, 0, 4.135, 0, 0, 0, 4.135, -8771.465, 0, 0)
+
+[node name="Volcano_smoke_particle" type="GPUParticles3D" parent="VolcanoLandBackDrop" unique_id=680769957]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.633301, 505.02087, -7.0033646)
+material_override = SubResource("StandardMaterial3D_dwyiq")
+amount = 50
+lifetime = 50.0
+preprocess = 50.0
+speed_scale = 0.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_s3sxq")
+draw_pass_1 = SubResource("QuadMesh_5py54")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="VolcanoLandBackDrop/Volcano_smoke_particle" unique_id=1403261684]
+transform = Transform3D(0.09248813, 5.724685e-09, 0.22345367, 0.22345367, -1.3810253e-08, -0.09248813, 1.0571073e-08, 0.24183795, -1.0571073e-08, 315.26074, 121.26941, -8.01767)
+light_color = Color(1, 0, 0, 1)
+light_energy = 1000.0
+light_indirect_energy = 20.0
+light_volumetric_fog_energy = 50.0
+light_size = 5.0
+light_specular = 16.0
+spot_range = 2701.187
+spot_angle = 51.281963
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=413810902]
+transform = Transform3D(-0.00019789414, -98.28705, -1.0886758e-06, 0, -4.2962633e-06, 24.906002, -4527.29, 4.2962633e-06, 4.7587537e-14, -33.631058, 8.26244, 0)
+mesh = SubResource("QuadMesh_gtilq")

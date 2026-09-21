@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cygun75k4h3vy" path="res://Scripts/Player.cs" id="1_kpjcp"]
 [ext_resource type="PackedScene" uid="uid://sh87sqdwswr0" path="res://animated_rig.tscn" id="2_dtqjt"]
-[ext_resource type="Script" uid="uid://dtpoxsa0dqqj2" path="res://Scripts/SpringArm3d.cs" id="2_kne1u"]
-[ext_resource type="Script" uid="uid://bhc8eifd1wpsd" path="res://Scripts/Camera3d.cs" id="2_kpjcp"]
 [ext_resource type="AudioStream" uid="uid://bh1n86ltmmxrp" path="res://Audio/PlayerAudio/action_jump.mp3" id="5_tdg3f"]
-[ext_resource type="Script" uid="uid://bcn7y07tenbxf" path="res://AudioStreamPlayer.cs" id="6_dtqjt"]
+[ext_resource type="Script" uid="uid://bcn7y07tenbxf" path="res://Scripts/AudioStreamPlayer.cs" id="6_dtqjt"]
+[ext_resource type="Script" uid="uid://csmchm88x64r2" path="res://Scripts/NewSpringArm3d.cs" id="6_tdg3f"]
 [ext_resource type="AudioStream" uid="uid://bv0qno2cxards" path="res://Audio/PlayerAudio/roblox-walking-sound-effect`-made-with-Voicemod.mp3" id="7_dtqjt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ke062"]
@@ -15,8 +14,12 @@ height = 2.1408691
 
 [sub_resource type="BoxMesh" id="BoxMesh_kne1u"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_l1vy1"]
+
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=25935713]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_kpjcp")
+_sprintAnimSpeed = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1307964816]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18884277, 0)
@@ -31,18 +34,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8847519, 0)
 visible = false
 mesh = SubResource("BoxMesh_kne1u")
 
-[node name="CameraPivot" type="Node3D" parent="." unique_id=391977633]
-
-[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=96777297]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2278055, 1.1764668, 2.2300851)
-script = ExtResource("2_kne1u")
-PlayerPath = NodePath("../../..")
-PivotPath = NodePath("../..")
-
-[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1665891632]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6532514, -0.21312869)
-script = ExtResource("2_kpjcp")
-
 [node name="JumpSFX" type="AudioStreamPlayer" parent="." unique_id=511674993]
 stream = ExtResource("5_tdg3f")
 script = ExtResource("6_dtqjt")
@@ -53,3 +44,13 @@ script = ExtResource("6_dtqjt")
 
 [node name="AnimatedRig" parent="." unique_id=1324601261 instance=ExtResource("2_dtqjt")]
 transform = Transform3D(-2.5352605e-08, 0, 0.58, 0, 0.58, 0, -0.58, 0, -2.5352605e-08, 0, 0.32786405, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1556219455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3228525, 0.048456192)
+collision_mask = 4194305
+shape = SubResource("SphereShape3D_l1vy1")
+spring_length = 4.0
+script = ExtResource("6_tdg3f")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1523516154]
+far = 400000.0

@@ -17,7 +17,7 @@ public partial class MainMenu : Control
 
 	private void OnStartButtonPressed()
 	{
-		string gameScenePath = "res://Test.tscn"; 
+		string gameScenePath = "res://Level1.tscn"; 
 
 		GetTree().ChangeSceneToFile(gameScenePath);
 	}

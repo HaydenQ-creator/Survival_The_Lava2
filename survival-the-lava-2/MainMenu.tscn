@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bji4yihmk6205"]
 
-[ext_resource type="Script" uid="uid://cr8fubibydaqa" path="res://MainMenu.cs" id="3_h7a2f"]
+[ext_resource type="Script" uid="uid://cr8fubibydaqa" path="res://Scripts/MainMenu.cs" id="3_h7a2f"]
 [ext_resource type="PackedScene" uid="uid://c3m3380xyveqx" path="res://Models/TallTree.glb" id="4_qoqlk"]
 [ext_resource type="PackedScene" uid="uid://edy0rv6kpao4" path="res://Models/VolcanoLandBackDrop.glb" id="5_7r1g0"]
 [ext_resource type="AudioStream" uid="uid://b7u04amsjd06v" path="res://Audio/Doktor's Curse Halloween Event Theme Music (High Quality) - Rainbow Six Siege.mp3" id="5_cqjrg"]
@@ -78,7 +78,7 @@ grow_amount = 0.703
 offsets = PackedFloat32Array(0, 0.2674897, 0.5349794, 1)
 colors = PackedColorArray(1, 0, 0, 1, 0.8271605, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_eiy7p"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cqjrg"]
 gradient = SubResource("Gradient_eiy7p")
 
 [sub_resource type="Curve" id="Curve_eiy7p"]
@@ -86,7 +86,7 @@ _limits = [0.1500001, 45.608177, 0.0, 1.0]
 _data = [Vector2(0.026022308, 0.1500001), 0.0, 0.0, 0, 0, Vector2(0.35687733, 2.1999998), 0.0, 0.0, 0, 0, Vector2(0.73977697, 7.9), 0.0, 0.0, 0, 0, Vector2(1, 25.540579), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_eiy7p"]
+[sub_resource type="CurveTexture" id="CurveTexture_e2xy7"]
 curve = SubResource("Curve_eiy7p")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_my0ti"]
@@ -96,9 +96,9 @@ gravity = Vector3(0, 5, 0)
 use_scale_3d = true
 scale_3d_min = Vector3(106.435, 106.435, 106.435)
 scale_3d_max = Vector3(441.735, 441.735, 441.735)
-scale_curve = SubResource("CurveTexture_eiy7p")
+scale_curve = SubResource("CurveTexture_e2xy7")
 color = Color(0, 0, 0, 1)
-color_ramp = SubResource("GradientTexture1D_eiy7p")
+color_ramp = SubResource("GradientTexture1D_cqjrg")
 hue_variation_min = -2.2351742e-08
 hue_variation_max = 0.99999994
 turbulence_noise_strength = 12.87
@@ -162,9 +162,9 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=2100076681]
-transform = Transform3D(0.8089269, 0.4285375, 0.4024833, 0, 0.68460107, -0.72891784, -0.58790916, 0.58964133, 0.5537923, -253.59402, 316.37717, 849.58167)
+transform = Transform3D(0.9320039, 0.25084597, 0.26161966, 0, 0.72181284, -0.6920881, -0.36244798, 0.64502895, 0.6727325, -254.53624, 315.19543, 850.922)
 current = true
-fov = 50.4
+fov = 54.7
 
 [node name="Control" type="Control" parent="." unique_id=909078901]
 layout_mode = 3
@@ -206,23 +206,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -245.15433, 304.30298, 833.58
 [node name="TallTree2" parent="." unique_id=940359032 instance=ExtResource("4_qoqlk")]
 transform = Transform3D(0.05764763, 0, -0.998337, 0, 1, 0, 0.998337, 0, 0.05764763, -273.01175, 304.30298, 847.8675)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=799782284]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -455.60574, 816.6559, 361.77795)
-light_color = Color(1, 0, 0, 1)
-light_energy = 250.0
-light_indirect_energy = 20.0
-light_volumetric_fog_energy = 50.0
-light_size = 5.0
-light_specular = 16.0
-spot_range = 1566.6417
-spot_angle = 51.281963
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1936275267]
+[node name="Earthquake_sound" type="AudioStreamPlayer" parent="." unique_id=1936275267]
 stream = ExtResource("5_iwfq2")
-volume_db = -13.61
+volume_db = -27.85
 autoplay = true
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1703843860]
+[node name="MainMenu_theme" type="AudioStreamPlayer" parent="." unique_id=1703843860]
 stream = ExtResource("5_cqjrg")
 volume_db = -20.425
 autoplay = true
@@ -240,6 +229,17 @@ speed_scale = 0.5
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_my0ti")
 draw_pass_1 = SubResource("QuadMesh_gtilq")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Volcano_smoke_particle" unique_id=799782284]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 7.150482, -41.552795, -8.01767)
+light_color = Color(1, 0, 0, 1)
+light_energy = 250.0
+light_indirect_energy = 20.0
+light_volumetric_fog_energy = 50.0
+light_size = 5.0
+light_specular = 16.0
+spot_range = 1566.6417
+spot_angle = 51.281963
 
 [node name="Ember" type="GPUParticles3D" parent="." unique_id=1610302728]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -271.7354, 326.2982, 854.9345)

@@ -2,27 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://dq3teln3noi2m" path="res://Models/AnimatedRig.glb" id="1_71i4j"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_71i4j"]
-animation = &"ArmatureAction"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2fchn"]
-animation = &"ArmatureAction"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1a051"]
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_l1vy1"]
-states/ArmatureAction/node = SubResource("AnimationNodeAnimation_2fchn")
-states/ArmatureAction/position = Vector2(546, 14)
-"states/ArmatureAction 2/node" = SubResource("AnimationNodeAnimation_71i4j")
-"states/ArmatureAction 2/position" = Vector2(381, 93)
-states/Start/position = Vector2(150, 93)
-states/StateMachine/node = SubResource("AnimationNodeStateMachine_1a051")
-states/StateMachine/position = Vector2(344, -19)
-graph_offset = Vector2(-112, -68)
-
 [node name="AnimatedRig" unique_id=1324601261 instance=ExtResource("1_71i4j")]
 transform = Transform3D(-2.5352605e-08, 0, 0.58, 0, 0.58, 0, -0.58, 0, -2.5352605e-08, 0, 0, 0)
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=1280822902]
-tree_root = SubResource("AnimationNodeStateMachine_l1vy1")
-anim_player = NodePath("../AnimationPlayer")
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1689035830) index="0" unique_id=1893910085]
+bones/6/rotation = Quaternion(0.2827009, -0.31525108, 0.21405554, 0.88027114)
+bones/10/rotation = Quaternion(-0.21864411, -0.29100457, -0.15629372, 0.9181957)
+bones/12/rotation = Quaternion(-1.8691955e-07, 0.27998936, 0.9600031, -5.4515986e-08)
+bones/13/rotation = Quaternion(-0.17155851, 0.12742613, 0.31526652, 0.92462814)
+bones/16/rotation = Quaternion(0.9658361, 1.7270013e-08, -6.436334e-08, -0.25915372)
+bones/17/rotation = Quaternion(-0.14861922, 0.14836489, 0.3945769, 0.8945442)
+
+[node name="Cube" parent="Armature/Skeleton3D" index="0" unique_id=97644561]
+transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1.0000001, 0, -1.0000001, 0, -4.3711392e-08, 0, 0, 0)

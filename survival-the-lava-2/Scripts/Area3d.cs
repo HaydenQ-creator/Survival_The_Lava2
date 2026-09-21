@@ -23,6 +23,6 @@ public partial class Area3d : Area3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		GD.Print(Desend);
+		// GD.Print(Desend);
 	}
 }

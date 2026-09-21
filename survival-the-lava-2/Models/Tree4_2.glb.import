@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dq3teln3noi2m"
-path="res://.godot/imported/AnimatedRig.glb-c3dba8e52dd75a055be1a22587c3fa9f.scn"
+uid="uid://bemyc6klnbvwe"
+path="res://.godot/imported/Tree4_2.glb-8d39c614ebc418b9a2010e2157e317e1.scn"
 
 [deps]
 
-source_file="res://Models/AnimatedRig.glb"
-dest_files=["res://.godot/imported/AnimatedRig.glb-c3dba8e52dd75a055be1a22587c3fa9f.scn"]
+source_file="res://Models/Tree4_2.glb"
+dest_files=["res://.godot/imported/Tree4_2.glb-8d39c614ebc418b9a2010e2157e317e1.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
-animation/fps=60.0
+animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false

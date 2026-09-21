@@ -144,7 +144,7 @@ grow_amount = -16.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wapi5"]
 lifetime_randomness = 1.0
-gravity = Vector3(0, 1.065, -10.72)
+gravity = Vector3(0, 5.98, -18.24)
 use_scale_3d = true
 scale_3d_min = Vector3(-25.485, -25.485, -25.485)
 scale_3d_max = Vector3(-1.435, -1.435, -1.435)
@@ -219,6 +219,7 @@ shape = SubResource("BoxShape3D_l1vy1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.718727, 2.9540253, 65.809944)
 
 [node name="EmberEffects" type="Node3D" parent="GPU_Particles3d" unique_id=506347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.8893156, -14.587978)
 
 [node name="Ember" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects" unique_id=1612800274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.771576, 12.639664, 45.791557)
@@ -416,6 +417,217 @@ process_material = SubResource("ParticleProcessMaterial_wapi5")
 draw_pass_1 = SubResource("QuadMesh_a2cb0")
 
 [node name="Ember16" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects" unique_id=678214331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.628004, 12.639664, 25.795387)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="EmberEffects2" type="Node3D" parent="GPU_Particles3d" unique_id=1807618589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.8893156, -57.677795)
+
+[node name="Ember" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=434182987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.771576, 12.639664, 45.791557)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember2" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=556825757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.64544, 12.639664, 45.791557)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember3" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=1011458358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.209183, 12.639664, 45.791557)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember4" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=105803145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.209183, 12.639664, 45.791557)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember5" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=1152360520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.131794, 12.639664, 45.791557)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember6" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=1433594646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.66988, 12.639664, 45.791557)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember7" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=311871988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.66988, 12.639664, 35.791557)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember8" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=489654275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6929893, 12.639664, 35.791557)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember9" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=890399613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.821392, 12.639664, 35.791557)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember10" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=588721731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.273247, 12.639664, 35.791557)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember11" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=13720559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.422012, 12.639664, 35.791557)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember12" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=1474137504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.422012, 12.639664, 25.795387)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember13" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=164029317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.445564, 12.639664, 25.795387)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember14" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=1687960369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.174946, 12.639664, 25.795387)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember15" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=1136092716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.628004, 12.639664, 25.795387)
+material_override = SubResource("StandardMaterial3D_aiv1b")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_wapi5")
+draw_pass_1 = SubResource("QuadMesh_a2cb0")
+
+[node name="Ember16" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=101491733]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.628004, 12.639664, 25.795387)
 material_override = SubResource("StandardMaterial3D_aiv1b")
 amount = 200

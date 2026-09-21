@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bji4yihmk6205"]
 
-[ext_resource type="Script" uid="uid://2jjsifhtgh0a" path="res://MainMenuNODE.cs" id="1_e2xy7"]
+[ext_resource type="Script" uid="uid://ynjt28pphpy2" path="res://Scripts/MainMenuNODE.cs" id="1_e2xy7"]
 [ext_resource type="Script" uid="uid://cr8fubibydaqa" path="res://Scripts/MainMenu.cs" id="3_h7a2f"]
 [ext_resource type="PackedScene" uid="uid://c3m3380xyveqx" path="res://Models/TallTree.glb" id="4_qoqlk"]
 [ext_resource type="PackedScene" uid="uid://edy0rv6kpao4" path="res://Models/VolcanoLandBackDrop.glb" id="5_7r1g0"]
@@ -145,11 +145,6 @@ handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=2100076681]
-transform = Transform3D(0.9320039, 0.25084597, 0.26161966, 0, 0.72181284, -0.6920881, -0.36244798, 0.64502895, 0.6727325, -254.53624, 315.19543, 850.922)
-current = true
-fov = 54.7
-
 [node name="Control" type="Control" parent="." unique_id=909078901]
 layout_mode = 3
 anchors_preset = 0
@@ -256,6 +251,11 @@ randomness = 1.0
 fixed_fps = 50
 process_material = SubResource("ParticleProcessMaterial_l1vy1")
 draw_pass_1 = SubResource("QuadMesh_l1vy1")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2100076681]
+transform = Transform3D(0.93200403, 0.250846, 0.26161966, 0, 0.7218129, -0.6920882, -0.362448, 0.645029, 0.67273253, -254.53624, 315.19543, 850.922)
+current = true
+fov = 54.7
 
 [connection signal="pressed" from="Control/StartButton" to="Control" method="_on_start_button_pressed"]
 [connection signal="pressed" from="Control/QuitButton" to="Control" method="_on_quit_button_pressed"]

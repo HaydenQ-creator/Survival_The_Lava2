@@ -7,16 +7,15 @@ public partial class FloatingLand : AnimatableBody3D
 	public bool is_touched { get; set; } = false;
 
 	[Export]
-	public float DescentSpeed { get; set; } = 0.3f;
+	public float DescentSpeed { get; set; } = 0.9f;
 
 	// Changed Node3D to Node to match standard area signal signatures
 	public void OnAreaTriggered(Node body)
 	{
 		// Example: Only activate if a Player enters the area
-		if (body.Name == "Player") 
+		if (body is Player) 
 		{
 			is_touched = true;
-			GD.Print("Boolean activated via signal!");
 		}
 	}
 

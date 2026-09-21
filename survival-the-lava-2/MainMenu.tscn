@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bji4yihmk6205"]
 
+[ext_resource type="Script" uid="uid://2jjsifhtgh0a" path="res://MainMenuNODE.cs" id="1_e2xy7"]
 [ext_resource type="Script" uid="uid://cr8fubibydaqa" path="res://Scripts/MainMenu.cs" id="3_h7a2f"]
 [ext_resource type="PackedScene" uid="uid://c3m3380xyveqx" path="res://Models/TallTree.glb" id="4_qoqlk"]
 [ext_resource type="PackedScene" uid="uid://edy0rv6kpao4" path="res://Models/VolcanoLandBackDrop.glb" id="5_7r1g0"]
@@ -122,6 +123,7 @@ turbulence_initial_displacement_max = 1.490116e-06
 [sub_resource type="QuadMesh" id="QuadMesh_l1vy1"]
 
 [node name="MainMenu" type="Node3D" unique_id=1211307557]
+script = ExtResource("1_e2xy7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1767195919]
 environment = SubResource("Environment_qoqlk")

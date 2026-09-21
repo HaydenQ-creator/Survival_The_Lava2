@@ -78,7 +78,12 @@ public partial class Player : CharacterBody3D
 			Speed = NormalSpeed;
 			_WalkPlayer.PitchScale = 1.0f;
 		}
-		
+		if (Input.IsActionJustReleased("escape"))
+		{
+			GetTree().ChangeSceneToFile("res://MainMenu.tscn");
+		}
+
+
 		Vector2 inputDir = Input.GetVector("left", "right", "forward", "backward");
 		
 		Vector3 rawDirection = new Vector3(inputDir.X, 0, inputDir.Y);

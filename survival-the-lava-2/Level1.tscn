@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://d1mq2kij4essb" path="res://LavaArea3d.cs" id="11_wapi5"]
 [ext_resource type="PackedScene" uid="uid://bwdracwviq18k" path="res://FloatingLand.tscn" id="12_aiv1b"]
 [ext_resource type="AudioStream" uid="uid://dkfu78p7q2bvb" path="res://Audio/Fire/soundreality-fire-sound-334130.mp3" id="14_a2cb0"]
+[ext_resource type="AudioStream" uid="uid://cc42seh0mjrcj" path="res://Audio/Music/Warframe Soundtrack - The Ostrons - Keith Power - StallordD.mp3" id="15_3gjqj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cove1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -164,8 +165,7 @@ turbulence_initial_displacement_max = 1.490116e-06
 size = Vector3(381.68945, 25.392334, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7pqgl"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_l1vy1"]
+size = Vector3(89.375, 11.188477, 102.917725)
 
 [node name="Level1" type="Node3D" unique_id=935952789]
 
@@ -730,19 +730,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.88599, 6.2214413, 5.65939
 [node name="FloatingLand7" parent="FloatingIslands" unique_id=1568981758 instance=ExtResource("12_aiv1b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67442, 6.2214413, 10.195557)
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1459713749 node_paths=PackedStringArray("TargetNode")]
+[node name="Area3D" type="Area3D" parent="." unique_id=1459713749]
 script = ExtResource("11_wapi5")
-TargetNode = NodePath("../Player")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2109334198]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.18338, 6.686774)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.640625, 3.292099, 9.076635)
 shape = SubResource("BoxShape3D_7pqgl")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D" unique_id=1542495121]
-transform = Transform3D(0.89, 0, 0, 0, 0.89, 0, 0, 0, 0.89, 0, 0, 0)
-mesh = SubResource("BoxMesh_l1vy1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=234860193]
 stream = ExtResource("14_a2cb0")
+volume_db = -7.92
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer" unique_id=2086276203]
+stream = ExtResource("15_3gjqj")
 volume_db = -7.92
 autoplay = true

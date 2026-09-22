@@ -8,7 +8,7 @@ public partial class Player : CharacterBody3D
 	[Export] public float SprintSpeed = 10.0f;
 	[Export] public float Speed = 5.0f;
 	[Export] private float _normalAnimSpeed = 1.0f;
-	[Export] private float _sprintAnimSpeed = 1.6f; // Adjust this to match your sprint feel
+	[Export] private float _sprintAnimSpeed = 1.6f; 
 
 	private Camera3D _camera; 
 	private AudioStreamPlayer _audioPlayer;
@@ -193,5 +193,14 @@ public partial class Player : CharacterBody3D
 		_animationPlayer.Play("RESET", customBlend: 0.3);
 	}
 	
+	}
+	public void OnAreaTriggered(Node3D body)
+	{
+		// Example: Only activate if a Player enters the area
+		if (body.Name == "Player")
+		{
+			
+			GD.Print("Boolean activated via signal!");
+		}
 	}
 }

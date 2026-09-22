@@ -7,16 +7,26 @@ public partial class FloatingLand : AnimatableBody3D
 	public bool is_touched { get; set; } = false;
 
 	[Export]
-	public float DescentSpeed { get; set; } = 0.9f;
+	public float DescentSpeed { get; set; } = 0.7f;
+	private AudioStreamPlayer3D _FirePlayer;
+	
+	
 
-	// Changed Node3D to Node to match standard area signal signatures
 	public void OnAreaTriggered(Node body)
 	{
 		// Example: Only activate if a Player enters the area
 		if (body is Player) 
 		{
 			is_touched = true;
+			if (!_FirePlayer.IsPlaying())
+			{
+				_FirePlayer.Play();
+			}
 		}
+	}
+	public override void _Ready()
+	{
+		_FirePlayer = GetNode<AudioStreamPlayer3D>("FireSFX");
 	}
 
 	public override void _PhysicsProcess(double delta)

@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b1xcpoiy8gjmt" path="res://Models/pngs/FireEmber.png" id="11_5g1s2"]
 [ext_resource type="Script" uid="uid://d1mq2kij4essb" path="res://LavaArea3d.cs" id="11_wapi5"]
 [ext_resource type="PackedScene" uid="uid://bwdracwviq18k" path="res://FloatingLand.tscn" id="12_aiv1b"]
+[ext_resource type="AudioStream" uid="uid://dkfu78p7q2bvb" path="res://Audio/Fire/soundreality-fire-sound-334130.mp3" id="14_a2cb0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cove1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -129,9 +130,6 @@ shader_parameter/uv2_offset = Vector3(0, 0, 0)
 [sub_resource type="QuadMesh" id="QuadMesh_gtilq"]
 material = SubResource("ShaderMaterial_1bjei")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_l1vy1"]
-size = Vector3(93.13818, 6.3779297, 46.404053)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aiv1b"]
 transparency = 1
 albedo_texture = ExtResource("11_5g1s2")
@@ -165,6 +163,10 @@ turbulence_initial_displacement_max = 1.490116e-06
 [sub_resource type="BoxShape3D" id="BoxShape3D_gtilq"]
 size = Vector3(381.68945, 25.392334, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7pqgl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_l1vy1"]
+
 [node name="Level1" type="Node3D" unique_id=935952789]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1239027017]
@@ -180,7 +182,7 @@ transform = Transform3D(15.644149, 0, 0, 0, 1, 0, 0, 0, 35.58539, 127.62709, 0, 
 transform = Transform3D(15.644149, 0, 0, 0, 1, 0, 0, 0, 35.58539, -216.11748, 0, 0)
 
 [node name="VolcanoLandBackDrop" parent="." unique_id=744439042 instance=ExtResource("3_cove1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8771.465, -63.620605, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8771.465, -181.31909, 0)
 
 [node name="Volcano_smoke_particle" type="GPUParticles3D" parent="VolcanoLandBackDrop" unique_id=680769957]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.633301, 505.02087, -7.0033646)
@@ -207,17 +209,6 @@ spot_angle = 51.281963
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=413810902]
 transform = Transform3D(-0.00019789414, -228.57443, -1.0886758e-06, 0, -9.991306e-06, 24.906002, -4527.29, 9.991306e-06, 4.7587537e-14, -33.631058, 8.26244, 0)
 mesh = SubResource("QuadMesh_gtilq")
-
-[node name="Node3D" type="Node3D" parent="MeshInstance3D" unique_id=1350832841]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.427017, 17.854166, 8.027433)
-
-[node name="Area3D" type="Area3D" parent="MeshInstance3D/Node3D" unique_id=805164246]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.54002, 0)
-script = ExtResource("11_wapi5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Node3D/Area3D" unique_id=1635341385]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4362793, -5.941946, 0)
-shape = SubResource("BoxShape3D_l1vy1")
 
 [node name="GPU_Particles3d" type="Node3D" parent="." unique_id=625524321]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.718727, 2.9540253, 65.809944)
@@ -651,6 +642,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.404186)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.014046, 10.022863, 16.311628)
 shape = SubResource("BoxShape3D_gtilq")
 
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Border" unique_id=1108240712]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, -32.014046, 3.0418239, 4.3385987)
+shape = SubResource("BoxShape3D_gtilq")
+
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Border" unique_id=1665934651]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.014046, 10.022863, -16.937147)
 shape = SubResource("BoxShape3D_gtilq")
@@ -664,7 +659,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -125
 shape = SubResource("BoxShape3D_gtilq")
 
 [node name="FloatingIslands" type="Node3D" parent="." unique_id=525744630]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4661007, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02364254, 0)
 
 [node name="FloatingLand" parent="FloatingIslands" unique_id=79284974 instance=ExtResource("12_aiv1b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.896385, 6.2214413, 0)
@@ -712,13 +707,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.705826, 6.2214413, 15.230
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.260094, 6.2214413, 9.142717)
 
 [node name="FloatingLand18" parent="FloatingIslands" unique_id=398142792 instance=ExtResource("12_aiv1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.948439, 6.2214413, 14.18358)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.898687, 6.2214413, 15.7766075)
 
 [node name="FloatingLand19" parent="FloatingIslands" unique_id=1510715365 instance=ExtResource("12_aiv1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.183296, 6.2214413, 10.317097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.184584, 6.2214413, 17.836409)
 
 [node name="FloatingLand22" parent="FloatingIslands" unique_id=1016797269 instance=ExtResource("12_aiv1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.714739, 6.2214413, 3.2889652)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.396454, 6.2214413, 10.470621)
 
 [node name="FloatingLand20" parent="FloatingIslands" unique_id=672385616 instance=ExtResource("12_aiv1b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.289536, 6.2214413, 14.772333)
@@ -726,8 +721,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.289536, 6.2214413, 14.772
 [node name="FloatingLand21" parent="FloatingIslands" unique_id=692750743 instance=ExtResource("12_aiv1b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6008716, 6.2214413, 4.4822445)
 
+[node name="FloatingLand23" parent="FloatingIslands" unique_id=1415844143 instance=ExtResource("12_aiv1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.129683, 6.2214413, 8.943153)
+
 [node name="FloatingLand6" parent="FloatingIslands" unique_id=84933452 instance=ExtResource("12_aiv1b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.88599, 6.2214413, 5.659395)
 
 [node name="FloatingLand7" parent="FloatingIslands" unique_id=1568981758 instance=ExtResource("12_aiv1b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67442, 6.2214413, 10.195557)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1459713749 node_paths=PackedStringArray("TargetNode")]
+script = ExtResource("11_wapi5")
+TargetNode = NodePath("../Player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2109334198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.18338, 6.686774)
+shape = SubResource("BoxShape3D_7pqgl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D" unique_id=1542495121]
+transform = Transform3D(0.89, 0, 0, 0, 0.89, 0, 0, 0, 0.89, 0, 0, 0)
+mesh = SubResource("BoxMesh_l1vy1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=234860193]
+stream = ExtResource("14_a2cb0")
+volume_db = -7.92
+autoplay = true

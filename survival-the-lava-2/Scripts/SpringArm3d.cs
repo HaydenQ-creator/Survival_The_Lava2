@@ -22,10 +22,10 @@ public partial class SpringArm3d : SpringArm3D
 		_cameraPivot = GetNode<Node3D>(PivotPath);
 		_playerBody = GetNode<CharacterBody3D>(PlayerPath);
 
-		// 2. Capture mouse cursor inside the game window
+		// Mouse pointer will be locked in the window
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 
-		// 3. Exclude the player from camera collisions
+		// Player wont be affected by camera collision
 		if (_playerBody != null)
 		{
 			AddExcludedObject(_playerBody.GetRid());

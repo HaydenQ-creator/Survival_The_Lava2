@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bji4yihmk6205"]
 
 [ext_resource type="Script" uid="uid://ynjt28pphpy2" path="res://Scripts/MainMenuNODE.cs" id="1_e2xy7"]
-[ext_resource type="Script" uid="uid://cr8fubibydaqa" path="res://Scripts/MainMenu.cs" id="3_h7a2f"]
 [ext_resource type="PackedScene" uid="uid://c3m3380xyveqx" path="res://Models/TallTree.glb" id="4_qoqlk"]
 [ext_resource type="PackedScene" uid="uid://edy0rv6kpao4" path="res://Models/VolcanoLandBackDrop.glb" id="5_7r1g0"]
-[ext_resource type="AudioStream" uid="uid://b7u04amsjd06v" path="res://Audio/Doktor's Curse Halloween Event Theme Music (High Quality) - Rainbow Six Siege.mp3" id="5_cqjrg"]
+[ext_resource type="AudioStream" uid="uid://b7u04amsjd06v" path="res://Audio/Music/Doktor's Curse Halloween Event Theme Music (High Quality) - Rainbow Six Siege.mp3" id="5_cqjrg"]
 [ext_resource type="AudioStream" uid="uid://beqtmxvf8kll5" path="res://Audio/Earthquake Low-Frequency Rumble - Sound Effect (HD).mp3" id="5_iwfq2"]
 [ext_resource type="Texture2D" uid="uid://curb8subblpcc" path="res://Models/pngs/T_smoke_b7.png" id="6_cqjrg"]
 [ext_resource type="Texture2D" uid="uid://b1xcpoiy8gjmt" path="res://Models/pngs/FireEmber.png" id="7_cqjrg"]
+[ext_resource type="PackedScene" uid="uid://dunmmkmsds188" path="res://MainMenu_UI.tscn" id="8_e2xy7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eiy7p"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -132,66 +132,6 @@ environment = SubResource("Environment_qoqlk")
 transform = Transform3D(-0.367295, -0.5756963, 0.73052585, 0.7386467, 0.296771, 0.6052504, -0.5652395, 0.76190597, 0.3162337, -909.2117, 322.25644, 807.33765)
 shadow_enabled = true
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=699373649]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1683365745]
-handle_input_locally = false
-size = Vector2i(1152, 648)
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=2100076681]
-transform = Transform3D(0.9320039, 0.25084597, 0.26161966, 0, 0.72181284, -0.6920881, -0.36244798, 0.64502895, 0.6727325, -254.53624, 315.19543, 850.922)
-current = true
-fov = 54.7
-
-[node name="Control" type="Control" parent="." unique_id=909078901]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_h7a2f")
-
-[node name="StartButton" type="Button" parent="Control" unique_id=1549998369]
-layout_mode = 0
-offset_top = 198.0
-offset_right = 307.0
-offset_bottom = 272.0
-text = "Start"
-alignment = 0
-
-[node name="QuitButton" type="Button" parent="Control" unique_id=2001793964]
-layout_mode = 0
-offset_top = 332.0
-offset_right = 307.0
-offset_bottom = 406.0
-text = "Quit
-"
-alignment = 0
-
-[node name="TestButton" type="Button" parent="Control" unique_id=1675629714]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 439.0
-offset_right = 308.0
-offset_bottom = 513.0
-text = "Testing Level"
-alignment = 0
-
-[node name="Label" type="Label" parent="Control" unique_id=1644683186]
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 180.0
-text = "Surival the Lava 2
-sequel to that one game"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TallTree" parent="." unique_id=872262718 instance=ExtResource("4_qoqlk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -245.15433, 304.30298, 833.5879)
 
@@ -257,6 +197,26 @@ fixed_fps = 50
 process_material = SubResource("ParticleProcessMaterial_l1vy1")
 draw_pass_1 = SubResource("QuadMesh_l1vy1")
 
-[connection signal="pressed" from="Control/StartButton" to="Control" method="_on_start_button_pressed"]
-[connection signal="pressed" from="Control/QuitButton" to="Control" method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Control/TestButton" to="Control" method="_on_test_button_pressed"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1357381995]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1313117611]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=326434809]
+transform = Transform3D(0.9320039, 0.25084597, 0.26161966, 0, 0.72181284, -0.6920881, -0.36244798, 0.64502895, 0.6727325, -254.53624, 315.19543, 850.922)
+current = true
+fov = 54.7
+
+[node name="Control" parent="." unique_id=137588895 instance=ExtResource("8_e2xy7")]
+offset_left = 23.0
+offset_top = 1.0
+offset_right = 63.0
+offset_bottom = 41.0

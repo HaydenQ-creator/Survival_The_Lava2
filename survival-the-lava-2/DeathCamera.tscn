@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ml5hph30cjxu"]
+
+[ext_resource type="Script" uid="uid://jublsdbfq6io" path="res://Level1.cs" id="1_6b82o"]
+[ext_resource type="Script" uid="uid://cqc7ybphklx80" path="res://DeathCamera3d.cs" id="2_wcm3g"]
+[ext_resource type="Script" uid="uid://bkke2t3a2u3io" path="res://DeathTitle.cs" id="3_8gx3t"]
+
+[node name="Node3D" type="Node3D" unique_id=664187885]
+script = ExtResource("1_6b82o")
+
+[node name="DeathCamera3D" type="Camera3D" parent="." unique_id=875554229 node_paths=PackedStringArray("TargetPlayer")]
+transform = Transform3D(1, 0, 0, 0, 0.09042075, 0.9959037, 0, -0.9959037, 0.09042075, 0, 9.86786, 0)
+script = ExtResource("2_wcm3g")
+TargetPlayer = NodePath(".")
+
+[node name="Label3D" type="Label3D" parent="DeathCamera3D" unique_id=2093260700]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 2.173313, -3.7192757)
+text = "You Burned!
+"
+font_size = 198
+script = ExtResource("3_8gx3t")
+
+[node name="Label3D2" type="Label3D" parent="DeathCamera3D" unique_id=641554886]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 7.450581e-09, 0, -7.450581e-09, 0.99999994, 0, 0.40437222, -3.7192745)
+double_sided = false
+text = "Press R to restart the level
+Press T to return to Main Menu
+Press Y to quit to desktop"
+font_size = 133
+script = ExtResource("3_8gx3t")

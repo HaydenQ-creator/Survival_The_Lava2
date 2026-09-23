@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ds8ni8qpsxagm"]
+
+[ext_resource type="Script" uid="uid://bulvw2grmpsw3" path="res://MenuChooser.cs" id="1_jt2nx"]
+
+[node name="Node3D" type="Node3D" unique_id=1106615458]
+script = ExtResource("1_jt2nx")

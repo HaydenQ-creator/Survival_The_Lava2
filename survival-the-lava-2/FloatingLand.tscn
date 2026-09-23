@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b1xcpoiy8gjmt" path="res://Models/pngs/FireEmber.png" id="4_votjf"]
 [ext_resource type="Script" uid="uid://cqnts2qu6stf" path="res://Scripts/IslandEmber.cs" id="5_votjf"]
 [ext_resource type="AudioStream" uid="uid://bxc6k8wyw67cr" path="res://Audio/Fire/FireStart.mp3" id="7_jm1fq"]
+[ext_resource type="Script" uid="uid://prftiuc1yqu1" path="res://FireSFX.cs" id="8_jm1fq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l1vy1"]
 size = Vector3(4.0771484, 0.83517456, 4.288086)
@@ -36,12 +37,6 @@ turbulence_noise_speed_random = 4.0
 [node name="FloatingLand" type="Node3D" unique_id=79284974]
 script = ExtResource("1_nyrsv")
 
-[node name="FireSFX" type="AudioStreamPlayer3D" parent="." unique_id=362042876]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1578677, 0)
-stream = ExtResource("7_jm1fq")
-volume_db = -1.89
-max_db = -0.185
-
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=1603164432]
 script = ExtResource("2_rb8h4")
 
@@ -49,7 +44,7 @@ script = ExtResource("2_rb8h4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2114882, 0)
 shape = SubResource("BoxShape3D_l1vy1")
 
-[node name="Area3D" type="Area3D" parent="AnimatableBody3D" unique_id=227624979 node_paths=PackedStringArray("TargetNode", "TargetNode2", "TargetNode3", "TargetNode4", "TargetNode5")]
+[node name="Area3D" type="Area3D" parent="AnimatableBody3D" unique_id=227624979 node_paths=PackedStringArray("TargetNode", "TargetNode2", "TargetNode3", "TargetNode4", "TargetNode5", "TargetNode6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5009544, 0)
 script = ExtResource("3_v2xtm")
 TargetNode = NodePath("..")
@@ -57,6 +52,7 @@ TargetNode2 = NodePath("../GPUParticles3D")
 TargetNode3 = NodePath("../GPUParticles3D2")
 TargetNode4 = NodePath("../GPUParticles3D3")
 TargetNode5 = NodePath("../GPUParticles3D4")
+TargetNode6 = NodePath("../../FireSFX")
 
 [node name="Area3d_CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D/Area3D" unique_id=464434644]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9034557, 0)
@@ -105,6 +101,13 @@ randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_gtilq")
 draw_pass_1 = SubResource("QuadMesh_l1vy1")
 script = ExtResource("5_votjf")
+
+[node name="FireSFX" type="AudioStreamPlayer3D" parent="." unique_id=362042876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1578677, 0)
+stream = ExtResource("7_jm1fq")
+volume_db = -1.89
+max_db = -0.185
+script = ExtResource("8_jm1fq")
 
 [connection signal="body_entered" from="AnimatableBody3D/Area3D" to="AnimatableBody3D" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="AnimatableBody3D/Area3D" to="AnimatableBody3D/Area3D" method="_on_body_entered"]

@@ -41,7 +41,7 @@ public partial class NewSpringArm3d : SpringArm3D
 	
 	public override void _Input(InputEvent @event)
 	{
-		if (@event.IsActionPressed("ui_cancel"))
+		if (@event.IsActionPressed("escape"))
 		{
 			Input.MouseMode = Input.MouseMode == Input.MouseModeEnum.Captured 
 				? Input.MouseModeEnum.Visible 

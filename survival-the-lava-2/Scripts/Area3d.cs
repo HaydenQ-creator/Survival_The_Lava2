@@ -8,6 +8,7 @@ public partial class Area3d : Area3D
 	[Export] public IslandEmber TargetNode3;
 	[Export] public IslandEmber TargetNode4;
 	[Export] public IslandEmber TargetNode5;
+	[Export] public FireSFX TargetNode6;
 
 	public override void _Ready()
 	{
@@ -17,5 +18,6 @@ public partial class Area3d : Area3D
 		if (TargetNode3 != null) BodyEntered += TargetNode3.OnAreaTriggered;
 		if (TargetNode4 != null) BodyEntered += TargetNode4.OnAreaTriggered;
 		if (TargetNode5 != null) BodyEntered += TargetNode5.OnAreaTriggered;
+		if (TargetNode6 != null) BodyEntered += TargetNode6.OnAreaTriggered;
 	}
 }

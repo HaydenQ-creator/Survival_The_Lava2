@@ -8,7 +8,6 @@ public partial class FloatingLand : AnimatableBody3D
 
 	[Export]
 	public float DescentSpeed { get; set; } = 0.7f;
-	private AudioStreamPlayer3D _FirePlayer;
 	
 	
 
@@ -18,15 +17,10 @@ public partial class FloatingLand : AnimatableBody3D
 		if (body is Player) 
 		{
 			is_touched = true;
-			if (!_FirePlayer.IsPlaying())
-			{
-				_FirePlayer.Play();
-			}
 		}
 	}
 	public override void _Ready()
 	{
-		_FirePlayer = GetNode<AudioStreamPlayer3D>("FireSFX");
 	}
 
 	public override void _PhysicsProcess(double delta)

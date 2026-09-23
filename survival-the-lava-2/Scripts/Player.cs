@@ -9,6 +9,10 @@ public partial class Player : CharacterBody3D
 	[Export] public float Speed = 5.0f;
 	[Export] private float _normalAnimSpeed = 1.0f;
 	[Export] private float _sprintAnimSpeed = 1.6f; 
+	
+	
+	public static bool can_move { get; set; } = true;
+	public static bool finished { get; set; } = false;
 
 	private Camera3D _camera; 
 	private AudioStreamPlayer _audioPlayer;
@@ -45,6 +49,7 @@ public partial class Player : CharacterBody3D
 				_WalkPlayer.Stop();
 			}
 		}
+		
 	}
 
 
@@ -55,14 +60,19 @@ public partial class Player : CharacterBody3D
 		UpdateAnimations(velocity);
 
 
-
+		if (Input.IsActionJustReleased("escape"))
+		{
+			GetTree().ChangeSceneToFile("res://MenuChooser.tscn");
+		}
 
 		if (!IsOnFloor())
 		{
 			velocity.Y -= Gravity * (float)delta;
 		}
 
-		if (Input.IsActionJustPressed("jump") && IsOnFloor())
+		if (can_move == true)
+		{
+			if (Input.IsActionJustPressed("jump") && IsOnFloor())
 		{
 			velocity.Y = JumpVelocity;
 			_WalkPlayer.Stop();
@@ -78,10 +88,7 @@ public partial class Player : CharacterBody3D
 			Speed = NormalSpeed;
 			_WalkPlayer.PitchScale = 1.0f;
 		}
-		if (Input.IsActionJustReleased("escape"))
-		{
-			GetTree().ChangeSceneToFile("res://MainMenu.tscn");
-		}
+
 
 
 		Vector2 inputDir = Input.GetVector("left", "right", "forward", "backward");
@@ -127,6 +134,10 @@ public partial class Player : CharacterBody3D
 				visualMesh.Rotation = currentRot;
 			}
 		}
+		}
+		
+
+		if (!IsInsideTree()) return;
 		
 
 		Velocity = velocity;
@@ -135,6 +146,7 @@ public partial class Player : CharacterBody3D
 
 	private void UpdateAnimations(Vector3 velocity)
 	{
+		if (_animationPlayer == null) return;
 
 		Vector2 horizontalVelocity = new Vector2(velocity.X, velocity.Z);
 		
@@ -199,8 +211,18 @@ public partial class Player : CharacterBody3D
 		// Example: Only activate if a Player enters the area
 		if (body.Name == "Player")
 		{
-			
-			GD.Print("Boolean activated via signal!");
+			can_move = false;	
+			Velocity = Vector3.Zero;
+			GD.Print("CoolGuy is in lava!");
+		}
+	}
+	public void OnAreaFinish(Node3D body)
+	{
+		// Example: Only activate if a Player enters the area
+		if (body.Name == "Player")
+		{
+			finished = true;
+			GD.Print("CoolGuy Finished!");
 		}
 	}
 }

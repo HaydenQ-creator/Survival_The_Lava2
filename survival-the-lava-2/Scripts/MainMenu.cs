@@ -17,18 +17,21 @@ public partial class MainMenu : Control
 
 		_testButton = GetNode<Button>("TestButton");
 		_testButton.Pressed += OnTestButtonPressed;
+
 	}
 
 	private void OnStartButtonPressed()
 	{
+		Player.can_move = true;
 		string gameScenePath = "res://Level1.tscn"; 
-
+		Input.MouseMode = Input.MouseModeEnum.Captured;
 		GetTree().ChangeSceneToFile(gameScenePath);
 	}
 	private void OnTestButtonPressed()
 	{
+		Player.can_move = true;
 		string gameScenePath = "res://Test.tscn"; 
-
+		Input.MouseMode = Input.MouseModeEnum.Captured;
 		GetTree().ChangeSceneToFile(gameScenePath);
 	}
 	private void OnQuitButtonPressed()

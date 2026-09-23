@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://dunmmkmsds188"]
+
+[ext_resource type="Script" uid="uid://cr8fubibydaqa" path="res://Scripts/MainMenu.cs" id="1_m2lub"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2p34a"]
+line_spacing = 7.27
+font_size = 78
+
+[sub_resource type="LabelSettings" id="LabelSettings_m2lub"]
+line_spacing = 7.27
+font_size = 42
+
+[node name="Control" type="Control" unique_id=137588895]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_m2lub")
+
+[node name="StartButton" type="Button" parent="." unique_id=1614267404]
+layout_mode = 0
+offset_left = 26.999939
+offset_top = 477.0
+offset_right = 333.99994
+offset_bottom = 551.0
+scale = Vector2(1.1350037, 1.1937498)
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="." unique_id=1862016268]
+layout_mode = 0
+offset_left = 27.999939
+offset_top = 716.00006
+offset_right = 334.99994
+offset_bottom = 790.00006
+scale = Vector2(1.1350037, 1.1937499)
+alignment = 0
+
+[node name="TestButton" type="Button" parent="." unique_id=134662235]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 934.00006
+offset_right = 334.0
+offset_bottom = 1008.00006
+scale = Vector2(1.1329459, 1.1937499)
+alignment = 0
+
+[node name="Label" type="Label" parent="." unique_id=1057496880]
+layout_mode = 0
+offset_left = 395.0
+offset_top = -3.0
+offset_right = 1546.0
+offset_bottom = 218.0
+text = "Surival the Lava 2
+sequel to that one game"
+label_settings = SubResource("LabelSettings_2p34a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=883134706]
+layout_mode = 0
+offset_left = -378.0
+offset_top = 405.0
+offset_right = 773.0
+offset_bottom = 626.0
+text = "Start"
+label_settings = SubResource("LabelSettings_2p34a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=329750321]
+layout_mode = 0
+offset_left = -392.0
+offset_top = 642.0
+offset_right = 759.0
+offset_bottom = 863.0
+text = "Quit"
+label_settings = SubResource("LabelSettings_2p34a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="." unique_id=345208771]
+layout_mode = 0
+offset_left = -384.0
+offset_top = 865.0
+offset_right = 767.0
+offset_bottom = 1086.0
+text = "Testing Level"
+label_settings = SubResource("LabelSettings_m2lub")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]

@@ -44,7 +44,7 @@ script = ExtResource("2_rb8h4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2114882, 0)
 shape = SubResource("BoxShape3D_l1vy1")
 
-[node name="Area3D" type="Area3D" parent="AnimatableBody3D" unique_id=227624979 node_paths=PackedStringArray("TargetNode", "TargetNode2", "TargetNode3", "TargetNode4", "TargetNode5")]
+[node name="Area3D" type="Area3D" parent="AnimatableBody3D" unique_id=227624979 node_paths=PackedStringArray("TargetNode", "TargetNode2", "TargetNode3", "TargetNode4", "TargetNode5", "TargetNode6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5009544, 0)
 script = ExtResource("3_v2xtm")
 TargetNode = NodePath("..")
@@ -52,6 +52,7 @@ TargetNode2 = NodePath("../GPUParticles3D")
 TargetNode3 = NodePath("../GPUParticles3D2")
 TargetNode4 = NodePath("../GPUParticles3D3")
 TargetNode5 = NodePath("../GPUParticles3D4")
+TargetNode6 = NodePath("../../FireSFX")
 
 [node name="Area3d_CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D/Area3D" unique_id=464434644]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9034557, 0)
@@ -104,7 +105,8 @@ script = ExtResource("5_votjf")
 [node name="FireSFX" type="AudioStreamPlayer3D" parent="." unique_id=362042876]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1578677, 0)
 stream = ExtResource("7_jm1fq")
-max_db = 6.0
+volume_db = -1.89
+max_db = -0.185
 script = ExtResource("8_jm1fq")
 
 [connection signal="body_entered" from="AnimatableBody3D/Area3D" to="AnimatableBody3D" method="_on_area_3d_body_entered"]

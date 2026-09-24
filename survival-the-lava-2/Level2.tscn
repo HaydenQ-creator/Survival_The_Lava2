@@ -1,3 +1,1098 @@
 [gd_scene format=3 uid="uid://c1pyjsej1sh8o"]
 
-[node name="Level1" type="Node3D" unique_id=935952789]
+[ext_resource type="PackedScene" uid="uid://edy0rv6kpao4" path="res://Models/VolcanoLandBackDrop.glb" id="1_s8dg4"]
+[ext_resource type="PackedScene" uid="uid://b4j7qan210c6c" path="res://Player.tscn" id="3_psxy2"]
+[ext_resource type="PackedScene" uid="uid://bamph2k2l522y" path="res://large_grass_plane.tscn" id="3_s8dg4"]
+[ext_resource type="Script" uid="uid://cqc7ybphklx80" path="res://Scripts/DeathCamera3d.cs" id="4_0xt02"]
+[ext_resource type="PackedScene" uid="uid://xrcs2nkga2db" path="res://large_grass_land.tscn" id="4_fvkd4"]
+[ext_resource type="Shader" uid="uid://bj1l5fxuy2s1d" path="res://Level1LAVA.gdshader" id="5_pj4lr"]
+[ext_resource type="Script" uid="uid://bkke2t3a2u3io" path="res://Scripts/DeathTitle.cs" id="5_q0xi3"]
+[ext_resource type="Texture2D" uid="uid://cmkr60gqfjpn2" path="res://Models/pngs/lava/Lava005_1K-JPG_Color.jpg" id="6_00xh1"]
+[ext_resource type="AudioStream" uid="uid://cqokudl84ik54" path="res://Audio/CoolGuyDeath.mp3" id="6_nwnlh"]
+[ext_resource type="Texture2D" uid="uid://6y674wp66rhx" path="res://Models/pngs/lava/Lava005_1K-JPG_NormalGL.jpg" id="7_8tfmj"]
+[ext_resource type="Script" uid="uid://c0ei2a2ms6bwm" path="res://Scripts/DeathAudioPlayer.cs" id="7_e3avg"]
+[ext_resource type="Texture2D" uid="uid://cumrb1qmvctvg" path="res://Models/pngs/lava/Lava005_1K-JPG_Emission.jpg" id="8_jw1dd"]
+[ext_resource type="Texture2D" uid="uid://bx6qq63bqqvsx" path="res://Models/pngs/lava/Lava005_1K-JPG_Displacement.jpg" id="9_0xt02"]
+[ext_resource type="Texture2D" uid="uid://f5itqmwsrt7y" path="res://Models/pngs/lava/Lava005_1K-JPG_NormalDX.jpg" id="10_q0xi3"]
+[ext_resource type="Texture2D" uid="uid://dak08h7dd8oe5" path="res://Models/pngs/lava/Lava005_1K-JPG_Roughness.jpg" id="11_nwnlh"]
+[ext_resource type="Texture2D" uid="uid://b1xcpoiy8gjmt" path="res://Models/pngs/FireEmber.png" id="12_e3avg"]
+[ext_resource type="Script" uid="uid://d1mq2kij4essb" path="res://Scripts/LavaArea3d.cs" id="13_pj4lr"]
+[ext_resource type="PackedScene" uid="uid://3pi2fmuwmbb3" path="res://rock_pillar.tscn" id="18_q0xi3"]
+[ext_resource type="AudioStream" uid="uid://bmqgedvemy1sm" path="res://Audio/jci21-rocket-launch-sfx-253937.mp3" id="19_nwnlh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cove1"]
+load_path = "res://.godot/imported/T_smoke_b7.png-9816ee40de55f1477e1d8f24b1cb18e4.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwdpc"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_cove1")
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 359.2
+emission_operator = 1
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow_amount = 0.703
+
+[sub_resource type="Gradient" id="Gradient_6faey"]
+offsets = PackedFloat32Array(0, 0.2674897, 0.5349794, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.8271605, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eiy7p"]
+gradient = SubResource("Gradient_6faey")
+
+[sub_resource type="Curve" id="Curve_nc7oo"]
+_limits = [0.1500001, 45.608177, 0.0, 1.0]
+_data = [Vector2(0.026022308, 0.1500001), 0.0, 0.0, 0, 0, Vector2(0.35687733, 2.1999998), 0.0, 0.0, 0, 0, Vector2(0.73977697, 7.9), 0.0, 0.0, 0, 0, Vector2(1, 25.540579), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_eiy7p"]
+curve = SubResource("Curve_nc7oo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6x3wt"]
+angle_min = -650.4
+angle_max = 720.0
+gravity = Vector3(0, 5, 0)
+use_scale_3d = true
+scale_3d_min = Vector3(106.435, 106.435, 106.435)
+scale_3d_max = Vector3(441.735, 441.735, 441.735)
+scale_curve = SubResource("CurveTexture_eiy7p")
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_eiy7p")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.99999994
+turbulence_noise_strength = 12.87
+turbulence_noise_scale = 4.714
+turbulence_influence_max = 1.0
+turbulence_initial_displacement_min = -52.5
+turbulence_initial_displacement_max = 1.490116e-06
+
+[sub_resource type="QuadMesh" id="QuadMesh_3453u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqrl8"]
+transparency = 1
+albedo_texture = ExtResource("12_e3avg")
+emission_enabled = true
+emission = Color(0.84294647, 0.32604545, 7.70092e-07, 1)
+emission_energy_multiplier = 100.0
+emission_operator = 1
+emission_texture = ExtResource("12_e3avg")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow_amount = -16.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fvkd4"]
+lifetime_randomness = 1.0
+gravity = Vector3(-18.24, 2.635, 0)
+use_scale_3d = true
+scale_3d_min = Vector3(-25.485, -25.485, -25.485)
+scale_3d_max = Vector3(-1.435, -1.435, -1.435)
+turbulence_enabled = true
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 6.465
+turbulence_noise_speed_random = 1.63
+turbulence_influence_min = 0.0
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 1.490116e-06
+
+[sub_resource type="QuadMesh" id="QuadMesh_mgfd6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bjei"]
+render_priority = 0
+shader = ExtResource("5_pj4lr")
+shader_parameter/time_speed = 1.0
+shader_parameter/albedo = Color(0.93983006, 0.8904601, 0.8931231, 1)
+shader_parameter/texture_albedo = ExtResource("6_00xh1")
+shader_parameter/albedo_texture_size = Vector2i(1024, 1024)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("11_nwnlh")
+shader_parameter/specular = 1.0
+shader_parameter/metallic = 1.0
+shader_parameter/texture_emission = ExtResource("8_jw1dd")
+shader_parameter/emission = Color(1, 1, 0, 1)
+shader_parameter/emission_energy = 16.0
+shader_parameter/refraction = 1.0
+shader_parameter/refraction_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/texture_normal = ExtResource("10_q0xi3")
+shader_parameter/normal_scale = 9.15
+shader_parameter/texture_bent_normal = ExtResource("7_8tfmj")
+shader_parameter/texture_heightmap = ExtResource("9_0xt02")
+shader_parameter/heightmap_scale = 5.0
+shader_parameter/heightmap_min_layers = 8
+shader_parameter/heightmap_max_layers = 32
+shader_parameter/heightmap_flip = Vector2(1, 1)
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(-0.245, -0.245, -0.245)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_0rx21"]
+material = SubResource("ShaderMaterial_1bjei")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00xh1"]
+size = Vector3(108.27356, 11.188477, 102.917725)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1vy1"]
+size = Vector3(279.49725, 1, 24.532227)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fvkd4"]
+sky_horizon_color = Color(0.03241882, 0.033944722, 0.03712394, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_pj4lr"]
+sky_material = SubResource("ProceduralSkyMaterial_fvkd4")
+
+[sub_resource type="Environment" id="Environment_00xh1"]
+background_mode = 2
+sky = SubResource("Sky_pj4lr")
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.17
+glow_strength = 1.23
+glow_bloom = 0.2
+fog_light_color = Color(0.23779804, 0.26129034, 0.29784346, 1)
+fog_light_energy = 16.0
+fog_density = 0.0064
+fog_sky_affect = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0182
+volumetric_fog_albedo = Color(0.60122335, 0.6012229, 0.60122293, 1)
+volumetric_fog_emission = Color(0.008202022, 0.008202025, 0.008202025, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 1.24
+volumetric_fog_ambient_inject = 1.2
+
+[node name="Level2" type="Node3D" unique_id=935952789]
+
+[node name="VolcanoLandBackDrop" parent="." unique_id=744439042 instance=ExtResource("1_s8dg4")]
+transform = Transform3D(1.695, 0, 0, 0, 1.695, 0, 0, 0, 1.695, 0, -77.40336, -5361.3936)
+
+[node name="Volcano_smoke_particle" type="GPUParticles3D" parent="VolcanoLandBackDrop" unique_id=243134850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.633301, 440.0084, -7.0033646)
+material_override = SubResource("StandardMaterial3D_wwdpc")
+amount = 50
+lifetime = 50.0
+preprocess = 50.0
+speed_scale = 0.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_6x3wt")
+draw_pass_1 = SubResource("QuadMesh_3453u")
+
+[node name="LargeGrassPlane" parent="." unique_id=248944075 instance=ExtResource("3_s8dg4")]
+transform = Transform3D(0.6867116, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06124878, 0)
+
+[node name="Player" parent="." unique_id=25935713 instance=ExtResource("3_psxy2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.169, 527.224)
+
+[node name="DeathCamera3D2" type="Camera3D" parent="Player" unique_id=1023059955 node_paths=PackedStringArray("TargetPlayer")]
+transform = Transform3D(1, 0, 0, 0, 0.09042075, 0.9959037, 0, -0.9959037, 0.09042075, 0, 9.86786, 0)
+current = true
+script = ExtResource("4_0xt02")
+TargetPlayer = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Player/DeathCamera3D2" unique_id=391748270]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 2.173313, -3.7192757)
+double_sided = false
+outline_render_priority = 2
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "You Burned!
+"
+font_size = 198
+outline_size = 21
+script = ExtResource("5_q0xi3")
+
+[node name="Label3D2" type="Label3D" parent="Player/DeathCamera3D2" unique_id=774025889]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 7.450581e-09, 0, -7.450581e-09, 0.99999994, 0, 0.096996814, -3.7192745)
+double_sided = false
+outline_render_priority = 2
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Press R to restart the level
+Press T to return to Main Menu
+Press Y to quit to desktop"
+font_size = 133
+script = ExtResource("5_q0xi3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player/DeathCamera3D2" unique_id=914985772]
+stream = ExtResource("6_nwnlh")
+script = ExtResource("7_e3avg")
+
+[node name="EmberEffects" type="Node3D" parent="." unique_id=1546632883]
+
+[node name="Ember18" type="GPUParticles3D" parent="EmberEffects" unique_id=1842792165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 552.2405)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember19" type="GPUParticles3D" parent="EmberEffects" unique_id=196465633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 568.14185)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember20" type="GPUParticles3D" parent="EmberEffects" unique_id=1757907870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 585.4149)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember21" type="GPUParticles3D" parent="EmberEffects" unique_id=2057354061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 603.1897)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember22" type="GPUParticles3D" parent="EmberEffects" unique_id=1531685477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 624.25104)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember23" type="GPUParticles3D" parent="EmberEffects" unique_id=636246151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 640.25104)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember24" type="GPUParticles3D" parent="EmberEffects" unique_id=738597813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 640.25104)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember25" type="GPUParticles3D" parent="EmberEffects" unique_id=189650380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 655.73376)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember26" type="GPUParticles3D" parent="EmberEffects" unique_id=1385395952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 671.63513)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember27" type="GPUParticles3D" parent="EmberEffects" unique_id=768213253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 688.9082)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember28" type="GPUParticles3D" parent="EmberEffects" unique_id=984708118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 706.683)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember29" type="GPUParticles3D" parent="EmberEffects" unique_id=1718879532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 727.7443)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember30" type="GPUParticles3D" parent="EmberEffects" unique_id=1078541570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 743.7443)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember31" type="GPUParticles3D" parent="EmberEffects" unique_id=1369918085]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 743.7443)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember32" type="GPUParticles3D" parent="EmberEffects" unique_id=89873311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 552.2405)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember33" type="GPUParticles3D" parent="EmberEffects" unique_id=1732098321]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 568.14185)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember34" type="GPUParticles3D" parent="EmberEffects" unique_id=700065143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 585.4149)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember35" type="GPUParticles3D" parent="EmberEffects" unique_id=420818982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 603.1897)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember36" type="GPUParticles3D" parent="EmberEffects" unique_id=1357671194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 624.25104)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember37" type="GPUParticles3D" parent="EmberEffects" unique_id=1411348430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 640.25104)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember38" type="GPUParticles3D" parent="EmberEffects" unique_id=2057521071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 640.25104)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember39" type="GPUParticles3D" parent="EmberEffects" unique_id=1173893834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 655.73376)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember40" type="GPUParticles3D" parent="EmberEffects" unique_id=1457655325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 671.63513)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember41" type="GPUParticles3D" parent="EmberEffects" unique_id=1921126508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 688.9082)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember42" type="GPUParticles3D" parent="EmberEffects" unique_id=1503727406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 706.683)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember43" type="GPUParticles3D" parent="EmberEffects" unique_id=1788593706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 727.7443)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember44" type="GPUParticles3D" parent="EmberEffects" unique_id=2005225704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 743.7443)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember45" type="GPUParticles3D" parent="EmberEffects" unique_id=88603156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 743.7443)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="EmberEffects2" type="Node3D" parent="." unique_id=223080397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.28201, 0, 0)
+
+[node name="Ember18" type="GPUParticles3D" parent="EmberEffects2" unique_id=825026383]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 552.2405)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember19" type="GPUParticles3D" parent="EmberEffects2" unique_id=501678549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 568.14185)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember20" type="GPUParticles3D" parent="EmberEffects2" unique_id=1051046221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 585.4149)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember21" type="GPUParticles3D" parent="EmberEffects2" unique_id=1144114366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 603.1897)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember22" type="GPUParticles3D" parent="EmberEffects2" unique_id=1523132356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 624.25104)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember23" type="GPUParticles3D" parent="EmberEffects2" unique_id=1704663903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 640.25104)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember24" type="GPUParticles3D" parent="EmberEffects2" unique_id=9424524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 640.25104)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember25" type="GPUParticles3D" parent="EmberEffects2" unique_id=1923672281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 655.73376)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember26" type="GPUParticles3D" parent="EmberEffects2" unique_id=452328457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 671.63513)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember27" type="GPUParticles3D" parent="EmberEffects2" unique_id=700245762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 688.9082)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember28" type="GPUParticles3D" parent="EmberEffects2" unique_id=1862448630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 706.683)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember29" type="GPUParticles3D" parent="EmberEffects2" unique_id=1521840256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 727.7443)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember30" type="GPUParticles3D" parent="EmberEffects2" unique_id=1508844634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 743.7443)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember31" type="GPUParticles3D" parent="EmberEffects2" unique_id=21249508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 743.7443)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember32" type="GPUParticles3D" parent="EmberEffects2" unique_id=1759625349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 552.2405)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember33" type="GPUParticles3D" parent="EmberEffects2" unique_id=1425994045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 568.14185)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember34" type="GPUParticles3D" parent="EmberEffects2" unique_id=27143068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 585.4149)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember35" type="GPUParticles3D" parent="EmberEffects2" unique_id=411496552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 603.1897)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember36" type="GPUParticles3D" parent="EmberEffects2" unique_id=1182046569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 624.25104)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember37" type="GPUParticles3D" parent="EmberEffects2" unique_id=1225024014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 640.25104)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember38" type="GPUParticles3D" parent="EmberEffects2" unique_id=60858133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 640.25104)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember39" type="GPUParticles3D" parent="EmberEffects2" unique_id=1504713505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 655.73376)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember40" type="GPUParticles3D" parent="EmberEffects2" unique_id=1211102437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 671.63513)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember41" type="GPUParticles3D" parent="EmberEffects2" unique_id=1502173357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 688.9082)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember42" type="GPUParticles3D" parent="EmberEffects2" unique_id=162232309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 706.683)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember43" type="GPUParticles3D" parent="EmberEffects2" unique_id=327953635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 727.7443)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember44" type="GPUParticles3D" parent="EmberEffects2" unique_id=1769765610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 743.7443)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember45" type="GPUParticles3D" parent="EmberEffects2" unique_id=1967555941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 743.7443)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_fvkd4")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="SmallGrassLand3" parent="." unique_id=1360604594 instance=ExtResource("4_fvkd4")]
+transform = Transform3D(-6.8382747e-07, 0, 35.58539, 0, 1, 0, -15.644149, 0, -1.5554867e-06, 14.200944, -7.969634, 891.397)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=720505756]
+transform = Transform3D(-4527.29, 1.9982612e-05, 9.5175075e-14, 0, -9.991306e-06, 24.906002, 0.00039578826, 228.57443, 1.088676e-06, -33.631046, 0.74375176, 659.90247)
+mesh = SubResource("QuadMesh_0rx21")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2025558226]
+transform = Transform3D(1, 0, 0, 0, -0.9824749, 0.1863948, 0, -0.1863948, -0.9824749, 0, 0, 0)
+light_color = Color(1, 1, 0, 1)
+light_energy = 14.15
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 10.0
+shadow_blur = 4.41
+
+[node name="LavaArea3D" type="Area3D" parent="." unique_id=399556237 node_paths=PackedStringArray("TargetNode")]
+transform = Transform3D(4.1493716, 0, 0, 0, 1, 0, 0, 0, 1, 164.11635, -8.988448, 580.25507)
+script = ExtResource("13_pj4lr")
+TargetNode = NodePath("../Player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaArea3D" unique_id=1749270373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.191345, 1.9150934, 9.076635)
+shape = SubResource("BoxShape3D_00xh1")
+debug_color = Color(0.3254872, 0.49017316, 1, 0.41960785)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=865541301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6792622, 545.67773)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=441925130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0230408, -2.24827, 2.3466187)
+shape = SubResource("BoxShape3D_l1vy1")
+debug_color = Color(0.52399635, 0.57360786, 1.92523e-07, 0.41960785)
+debug_fill = false
+
+[node name="RockPillars" type="Node3D" parent="." unique_id=1798949034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.058586, 0.9387512, 397.11987)
+
+[node name="RockPillar" parent="RockPillars" unique_id=1453532831 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(3.3792515, 0, 0, 0, 1, 0, 0, 0, 1, -55.41938, 0, 98.84213)
+
+[node name="RockPillar2" parent="RockPillars" unique_id=1359561635 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.12897, 0, 55.50064)
+
+[node name="RockPillar3" parent="RockPillars" unique_id=518332409 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.20975, 0, 11.696991)
+
+[node name="RockPillar4" parent="RockPillars" unique_id=1812080957 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0186195, 0, 73.32858)
+
+[node name="RockPillar5" parent="RockPillars" unique_id=470872894 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.763016, 0, 28.85025)
+
+[node name="RockPillar6" parent="RockPillars" unique_id=1118643634 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.00296)
+
+[node name="RockPillar7" parent="RockPillars" unique_id=1574672338 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.695915, 0, -19.407806)
+
+[node name="RockPillar8" parent="RockPillars" unique_id=1730781101 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.81815, 0, -19.407806)
+
+[node name="RockPillar9" parent="RockPillars" unique_id=194712025 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.99402, 0, 92.24188)
+
+[node name="RockPillar10" parent="RockPillars" unique_id=1466231017 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.99402, 0, -59.54962)
+
+[node name="RockPillar11" parent="RockPillars" unique_id=2111776354 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.71761, 0, 20.186218)
+
+[node name="RockPillar12" parent="RockPillars" unique_id=438816085 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.650162, 0, -80.06818)
+
+[node name="RockPillar13" parent="RockPillars" unique_id=1262423894 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.02649, 0, -129.40048)
+
+[node name="RockPillar14" parent="RockPillars" unique_id=1070234215 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.898895, 0, -187.14102)
+
+[node name="RockPillar15" parent="RockPillars" unique_id=816889113 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.27579, 0, -227.78845)
+
+[node name="RockPillar16" parent="RockPillars" unique_id=1453492221 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.06192, 0, -200.95978)
+
+[node name="RockPillar17" parent="RockPillars" unique_id=1532647362 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.46553, 0, -247.6089)
+
+[node name="RockPillar18" parent="RockPillars" unique_id=1523956239 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.64018, 0, -247.6089)
+
+[node name="RockPillar19" parent="RockPillars" unique_id=1517590460 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.05678, 0, -321.22165)
+
+[node name="RockPillar20" parent="RockPillars" unique_id=1857797593 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.84256, 0, -288.80988)
+
+[node name="RockPillar21" parent="RockPillars" unique_id=977674098 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.312218, 0, -319.59714)
+
+[node name="RockPillar22" parent="RockPillars" unique_id=409593242 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.312218, 0, -366.30182)
+
+[node name="RockPillar23" parent="RockPillars" unique_id=1845203414 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.32688, 0, -366.30182)
+
+[node name="RockPillar24" parent="RockPillars" unique_id=1997745913 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.68466, 0, -445.65167)
+
+[node name="RockPillar25" parent="RockPillars" unique_id=553914468 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.77266, 0, -472.4847)
+
+[node name="RockPillar28" parent="RockPillars" unique_id=349125214 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.28346, 0, -575.21185)
+
+[node name="RockPillar29" parent="RockPillars" unique_id=1558503415 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.57016, 0, -438.83502)
+
+[node name="RockPillar30" parent="RockPillars" unique_id=1068899105 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.24391, 0, -531.86743)
+
+[node name="RockPillar26" parent="RockPillars" unique_id=1858275160 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.266747, 0, -520.62354)
+
+[node name="RockPillar27" parent="RockPillars" unique_id=1376939529 instance=ExtResource("18_q0xi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.266747, 0, -520.62354)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1295337129]
+environment = SubResource("Environment_00xh1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1297178443]
+stream = ExtResource("19_nwnlh")
+pitch_scale = 0.27

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bm0tq47wx2ho"]
+
+[ext_resource type="PackedScene" uid="uid://chcf3u4abw43f" path="res://Models/SmallGrassLand.glb" id="1_fat11"]
+[ext_resource type="Texture2D" uid="uid://bx6qq63bqqvsx" path="res://Models/pngs/lava/Lava005_1K-JPG_Displacement.jpg" id="2_dk2q5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jm1fq"]
+albedo_color = Color(0, 0.5647059, 0.17254902, 1)
+albedo_texture = ExtResource("2_dk2q5")
+metallic = 0.4
+uv1_scale = Vector3(-0.005, -0.005, -0.005)
+uv1_offset = Vector3(0, -0.185, 1.5)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.4204482
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dk2q5"]
+data = PackedVector3Array(-0.0001, 8.378, -0.0001, -4.9491997, 8.378, 5.0165, -6.6605, 8.378, -0.0001, -0.0001, 8.378, -0.0001, -0.0001, 8.378, 6.8595, -4.9491997, 8.378, 5.0165, -0.0001, 8.378, -6.8595, -0.0001, 8.378, -0.0001, -6.6605, 8.378, -0.0001, -0.0001, 8.378, -6.8595, -6.6605, 8.378, -0.0001, -4.9491997, 8.378, -5.0167, 4.949, 8.378, -5.0167, -0.0001, 8.378, -0.0001, -0.0001, 8.378, -6.8595, 4.949, 8.378, -5.0167, 6.6605, 8.378, -0.0001, -0.0001, 8.378, -0.0001, 6.6605, 8.378, -0.0001, -0.0001, 8.378, 6.8595, -0.0001, 8.378, -0.0001, 6.6605, 8.378, -0.0001, 4.949, 8.378, 5.0165, -0.0001, 8.378, 6.8595)
+
+[node name="SmallGrassLand" unique_id=1360604594 instance=ExtResource("1_fat11")]
+
+[node name="Cube_001" parent="." index="1" unique_id=161969306]
+surface_material_override/0 = SubResource("StandardMaterial3D_jm1fq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2" unique_id=2084805269]
+shape = SubResource("ConcavePolygonShape3D_dk2q5")

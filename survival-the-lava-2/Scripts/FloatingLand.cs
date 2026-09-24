@@ -13,7 +13,6 @@ public partial class FloatingLand : AnimatableBody3D
 
 	public void OnAreaTriggered(Node body)
 	{
-		// Example: Only activate if a Player enters the area
 		if (body is Player) 
 		{
 			is_touched = true;
@@ -25,8 +24,8 @@ public partial class FloatingLand : AnimatableBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		// Only move down if the Area3D has detected the player
-		if (is_touched)
+		
+		if (is_touched == true)
 		{
 			Vector3 movement = new Vector3(0, -DescentSpeed * (float)delta, 0);
 			GlobalPosition += movement;

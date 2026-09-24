@@ -145,7 +145,7 @@ autoplay = true
 
 [node name="MainMenu_theme" type="AudioStreamPlayer" parent="." unique_id=1703843860]
 stream = ExtResource("5_cqjrg")
-volume_db = -20.425
+volume_db = -16.0
 autoplay = true
 
 [node name="VolcanoLandBackDrop" parent="." unique_id=744439042 instance=ExtResource("5_7r1g0")]

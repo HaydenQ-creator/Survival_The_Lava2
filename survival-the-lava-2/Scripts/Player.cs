@@ -11,6 +11,8 @@ public partial class Player : CharacterBody3D
 	[Export] private float sprintAnimationSpeed = 1.6f; 
 	
 	public static bool can_move { get; set; } = true;
+	public static bool invul { get; set; } = false;
+
 	public static bool finished { get; set; } = false;
 
 	private Camera3D _camera; 
@@ -20,7 +22,6 @@ public partial class Player : CharacterBody3D
 	private Node3D _animatedRig;
 	
 	public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
-
 
 
 
@@ -71,6 +72,8 @@ public partial class Player : CharacterBody3D
 
 	public override void _Process(double delta)
 	{
+		
+		
 		if (_WalkPlayer == null) return; // Completely stops NullReference Exception crashes
 
 		Vector2 inputVector = Input.GetVector("left", "right", "forward", "backward");
@@ -88,6 +91,26 @@ public partial class Player : CharacterBody3D
 				_WalkPlayer.Stop();
 			}
 		}
+	
+		if (Player.can_move == false)
+		{
+			Input.MouseMode = Input.MouseModeEnum.Visible;
+			if (Input.IsActionPressed("Restart"))
+			{
+				Player.can_move = true;
+				Input.MouseMode = Input.MouseModeEnum.Captured;
+				GetTree().ReloadCurrentScene();
+			}
+			else if (Input.IsActionPressed("exitToMenu"))
+			{
+				GetTree().ChangeSceneToFile("res://MenuChooser.tscn");
+			}
+			else if (Input.IsActionPressed("QuitToDesktop"))
+			{
+				GetTree().Quit();
+			}
+		}
+	
 	}
 
 	public override void _PhysicsProcess(double delta)

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://f5itqmwsrt7y" path="res://Models/pngs/lava/Lava005_1K-JPG_NormalDX.jpg" id="8_ht2ht"]
 [ext_resource type="Texture2D" uid="uid://dak08h7dd8oe5" path="res://Models/pngs/lava/Lava005_1K-JPG_Roughness.jpg" id="9_ycrhw"]
 [ext_resource type="Texture2D" uid="uid://b1xcpoiy8gjmt" path="res://Models/pngs/FireEmber.png" id="10_fdbq8"]
-[ext_resource type="Script" uid="uid://d1mq2kij4essb" path="res://LavaArea3d.cs" id="11_k1ts8"]
+[ext_resource type="Script" uid="uid://d1mq2kij4essb" path="res://Scripts/LavaArea3d.cs" id="11_k1ts8"]
 [ext_resource type="AudioStream" uid="uid://ccm4srscvvw21" path="res://Audio/Music/Cetus_Warframe.mp3" id="12_emtl1"]
 [ext_resource type="PackedScene" uid="uid://dunmmkmsds188" path="res://MainMenu_UI.tscn" id="13_wgwlm"]
 

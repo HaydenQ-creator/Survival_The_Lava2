@@ -16,12 +16,12 @@ public partial class MenuChooser : Node3D
 		if (MenuChooser == 1)
 		{
 			string gameScenePath = "res://MainMenu.tscn";
-			GetTree().ChangeSceneToFile(gameScenePath);
+			GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, gameScenePath);
 		}
 		else if (MenuChooser == 2)
 		{
 			string gameScenePath = "res://MainMenu2.tscn";
-			GetTree().ChangeSceneToFile(gameScenePath);
+			GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, gameScenePath);
 		}
 	}
 

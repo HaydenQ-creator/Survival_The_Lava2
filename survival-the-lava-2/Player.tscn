@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bh1n86ltmmxrp" path="res://Audio/PlayerAudio/action_jump.mp3" id="5_tdg3f"]
 [ext_resource type="Script" uid="uid://bcn7y07tenbxf" path="res://Scripts/AudioStreamPlayer.cs" id="6_dtqjt"]
 [ext_resource type="Script" uid="uid://csmchm88x64r2" path="res://Scripts/NewSpringArm3d.cs" id="6_tdg3f"]
+[ext_resource type="Script" uid="uid://bhc8eifd1wpsd" path="res://Scripts/Camera3d.cs" id="7_5ncpa"]
 [ext_resource type="AudioStream" uid="uid://bv0qno2cxards" path="res://Audio/PlayerAudio/roblox-walking-sound-effect`-made-with-Voicemod.mp3" id="7_dtqjt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ke062"]
@@ -52,4 +53,6 @@ spring_length = 4.0
 script = ExtResource("6_tdg3f")
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1523516154]
+current = true
 far = 400000.0
+script = ExtResource("7_5ncpa")

@@ -135,3 +135,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.88599, 6.2214413, 5.65939
 
 [node name="FloatingLand7" parent="FloatingIslands" unique_id=565477999 instance=ExtResource("2_njov2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67442, 6.2214413, 10.195557)
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1127513234]
+transform = Transform3D(0.9163248, 0, 0.40043607, 0, 1, 0, -0.40043607, 0, 0.9163248, -29.287899, 10.570549, -14.877869)
+text = "Dev note: ESC to return to menu
+wasd to move 
+spacebar to jump
+Falling off the map wont reset you back you bum"
+font_size = 317

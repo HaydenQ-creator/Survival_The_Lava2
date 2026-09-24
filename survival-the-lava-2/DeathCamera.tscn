@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ml5hph30cjxu"]
 
-[ext_resource type="Script" uid="uid://jublsdbfq6io" path="res://Level1.cs" id="1_6b82o"]
-[ext_resource type="Script" uid="uid://cqc7ybphklx80" path="res://DeathCamera3d.cs" id="2_wcm3g"]
-[ext_resource type="Script" uid="uid://bkke2t3a2u3io" path="res://DeathTitle.cs" id="3_8gx3t"]
+[ext_resource type="Script" uid="uid://jublsdbfq6io" path="res://Scripts/Level1.cs" id="1_6b82o"]
+[ext_resource type="Script" uid="uid://cqc7ybphklx80" path="res://Scripts/DeathCamera3d.cs" id="2_wcm3g"]
+[ext_resource type="Script" uid="uid://bkke2t3a2u3io" path="res://Scripts/DeathTitle.cs" id="3_8gx3t"]
 
 [node name="Node3D" type="Node3D" unique_id=664187885]
 script = ExtResource("1_6b82o")

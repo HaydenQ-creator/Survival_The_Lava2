@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bwdracwviq18k"]
 
 [ext_resource type="PackedScene" uid="uid://chcf3u4abw43f" path="res://Models/SmallGrassLand.glb" id="1_2fc4d"]
-[ext_resource type="Script" uid="uid://dwo2mi5rvk2p" path="res://FloatingLandNODE.cs" id="1_nyrsv"]
+[ext_resource type="Script" uid="uid://dwo2mi5rvk2p" path="res://Scripts/FloatingLandNODE.cs" id="1_nyrsv"]
 [ext_resource type="Script" uid="uid://bkm352gaxvt0a" path="res://Scripts/FloatingLand.cs" id="2_rb8h4"]
 [ext_resource type="Script" uid="uid://brldyvn2wgels" path="res://Scripts/Area3d.cs" id="3_v2xtm"]
 [ext_resource type="Texture2D" uid="uid://b1xcpoiy8gjmt" path="res://Models/pngs/FireEmber.png" id="4_votjf"]
 [ext_resource type="Script" uid="uid://cqnts2qu6stf" path="res://Scripts/IslandEmber.cs" id="5_votjf"]
 [ext_resource type="AudioStream" uid="uid://bxc6k8wyw67cr" path="res://Audio/Fire/FireStart.mp3" id="7_jm1fq"]
-[ext_resource type="Script" uid="uid://prftiuc1yqu1" path="res://FireSFX.cs" id="8_jm1fq"]
+[ext_resource type="Script" uid="uid://prftiuc1yqu1" path="res://Scripts/FireSFX.cs" id="8_jm1fq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l1vy1"]
 size = Vector3(4.0771484, 0.83517456, 4.288086)

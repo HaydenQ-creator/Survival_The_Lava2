@@ -1,20 +1,20 @@
 using Godot;
 using System;
 
-public partial class Camera3d : Camera3D
+public partial class LevelButtons : Button
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Current = true;
+		Visible = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (Player.can_move == false)
+		if (MainMenu.Level_buttons_visible == true)
 		{
-			Current = false;
+			Visible = true;
 		}
 	}
 }

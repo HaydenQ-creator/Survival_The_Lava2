@@ -20,6 +20,36 @@
 [ext_resource type="PackedScene" uid="uid://3pi2fmuwmbb3" path="res://rock_pillar.tscn" id="18_q0xi3"]
 [ext_resource type="AudioStream" uid="uid://bmqgedvemy1sm" path="res://Audio/jci21-rocket-launch-sfx-253937.mp3" id="19_nwnlh"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fvkd4"]
+sky_horizon_color = Color(0.03241882, 0.033944722, 0.03712394, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_pj4lr"]
+sky_material = SubResource("ProceduralSkyMaterial_fvkd4")
+
+[sub_resource type="Environment" id="Environment_00xh1"]
+background_mode = 2
+sky = SubResource("Sky_pj4lr")
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.17
+glow_strength = 1.23
+glow_bloom = 0.2
+fog_light_color = Color(0.23779804, 0.26129034, 0.29784346, 1)
+fog_light_energy = 16.0
+fog_density = 0.0064
+fog_sky_affect = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0182
+volumetric_fog_albedo = Color(0.60122335, 0.6012229, 0.60122293, 1)
+volumetric_fog_emission = Color(0.008202022, 0.008202025, 0.008202025, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 1.24
+volumetric_fog_ambient_inject = 1.2
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cove1"]
 load_path = "res://.godot/imported/T_smoke_b7.png-9816ee40de55f1477e1d8f24b1cb18e4.s3tc.ctex"
 
@@ -143,37 +173,20 @@ size = Vector3(108.27356, 11.188477, 102.917725)
 [sub_resource type="BoxShape3D" id="BoxShape3D_l1vy1"]
 size = Vector3(279.49725, 1, 24.532227)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fvkd4"]
-sky_horizon_color = Color(0.03241882, 0.033944722, 0.03712394, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_pj4lr"]
-sky_material = SubResource("ProceduralSkyMaterial_fvkd4")
-
-[sub_resource type="Environment" id="Environment_00xh1"]
-background_mode = 2
-sky = SubResource("Sky_pj4lr")
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 1.17
-glow_strength = 1.23
-glow_bloom = 0.2
-fog_light_color = Color(0.23779804, 0.26129034, 0.29784346, 1)
-fog_light_energy = 16.0
-fog_density = 0.0064
-fog_sky_affect = 0.0
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.0182
-volumetric_fog_albedo = Color(0.60122335, 0.6012229, 0.60122293, 1)
-volumetric_fog_emission = Color(0.008202022, 0.008202025, 0.008202025, 1)
-volumetric_fog_emission_energy = 0.0
-volumetric_fog_gi_inject = 1.24
-volumetric_fog_ambient_inject = 1.2
-
 [node name="Level2" type="Node3D" unique_id=935952789]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1295337129]
+environment = SubResource("Environment_00xh1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2025558226]
+transform = Transform3D(1, 0, 0, 0, -0.9824749, 0.1863948, 0, -0.1863948, -0.9824749, 0, 0, 0)
+visible = false
+light_color = Color(1, 1, 0, 1)
+light_energy = 16.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 10.0
+shadow_blur = 4.41
 
 [node name="VolcanoLandBackDrop" parent="." unique_id=744439042 instance=ExtResource("1_s8dg4")]
 transform = Transform3D(1.695, 0, 0, 0, 1.695, 0, 0, 0, 1.695, 0, -77.40336, -5361.3936)
@@ -969,15 +982,6 @@ transform = Transform3D(-6.8382747e-07, 0, 35.58539, 0, 1, 0, -15.644149, 0, -1.
 transform = Transform3D(-4527.29, 1.9982612e-05, 9.5175075e-14, 0, -9.991306e-06, 24.906002, 0.00039578826, 228.57443, 1.088676e-06, -33.631046, 0.74375176, 659.90247)
 mesh = SubResource("QuadMesh_0rx21")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2025558226]
-transform = Transform3D(1, 0, 0, 0, -0.9824749, 0.1863948, 0, -0.1863948, -0.9824749, 0, 0, 0)
-light_color = Color(1, 1, 0, 1)
-light_energy = 14.15
-shadow_enabled = true
-shadow_bias = 0.0
-shadow_normal_bias = 10.0
-shadow_blur = 4.41
-
 [node name="LavaArea3D" type="Area3D" parent="." unique_id=399556237 node_paths=PackedStringArray("TargetNode")]
 transform = Transform3D(4.1493716, 0, 0, 0, 1, 0, 0, 0, 1, 164.11635, -8.988448, 580.25507)
 script = ExtResource("13_pj4lr")
@@ -1089,9 +1093,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.266747, 0, -520.62354)
 
 [node name="RockPillar27" parent="RockPillars" unique_id=1376939529 instance=ExtResource("18_q0xi3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.266747, 0, -520.62354)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1295337129]
-environment = SubResource("Environment_00xh1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1297178443]
 stream = ExtResource("19_nwnlh")

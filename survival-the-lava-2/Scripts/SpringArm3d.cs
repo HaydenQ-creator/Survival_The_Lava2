@@ -43,6 +43,15 @@ public partial class SpringArm3d : SpringArm3D
 		{
 			_cameraPivot.GlobalPosition = _playerBody.GlobalPosition;
 		}
+
+		if (Input.IsActionPressed("MouseWheelUp"))
+		{
+			SpringLength += 0.1f; // Increase the spring length to zoom out
+		}
+		else if (Input.IsActionPressed("MouseWheelDown"))
+		{
+			SpringLength -= 0.1f; // Decrease the spring length to zoom in
+		}
 	}
 
 	public override void _Input(InputEvent @event)

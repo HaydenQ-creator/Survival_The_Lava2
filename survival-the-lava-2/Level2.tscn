@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c1pyjsej1sh8o"]
 
+[ext_resource type="Script" uid="uid://blgrmirpr80f0" path="res://Level2NODE.cs" id="1_e3avg"]
 [ext_resource type="PackedScene" uid="uid://edy0rv6kpao4" path="res://Models/VolcanoLandBackDrop.glb" id="1_s8dg4"]
+[ext_resource type="Script" uid="uid://crc4gynjf1snl" path="res://VolcanoLight.cs" id="2_0rx21"]
 [ext_resource type="PackedScene" uid="uid://b4j7qan210c6c" path="res://Player.tscn" id="3_psxy2"]
 [ext_resource type="PackedScene" uid="uid://bamph2k2l522y" path="res://large_grass_plane.tscn" id="3_s8dg4"]
 [ext_resource type="Script" uid="uid://cqc7ybphklx80" path="res://Scripts/DeathCamera3d.cs" id="4_0xt02"]
@@ -38,14 +40,14 @@ glow_normalized = true
 glow_intensity = 1.17
 glow_strength = 1.23
 glow_bloom = 0.2
-fog_light_color = Color(0.23779804, 0.26129034, 0.29784346, 1)
+glow_hdr_luminance_cap = 256.0
+fog_light_color = Color(0.23921569, 1, 0.29803923, 1)
 fog_light_energy = 16.0
 fog_density = 0.0064
 fog_sky_affect = 0.0
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0182
 volumetric_fog_albedo = Color(0.60122335, 0.6012229, 0.60122293, 1)
-volumetric_fog_emission = Color(0.008202022, 0.008202025, 0.008202025, 1)
 volumetric_fog_emission_energy = 0.0
 volumetric_fog_gi_inject = 1.24
 volumetric_fog_ambient_inject = 1.2
@@ -174,19 +176,22 @@ size = Vector3(108.27356, 11.188477, 102.917725)
 size = Vector3(279.49725, 1, 24.532227)
 
 [node name="Level2" type="Node3D" unique_id=935952789]
+script = ExtResource("1_e3avg")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1295337129]
 environment = SubResource("Environment_00xh1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2025558226]
 transform = Transform3D(1, 0, 0, 0, -0.9824749, 0.1863948, 0, -0.1863948, -0.9824749, 0, 0, 0)
-visible = false
-light_color = Color(1, 1, 0, 1)
+light_color = Color(0.88269603, 0.88269603, 0, 1)
 light_energy = 16.0
+light_indirect_energy = 2.005
+light_specular = 1.894
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 10.0
 shadow_blur = 4.41
+script = ExtResource("2_0rx21")
 
 [node name="VolcanoLandBackDrop" parent="." unique_id=744439042 instance=ExtResource("1_s8dg4")]
 transform = Transform3D(1.695, 0, 0, 0, 1.695, 0, 0, 0, 1.695, 0, -77.40336, -5361.3936)
@@ -1096,4 +1101,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.266747, 0, -520.62354)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1297178443]
 stream = ExtResource("19_nwnlh")
-pitch_scale = 0.27
+volume_db = -1.793
+pitch_scale = 0.18

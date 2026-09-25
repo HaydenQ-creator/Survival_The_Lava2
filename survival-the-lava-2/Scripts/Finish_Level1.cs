@@ -9,7 +9,7 @@ public partial class Finish_Level1 : Node3D
 	public override void _Ready()
 	{
 		_timer = GetNode<Timer>("Timer");
-		_timer.WaitTime = 7.0f; 
+		_timer.WaitTime = 6.0f; 
 		_timer.OneShot = true;  
 		_timer.Timeout += OnTimerTimeout;
 
@@ -21,9 +21,7 @@ public partial class Finish_Level1 : Node3D
 	{
 		// 1. Check if the global condition is met, and ensure we haven't already started the timer
 		if (Player.finished && !_timerStarted)
-		{
-			GD.Print("Player finished! Starting the 4-second countdown.");
-			
+		{	
 			_timer.Start();
 			_timerStarted = true; // Mark as started so this block doesn't run again
 		}

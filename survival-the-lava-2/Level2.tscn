@@ -21,6 +21,8 @@
 [ext_resource type="Script" uid="uid://d1mq2kij4essb" path="res://Scripts/LavaArea3d.cs" id="13_pj4lr"]
 [ext_resource type="PackedScene" uid="uid://3pi2fmuwmbb3" path="res://rock_pillar.tscn" id="18_q0xi3"]
 [ext_resource type="AudioStream" uid="uid://bmqgedvemy1sm" path="res://Audio/jci21-rocket-launch-sfx-253937.mp3" id="19_nwnlh"]
+[ext_resource type="Script" uid="uid://ckcscfblvdfj4" path="res://Scripts/Timer_Level1.cs" id="22_a454t"]
+[ext_resource type="Script" uid="uid://cpqpl6vvkitx2" path="res://VolcanoTimer.cs" id="22_fx3gb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fvkd4"]
 sky_horizon_color = Color(0.03241882, 0.033944722, 0.03712394, 1)
@@ -118,6 +120,22 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 grow_amount = -16.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0rx21"]
+lifetime_randomness = 1.0
+gravity = Vector3(0, 2.635, 18.24)
+use_scale_3d = true
+scale_3d_min = Vector3(-25.485, -25.485, -25.485)
+scale_3d_max = Vector3(-1.435, -1.435, -1.435)
+turbulence_enabled = true
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 6.465
+turbulence_noise_speed_random = 1.63
+turbulence_influence_min = 0.0
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 1.490116e-06
+
+[sub_resource type="QuadMesh" id="QuadMesh_mgfd6"]
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fvkd4"]
 lifetime_randomness = 1.0
 gravity = Vector3(-18.24, 2.635, 0)
@@ -131,8 +149,6 @@ turbulence_noise_speed_random = 1.63
 turbulence_influence_min = 0.0
 turbulence_initial_displacement_min = 1.490116e-06
 turbulence_initial_displacement_max = 1.490116e-06
-
-[sub_resource type="QuadMesh" id="QuadMesh_mgfd6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bjei"]
 render_priority = 0
@@ -247,10 +263,196 @@ script = ExtResource("5_q0xi3")
 stream = ExtResource("6_nwnlh")
 script = ExtResource("7_e3avg")
 
+[node name="EmberEffects2" type="Node3D" parent="Player" unique_id=223080397]
+transform = Transform3D(-0.028535947, 0, 0.9995928, 0, 1, 0, -0.9995928, 0, -0.028535947, -150.10945, -36.848473, -716.1246)
+
+[node name="Ember18" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=825026383]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 100.98404)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember19" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=1446497759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 124.0656)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember20" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=2079569254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 161.1011)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember21" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=2062012325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 200.59016)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember22" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=332292548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 141.42398)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember23" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=1584772173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 178.43933)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember24" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=1189171238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 74.54018)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember26" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=1516660090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 84.6234)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember27" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=233289490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 107.6234)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember28" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=1201259752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 133.6234)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember29" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=603411456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 170.6234)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember30" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=2012560908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 188.6234)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember31" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=1925820205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 151.43433)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="Ember25" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=2145635526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 74.54018)
+material_override = SubResource("StandardMaterial3D_nqrl8")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_0rx21")
+draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
 [node name="EmberEffects" type="Node3D" parent="." unique_id=1546632883]
+transform = Transform3D(0.88677955, 0, -0.46219265, 0, 1, 0, 0.46219265, 0, 0.88677955, -14.387853, 0, 625.782)
 
 [node name="Ember18" type="GPUParticles3D" parent="EmberEffects" unique_id=1842792165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 552.2405)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -99.10364)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -263,7 +465,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember19" type="GPUParticles3D" parent="EmberEffects" unique_id=196465633]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 568.14185)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -83.20227)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -276,7 +478,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember20" type="GPUParticles3D" parent="EmberEffects" unique_id=1757907870]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 585.4149)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -65.9292)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -289,7 +491,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember21" type="GPUParticles3D" parent="EmberEffects" unique_id=2057354061]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 603.1897)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -48.15442)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -302,7 +504,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember22" type="GPUParticles3D" parent="EmberEffects" unique_id=1531685477]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 624.25104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -27.093079)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -315,7 +517,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember23" type="GPUParticles3D" parent="EmberEffects" unique_id=636246151]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 640.25104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -11.093079)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -328,7 +530,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember24" type="GPUParticles3D" parent="EmberEffects" unique_id=738597813]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 640.25104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -11.093079)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -341,7 +543,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember25" type="GPUParticles3D" parent="EmberEffects" unique_id=189650380]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 655.73376)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 4.3896484)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -354,7 +556,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember26" type="GPUParticles3D" parent="EmberEffects" unique_id=1385395952]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 671.63513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 20.291016)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -367,7 +569,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember27" type="GPUParticles3D" parent="EmberEffects" unique_id=768213253]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 688.9082)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 37.564087)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -380,7 +582,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember28" type="GPUParticles3D" parent="EmberEffects" unique_id=984708118]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 706.683)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 55.338867)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -393,7 +595,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember29" type="GPUParticles3D" parent="EmberEffects" unique_id=1718879532]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 727.7443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 76.40021)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -406,7 +608,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember30" type="GPUParticles3D" parent="EmberEffects" unique_id=1078541570]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 743.7443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 92.40021)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -419,7 +621,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember31" type="GPUParticles3D" parent="EmberEffects" unique_id=1369918085]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 743.7443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 92.40021)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -432,7 +634,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember32" type="GPUParticles3D" parent="EmberEffects" unique_id=89873311]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 552.2405)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -99.10364)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -445,7 +647,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember33" type="GPUParticles3D" parent="EmberEffects" unique_id=1732098321]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 568.14185)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -83.20227)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -458,7 +660,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember34" type="GPUParticles3D" parent="EmberEffects" unique_id=700065143]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 585.4149)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -65.9292)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -471,7 +673,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember35" type="GPUParticles3D" parent="EmberEffects" unique_id=420818982]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 603.1897)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -48.15442)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -484,7 +686,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember36" type="GPUParticles3D" parent="EmberEffects" unique_id=1357671194]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 624.25104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -27.093079)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -497,7 +699,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember37" type="GPUParticles3D" parent="EmberEffects" unique_id=1411348430]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 640.25104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -11.093079)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -510,7 +712,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember38" type="GPUParticles3D" parent="EmberEffects" unique_id=2057521071]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 640.25104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -11.093079)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -523,7 +725,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember39" type="GPUParticles3D" parent="EmberEffects" unique_id=1173893834]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 655.73376)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 4.3896484)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -536,7 +738,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember40" type="GPUParticles3D" parent="EmberEffects" unique_id=1457655325]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 671.63513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 20.291016)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -549,7 +751,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember41" type="GPUParticles3D" parent="EmberEffects" unique_id=1921126508]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 688.9082)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 37.564087)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -562,7 +764,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember42" type="GPUParticles3D" parent="EmberEffects" unique_id=1503727406]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 706.683)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 55.338867)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -575,7 +777,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember43" type="GPUParticles3D" parent="EmberEffects" unique_id=1788593706]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 727.7443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 76.40021)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -588,7 +790,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember44" type="GPUParticles3D" parent="EmberEffects" unique_id=2005225704]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 743.7443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 92.40021)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -601,374 +803,7 @@ process_material = SubResource("ParticleProcessMaterial_fvkd4")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
 
 [node name="Ember45" type="GPUParticles3D" parent="EmberEffects" unique_id=88603156]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 743.7443)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="EmberEffects2" type="Node3D" parent="." unique_id=223080397]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.28201, 0, 0)
-
-[node name="Ember18" type="GPUParticles3D" parent="EmberEffects2" unique_id=825026383]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 552.2405)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember19" type="GPUParticles3D" parent="EmberEffects2" unique_id=501678549]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 568.14185)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember20" type="GPUParticles3D" parent="EmberEffects2" unique_id=1051046221]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 585.4149)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember21" type="GPUParticles3D" parent="EmberEffects2" unique_id=1144114366]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 603.1897)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember22" type="GPUParticles3D" parent="EmberEffects2" unique_id=1523132356]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 624.25104)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember23" type="GPUParticles3D" parent="EmberEffects2" unique_id=1704663903]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 640.25104)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember24" type="GPUParticles3D" parent="EmberEffects2" unique_id=9424524]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 640.25104)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember25" type="GPUParticles3D" parent="EmberEffects2" unique_id=1923672281]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 655.73376)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember26" type="GPUParticles3D" parent="EmberEffects2" unique_id=452328457]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 671.63513)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember27" type="GPUParticles3D" parent="EmberEffects2" unique_id=700245762]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 688.9082)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember28" type="GPUParticles3D" parent="EmberEffects2" unique_id=1862448630]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 706.683)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember29" type="GPUParticles3D" parent="EmberEffects2" unique_id=1521840256]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 727.7443)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember30" type="GPUParticles3D" parent="EmberEffects2" unique_id=1508844634]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 743.7443)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember31" type="GPUParticles3D" parent="EmberEffects2" unique_id=21249508]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 743.7443)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember32" type="GPUParticles3D" parent="EmberEffects2" unique_id=1759625349]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 552.2405)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember33" type="GPUParticles3D" parent="EmberEffects2" unique_id=1425994045]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 568.14185)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember34" type="GPUParticles3D" parent="EmberEffects2" unique_id=27143068]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 585.4149)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember35" type="GPUParticles3D" parent="EmberEffects2" unique_id=411496552]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 603.1897)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember36" type="GPUParticles3D" parent="EmberEffects2" unique_id=1182046569]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 624.25104)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember37" type="GPUParticles3D" parent="EmberEffects2" unique_id=1225024014]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 640.25104)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember38" type="GPUParticles3D" parent="EmberEffects2" unique_id=60858133]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 640.25104)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember39" type="GPUParticles3D" parent="EmberEffects2" unique_id=1504713505]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 655.73376)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember40" type="GPUParticles3D" parent="EmberEffects2" unique_id=1211102437]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 671.63513)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember41" type="GPUParticles3D" parent="EmberEffects2" unique_id=1502173357]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 688.9082)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember42" type="GPUParticles3D" parent="EmberEffects2" unique_id=162232309]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 706.683)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember43" type="GPUParticles3D" parent="EmberEffects2" unique_id=327953635]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 727.7443)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember44" type="GPUParticles3D" parent="EmberEffects2" unique_id=1769765610]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 743.7443)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember45" type="GPUParticles3D" parent="EmberEffects2" unique_id=1967555941]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 743.7443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 92.40021)
 material_override = SubResource("StandardMaterial3D_nqrl8")
 amount = 200
 lifetime = 60.0
@@ -1103,3 +938,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.266747, 0, -520.62354)
 stream = ExtResource("19_nwnlh")
 volume_db = -1.793
 pitch_scale = 0.18
+
+[node name="Volcano" type="Node3D" parent="." unique_id=567699424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.14872, 0, 0)
+script = ExtResource("22_fx3gb")
+
+[node name="Timer" type="Timer" parent="Volcano" unique_id=2128522308]
+wait_time = 3.0
+script = ExtResource("22_a454t")

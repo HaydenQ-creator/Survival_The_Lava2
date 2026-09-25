@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public abstract partial class MainMenuNODE : Node3D
+public partial class MainMenuNODE : Node3D
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

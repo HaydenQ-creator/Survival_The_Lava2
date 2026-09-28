@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cumrb1qmvctvg" path="res://Models/pngs/lava/Lava005_1K-JPG_Emission.jpg" id="8_jw1dd"]
 [ext_resource type="Texture2D" uid="uid://bx6qq63bqqvsx" path="res://Models/pngs/lava/Lava005_1K-JPG_Displacement.jpg" id="9_0xt02"]
 [ext_resource type="Texture2D" uid="uid://f5itqmwsrt7y" path="res://Models/pngs/lava/Lava005_1K-JPG_NormalDX.jpg" id="10_q0xi3"]
+[ext_resource type="Script" uid="uid://dqseor0dpdcxk" path="res://RayCast3d.cs" id="11_mgfd6"]
 [ext_resource type="Texture2D" uid="uid://dak08h7dd8oe5" path="res://Models/pngs/lava/Lava005_1K-JPG_Roughness.jpg" id="11_nwnlh"]
 [ext_resource type="Texture2D" uid="uid://b1xcpoiy8gjmt" path="res://Models/pngs/FireEmber.png" id="12_e3avg"]
 [ext_resource type="Script" uid="uid://d1mq2kij4essb" path="res://Scripts/LavaArea3d.cs" id="13_pj4lr"]
@@ -199,6 +200,7 @@ environment = SubResource("Environment_00xh1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2025558226]
 transform = Transform3D(1, 0, 0, 0, -0.9824749, 0.1863948, 0, -0.1863948, -0.9824749, 0, 0, 0)
+visible = false
 light_color = Color(0.88269603, 0.88269603, 0, 1)
 light_energy = 16.0
 light_indirect_energy = 2.005
@@ -227,7 +229,7 @@ draw_pass_1 = SubResource("QuadMesh_3453u")
 transform = Transform3D(0.6867116, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06124878, 0)
 
 [node name="Player" parent="." unique_id=25935713 instance=ExtResource("3_psxy2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.169, 527.224)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.490347, 2.169, 527.224)
 
 [node name="DeathCamera3D2" type="Camera3D" parent="Player" unique_id=1023059955 node_paths=PackedStringArray("TargetPlayer")]
 transform = Transform3D(1, 0, 0, 0, 0.09042075, 0.9959037, 0, -0.9959037, 0.09042075, 0, 9.86786, 0)
@@ -447,6 +449,10 @@ fixed_fps = 50
 visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
 process_material = SubResource("ParticleProcessMaterial_0rx21")
 draw_pass_1 = SubResource("QuadMesh_mgfd6")
+
+[node name="RayCast3D" type="RayCast3D" parent="Player" unique_id=1121204845]
+transform = Transform3D(1, 0, 0, 0, -1.1594445e-06, 1, 0, -26.525, -4.371139e-08, 0, 0.94896364, -7.2176514)
+script = ExtResource("11_mgfd6")
 
 [node name="EmberEffects" type="Node3D" parent="." unique_id=1546632883]
 transform = Transform3D(0.88677955, 0, -0.46219265, 0, 1, 0, 0.46219265, 0, 0.88677955, -14.387853, 0, 625.782)

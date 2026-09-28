@@ -3,36 +3,31 @@ using System;
 
 public partial class ShadowArea3d : Area3D
 {
-	// Might use later 
-	// [Export] public ShadowArea3d TheeePlayer;
-	
-
 	public override void _Ready()
 	{
+		// Connect the signals using the correct Godot 4 Node3D signature
 		BodyEntered += OnBodyEntered;
-		
-		
-		// Might use later awell
-		// if (TheeePlayer != null) BodyEntered += TheeePlayer.OnAreaTriggered;
+		BodyExited += OnBodyExited;
 	}
 	
-	public void OnBodyEntered(Node Body)
+	private void OnBodyEntered(Node3D body)
 	{
-		if (Body is Player)
+		// Cast the incoming body to your 'Player' class instance
+		if (body is Player playerInstance)
 		{
+			// Modify the property on the specific player instance that entered
 			Player.invul = true;
+			GD.Print("Player entered shadow: Invulnerable = true");
 		}
 	}
 
-	public void OnAreaTriggered()
+	private void OnBodyExited(Node3D body)
 	{
-		Player.invul = true;
-	}
-	
-
-	public override void _Process(double delta)
-	{
-		
-		GD.Print(Player.invul);
+		if (body is Player playerInstance)
+		{
+			// Modify the property on the specific player instance that left
+			Player.invul = false;
+			GD.Print("Player left shadow: Invulnerable = false");
+		}
 	}
 }

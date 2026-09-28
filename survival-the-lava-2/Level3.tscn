@@ -1,16 +1,83 @@
 [gd_scene format=3 uid="uid://dqc08tgwjq0ti"]
 
-[ext_resource type="PackedScene" uid="uid://b4j7qan210c6c" path="res://Player.tscn" id="1_eywy2"]
+[ext_resource type="PackedScene" uid="uid://ci47soai0sq42" path="res://living_room.tscn" id="1_84iim"]
+[ext_resource type="PackedScene" uid="uid://ce8qr4u4qiixw" path="res://wooden_support_2.tscn" id="2_f63rs"]
+[ext_resource type="PackedScene" uid="uid://bu0dn64r2dwhr" path="res://black_door.tscn" id="3_f63rs"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_l1vy1"]
+
+[sub_resource type="Environment" id="Environment_l1vy1"]
+glow_enabled = true
+glow_normalized = true
+glow_bloom = 1.0
+fog_light_color = Color(0, 0, 0, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1328
 
 [node name="Level3" type="Node3D" unique_id=935952789]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1523863744]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.067505)
-size = Vector3(118.23242, 1, 13.360107)
+[node name="LivingRoom" parent="." unique_id=327580798 instance=ExtResource("1_84iim")]
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1255182993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.986023, 0, -17.385408)
-size = Vector3(40.260376, 1, 13.360107)
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1358543125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.110462, 8.223602, 0.3951652)
+light_color = Color(1, 0.68235296, 0, 1)
+light_energy = 13.125
+light_indirect_energy = 2.62
+light_volumetric_fog_energy = 0.1
+omni_range = 10.456775
 
-[node name="Player" parent="." unique_id=25935713 instance=ExtResource("1_eywy2")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.065158956, 1.5066214, 0.15020657)
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=734172632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2277994, 9.248314, 0.3951652)
+light_color = Color(1, 0.68235296, 0, 1)
+light_energy = 6.79
+light_indirect_energy = 2.62
+light_volumetric_fog_energy = 0.1
+omni_range = 14.233536
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="." unique_id=874878536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.097289, 8.566667, 0.3951652)
+light_color = Color(1, 0.68235296, 0, 1)
+light_energy = 6.79
+light_indirect_energy = 2.62
+light_volumetric_fog_energy = 0.1
+omni_range = 14.233536
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="." unique_id=2069846227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2277994, 8.223602, 20.083948)
+light_color = Color(1, 0.68235296, 0, 1)
+light_energy = 6.79
+light_indirect_energy = 2.62
+light_volumetric_fog_energy = 0.1
+omni_range = 14.233536
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1384051963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.782753, 8.223602, 0.3951652)
+light_color = Color(1, 0.68235296, 0, 1)
+light_energy = 6.675
+light_volumetric_fog_energy = 0.1
+omni_range = 10.456775
+
+[node name="WoodenSupport2" parent="." unique_id=604144617 instance=ExtResource("2_f63rs")]
+transform = Transform3D(-5.4992885e-08, 0, 1, 0, 1.1793603, 0, -1.2580905, 0, -4.371139e-08, -2.3223336, 0.77153015, 0.6525235)
+
+[node name="WoodenSupport4" parent="." unique_id=561406205 instance=ExtResource("2_f63rs")]
+transform = Transform3D(-5.4992885e-08, 0, 1, 0, 1.1793603, 0, -1.2580905, 0, -4.371139e-08, -29.264673, 0.77153015, 0.6525247)
+
+[node name="WoodenSupport5" parent="." unique_id=2011938566 instance=ExtResource("2_f63rs")]
+transform = Transform3D(-5.4992885e-08, 0, 1, 0, 1.1793603, 0, -1.2580905, 0, -4.371139e-08, -50.280025, 0.77153015, 0.6525256)
+
+[node name="WoodenSupport6" parent="." unique_id=1862391051 instance=ExtResource("2_f63rs")]
+transform = Transform3D(-5.4992885e-08, 0, 1, 0, 1.1793603, 0, -1.2580905, 0, -4.371139e-08, -63.242, 0.77153015, 0.6525262)
+
+[node name="BlackDoor" parent="." unique_id=1766518180 instance=ExtResource("3_f63rs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.083363, 0.033112288, 23.279554)
+
+[node name="BlackDoor2" parent="." unique_id=894739776 instance=ExtResource("3_f63rs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.28544, -0.32420754, -16.819118)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1675837285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.13674259, 0)
+navigation_mesh = SubResource("NavigationMesh_l1vy1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1754765486]
+environment = SubResource("Environment_l1vy1")

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bu0dn64r2dwhr"]
+
+[ext_resource type="PackedScene" uid="uid://bg0fchwogbahg" path="res://Models/BlackDoor.glb" id="1_fcstg"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vdsi8"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[node name="BlackDoor" unique_id=1766518180 instance=ExtResource("1_fcstg")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(1608077169) index="0" unique_id=817939457]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=427029704]
+shape = SubResource("ConcavePolygonShape3D_vdsi8")

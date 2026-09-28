@@ -1,0 +1,26 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://diy43poggoi04"]
+
+[ext_resource type="Texture2D" uid="uid://d1at782ese4vx" path="res://Models/pngs/Rock/Rock035_1K-JPG_AmbientOcclusion.jpg" id="2_mr3g1"]
+[ext_resource type="Texture2D" uid="uid://1y3616dkmrq6" path="res://Models/pngs/Rock/Rock035_1K-JPG_NormalGL.jpg" id="3_wjbq1"]
+[ext_resource type="Texture2D" uid="uid://occhrix32u11" path="res://Models/pngs/Rock/Rock035_1K-JPG_Displacement.jpg" id="4_1ooqa"]
+[ext_resource type="Texture2D" uid="uid://b42ue4tj0aftx" path="res://Models/pngs/Rock/Rock035_1K-JPG_NormalDX.jpg" id="5_xh1dm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_amcw0"]
+load_path = "res://.godot/imported/Rock035_1K-JPG_Color.jpg-62a41711967dedc84bcd03126eb5ad5e.s3tc.ctex"
+
+[resource]
+albedo_texture = SubResource("CompressedTexture2D_amcw0")
+normal_enabled = true
+normal_texture = ExtResource("5_xh1dm")
+bent_normal_enabled = true
+bent_normal_texture = ExtResource("3_wjbq1")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_mr3g1")
+heightmap_scale = 1.0
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("4_1ooqa")
+uv1_scale = Vector3(0.035, 0.035, 0.035)
+uv1_triplanar = true

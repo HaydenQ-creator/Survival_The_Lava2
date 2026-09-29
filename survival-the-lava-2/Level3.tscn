@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ci47soai0sq42" path="res://living_room.tscn" id="1_84iim"]
 [ext_resource type="PackedScene" uid="uid://ce8qr4u4qiixw" path="res://wooden_support_2.tscn" id="2_f63rs"]
 [ext_resource type="PackedScene" uid="uid://bu0dn64r2dwhr" path="res://black_door.tscn" id="3_f63rs"]
+[ext_resource type="PackedScene" uid="uid://c76shwhrdmo2a" path="res://PlayerFP.tscn" id="4_xcs05"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_l1vy1"]
 
@@ -19,7 +20,15 @@ volumetric_fog_density = 0.1328
 [node name="LivingRoom" parent="." unique_id=327580798 instance=ExtResource("1_84iim")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1358543125]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.110462, 8.223602, 0.3951652)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.88554, 8.223602, 0.3951652)
+light_color = Color(1, 0.68235296, 0, 1)
+light_energy = 13.125
+light_indirect_energy = 2.62
+light_volumetric_fog_energy = 0.1
+omni_range = 10.456775
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="." unique_id=2134062442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.755135, 9.819914, 0.3951652)
 light_color = Color(1, 0.68235296, 0, 1)
 light_energy = 13.125
 light_indirect_energy = 2.62
@@ -35,7 +44,7 @@ light_volumetric_fog_energy = 0.1
 omni_range = 14.233536
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="." unique_id=874878536]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.097289, 8.566667, 0.3951652)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.097289, 9.147429, 0.3951652)
 light_color = Color(1, 0.68235296, 0, 1)
 light_energy = 6.79
 light_indirect_energy = 2.62
@@ -81,3 +90,6 @@ navigation_mesh = SubResource("NavigationMesh_l1vy1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1754765486]
 environment = SubResource("Environment_l1vy1")
+
+[node name="Player" parent="." unique_id=25935713 instance=ExtResource("4_xcs05")]
+transform = Transform3D(-8.702938e-08, 0, 1.991, 0, 1.991, 0, -1.991, 0, -8.702938e-08, 3.0214987, 3.9054775, -2.0943813)

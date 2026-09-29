@@ -1,20 +1,18 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://ciw0o3ncj1tks"]
 
-[ext_resource type="Texture2D" uid="uid://cmkr60gqfjpn2" path="res://Models/pngs/lava/Lava005_1K-JPG_Color.jpg" id="1_tvy7k"]
 [ext_resource type="Texture2D" uid="uid://6y674wp66rhx" path="res://Models/pngs/lava/Lava005_1K-JPG_NormalGL.jpg" id="2_vhi2h"]
 [ext_resource type="Texture2D" uid="uid://cumrb1qmvctvg" path="res://Models/pngs/lava/Lava005_1K-JPG_Emission.jpg" id="3_llf4p"]
 [ext_resource type="Texture2D" uid="uid://bx6qq63bqqvsx" path="res://Models/pngs/lava/Lava005_1K-JPG_Displacement.jpg" id="4_ufcxc"]
 [ext_resource type="Texture2D" uid="uid://dak08h7dd8oe5" path="res://Models/pngs/lava/Lava005_1K-JPG_Roughness.jpg" id="5_vhi2h"]
 
 [resource]
-albedo_color = Color(0.9764706, 0.7647059, 0, 1)
-albedo_texture = ExtResource("1_tvy7k")
+albedo_color = Color(0.48839885, 0.37683707, 0, 1)
 albedo_texture_force_srgb = true
 albedo_texture_msdf = true
 roughness_texture = ExtResource("5_vhi2h")
 emission_enabled = true
 emission = Color(1, 1, 0, 1)
-emission_energy_multiplier = 10.17
+emission_energy_multiplier = 11.78
 emission_operator = 1
 emission_texture = ExtResource("3_llf4p")
 normal_enabled = true

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class NewSpringArm3d : SpringArm3D
+public partial class Camera3dFIRSTPERSON : Camera3D
 {
 	
 	[Export] public float mouse_sensitivity = 0.002f;

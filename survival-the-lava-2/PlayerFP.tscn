@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c76shwhrdmo2a"]
+
+[ext_resource type="Script" uid="uid://cygun75k4h3vy" path="res://Scripts/Player.cs" id="1_hpafm"]
+[ext_resource type="AudioStream" uid="uid://bh1n86ltmmxrp" path="res://Audio/PlayerAudio/action_jump.mp3" id="2_wd2yx"]
+[ext_resource type="Script" uid="uid://bcn7y07tenbxf" path="res://Scripts/AudioStreamPlayer.cs" id="3_hn2hv"]
+[ext_resource type="AudioStream" uid="uid://bv0qno2cxards" path="res://Audio/PlayerAudio/roblox-walking-sound-effect`-made-with-Voicemod.mp3" id="4_bvkgv"]
+[ext_resource type="Script" uid="uid://dhspo3i6k2wv0" path="res://Camera3dFIRSTPERSON.cs" id="5_xuf7o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ke062"]
+height = 2.1408691
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ke062"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kne1u"]
+
+[node name="Player" type="CharacterBody3D" unique_id=25935713]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+script = ExtResource("1_hpafm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1307964816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18884277, 0)
+shape = SubResource("CapsuleShape3D_ke062")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=788691572]
+visible = false
+mesh = SubResource("CapsuleMesh_ke062")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1042505024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8847519, 0)
+visible = false
+mesh = SubResource("BoxMesh_kne1u")
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="." unique_id=511674993]
+stream = ExtResource("2_wd2yx")
+script = ExtResource("3_hn2hv")
+
+[node name="WalkSFX" type="AudioStreamPlayer" parent="." unique_id=729219700]
+stream = ExtResource("4_bvkgv")
+script = ExtResource("3_hn2hv")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1523516154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3228525, 0.048456192)
+current = true
+far = 400000.0
+script = ExtResource("5_xuf7o")

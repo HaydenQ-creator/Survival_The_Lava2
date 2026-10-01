@@ -8,8 +8,8 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5a4y6"]
 albedo_texture = ExtResource("2_5a4y6")
 emission_enabled = true
-emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 5.04
+emission = Color(0.69411767, 1, 0.101960786, 1)
+emission_energy_multiplier = 9.81
 emission_operator = 1
 emission_texture = ExtResource("3_gak77")
 normal_enabled = true
@@ -19,7 +19,7 @@ normal_texture = ExtResource("4_gak77")
 [node name="AnimatedRig" unique_id=1324601261 instance=ExtResource("1_1u0gc")]
 transform = Transform3D(-2.5352605e-08, 0, 0.58, 0, 0.58, 0, -0.58, 0, -2.5352605e-08, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1347140858) index="0" unique_id=1300383009]
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1689035830) index="0" unique_id=1893910085]
 bones/6/rotation = Quaternion(0.2827009, -0.31525108, 0.21405554, 0.88027114)
 bones/10/rotation = Quaternion(-0.21864411, -0.29100457, -0.15629372, 0.9181957)
 bones/12/rotation = Quaternion(-1.8691955e-07, 0.27998936, 0.9600031, -5.4515986e-08)
@@ -27,6 +27,6 @@ bones/13/rotation = Quaternion(-0.17155851, 0.12742613, 0.31526652, 0.92462814)
 bones/16/rotation = Quaternion(0.9658361, 1.7270013e-08, -6.436334e-08, -0.25915372)
 bones/17/rotation = Quaternion(-0.14861922, 0.14836489, 0.3945769, 0.8945442)
 
-[node name="Cube" parent="Armature/Skeleton3D" index="0" unique_id=2139054802]
+[node name="Cube" parent="Armature/Skeleton3D" index="0" unique_id=97644561]
 transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1.0000001, 0, -1.0000001, 0, -4.3711392e-08, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_5a4y6")

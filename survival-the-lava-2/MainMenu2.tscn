@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://xrcs2nkga2db" path="res://large_grass_land.tscn" id="1_wgwlm"]
 [ext_resource type="PackedScene" uid="uid://edy0rv6kpao4" path="res://Models/VolcanoLandBackDrop.glb" id="2_53sd1"]
+[ext_resource type="Shader" uid="uid://cge1y2lqtm7ja" path="res://LavaMoving.gdshader" id="3_53sd1"]
 [ext_resource type="Shader" uid="uid://bj1l5fxuy2s1d" path="res://Level1LAVA.gdshader" id="3_fe1lk"]
 [ext_resource type="Texture2D" uid="uid://cmkr60gqfjpn2" path="res://Models/pngs/lava/Lava005_1K-JPG_Color.jpg" id="4_ohdyq"]
 [ext_resource type="Texture2D" uid="uid://6y674wp66rhx" path="res://Models/pngs/lava/Lava005_1K-JPG_NormalGL.jpg" id="5_6ci03"]
@@ -18,12 +19,12 @@
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_dwyiq"]
+[sub_resource type="Sky" id="Sky_fe1lk"]
 sky_material = SubResource("ProceduralSkyMaterial_cove1")
 
 [sub_resource type="Environment" id="Environment_dn5ey"]
 background_mode = 2
-sky = SubResource("Sky_dwyiq")
+sky = SubResource("Sky_fe1lk")
 ssao_enabled = true
 ssil_enabled = true
 sdfgi_enabled = true
@@ -38,7 +39,7 @@ fog_light_energy = 16.0
 fog_density = 0.0064
 fog_sky_affect = 0.0
 volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.60122335, 0.6012229, 0.60122293, 1)
+volumetric_fog_albedo = Color(0.7411765, 0.6, 0.6, 1)
 volumetric_fog_emission = Color(0.008202022, 0.008202025, 0.008202025, 1)
 volumetric_fog_ambient_inject = 1.2
 
@@ -93,6 +94,33 @@ turbulence_initial_displacement_min = -52.5
 turbulence_initial_displacement_max = 1.490116e-06
 
 [sub_resource type="QuadMesh" id="QuadMesh_5py54"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ohdyq"]
+render_priority = 0
+shader = ExtResource("3_53sd1")
+shader_parameter/albedo = Color(0.48839885, 0.37683707, 0, 1)
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("9_ycrhw")
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/texture_emission = ExtResource("6_rgo1b")
+shader_parameter/emission = Color(1, 1, 0, 1)
+shader_parameter/emission_energy = 11.78
+shader_parameter/texture_normal = ExtResource("5_6ci03")
+shader_parameter/normal_scale = 16.0
+shader_parameter/texture_bent_normal = ExtResource("5_6ci03")
+shader_parameter/texture_heightmap = ExtResource("7_4s5pe")
+shader_parameter/heightmap_scale = -16.0
+shader_parameter/heightmap_min_layers = 1
+shader_parameter/heightmap_max_layers = 64
+shader_parameter/heightmap_flip = Vector2(1, 1)
+shader_parameter/uv1_scale = Vector3(811.223, 44.33, 8.156)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bjei"]
 render_priority = 0
@@ -203,6 +231,7 @@ spot_angle = 51.281963
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=413810902]
 transform = Transform3D(-0.00019789414, -228.57443, -1.0886758e-06, 0, -9.991306e-06, 24.906002, -4527.29, 9.991306e-06, 4.7587537e-14, -33.631058, 8.26244, 0)
+material_override = SubResource("ShaderMaterial_ohdyq")
 mesh = SubResource("QuadMesh_gtilq")
 
 [node name="GPU_Particles3d" type="Node3D" parent="." unique_id=625524321]
@@ -420,7 +449,7 @@ process_material = SubResource("ParticleProcessMaterial_wapi5")
 draw_pass_1 = SubResource("QuadMesh_a2cb0")
 
 [node name="EmberEffects2" type="Node3D" parent="GPU_Particles3d" unique_id=1807618589]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.8893156, -57.677795)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.8893156, -75.72914)
 
 [node name="Ember" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects2" unique_id=434182987]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.771576, 12.639664, 45.791557)
@@ -631,7 +660,7 @@ process_material = SubResource("ParticleProcessMaterial_wapi5")
 draw_pass_1 = SubResource("QuadMesh_a2cb0")
 
 [node name="EmberEffects3" type="Node3D" parent="GPU_Particles3d" unique_id=1404367482]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.8893156, -106.10878)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.8893156, -110.243256)
 
 [node name="Ember" type="GPUParticles3D" parent="GPU_Particles3d/EmberEffects3" unique_id=1676791757]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.771576, 12.639664, 45.791557)

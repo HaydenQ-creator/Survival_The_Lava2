@@ -15,6 +15,10 @@ font_size = 42
 line_spacing = 7.27
 font_size = 37
 
+[sub_resource type="LabelSettings" id="LabelSettings_oft6u"]
+line_spacing = 7.27
+font_size = 24
+
 [node name="MainMenu" type="Control" unique_id=137588895]
 layout_mode = 3
 anchors_preset = 0
@@ -139,8 +143,8 @@ offset_left = -421.90894
 offset_top = -73.717316
 offset_right = 729.09106
 offset_bottom = 147.28268
-text = "Volcanic Flashes"
-label_settings = SubResource("LabelSettings_m2lub")
+text = "Idk what to call this level"
+label_settings = SubResource("LabelSettings_oft6u")
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -8,6 +8,9 @@
 [sub_resource type="NavigationMesh" id="NavigationMesh_l1vy1"]
 
 [sub_resource type="Environment" id="Environment_l1vy1"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.15
 glow_enabled = true
 glow_normalized = true
 glow_bloom = 1.0
@@ -37,14 +40,6 @@ omni_range = 10.456775
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=734172632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2277994, 9.248314, 0.3951652)
-light_color = Color(1, 0.68235296, 0, 1)
-light_energy = 6.79
-light_indirect_energy = 2.62
-light_volumetric_fog_energy = 0.1
-omni_range = 14.233536
-
-[node name="OmniLight3D6" type="OmniLight3D" parent="." unique_id=874878536]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.097289, 9.147429, 0.3951652)
 light_color = Color(1, 0.68235296, 0, 1)
 light_energy = 6.79
 light_indirect_energy = 2.62
@@ -92,4 +87,26 @@ navigation_mesh = SubResource("NavigationMesh_l1vy1")
 environment = SubResource("Environment_l1vy1")
 
 [node name="Player" parent="." unique_id=25935713 instance=ExtResource("4_xcs05")]
-transform = Transform3D(-8.702938e-08, 0, 1.991, 0, 1.991, 0, -1.991, 0, -8.702938e-08, 3.0214987, 3.9054775, -2.0943813)
+transform = Transform3D(-8.702938e-08, 0, 1.991, 0, 1.991, 0, -1.991, 0, -8.702938e-08, -3.610549, 3.9054775, -8.434422)
+
+[node name="PlayerLight" type="OmniLight3D" parent="Player" unique_id=5592402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3973856, 0)
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+omni_range = 8.656844
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=106834802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.769346, 4.837264, 0)
+size = Vector3(1, 7.7128906, 12.891602)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGBox3D" unique_id=465316891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2175446, 0, 0)
+visible = false
+omni_range = 7.088019
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGBox3D" unique_id=28030997]
+transform = Transform3D(-4.371139e-08, 0.051527515, 0.9986716, 0, -0.9986716, 0.051527515, 1, 2.25234e-09, 4.3653323e-08, -1.4062496, 0.28729212, 4.0620094e-08)
+light_energy = 4.29
+light_volumetric_fog_energy = 0.5
+spot_range = 20.31965
+spot_angle = 57.887177

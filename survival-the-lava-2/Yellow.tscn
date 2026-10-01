@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bxdlbiyemv3rp"]
+
+[ext_resource type="Script" uid="uid://b1bt1hftjrspl" path="res://Yellow.cs" id="1_vpx6w"]
+[ext_resource type="PackedScene" uid="uid://ckm7k3v5n6lj2" path="res://animated_rig_yellow.tscn" id="2_qrra4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ke062"]
+height = 2.1408691
+
+[node name="Yellow" type="CharacterBody3D" unique_id=25935713]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+script = ExtResource("1_vpx6w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1307964816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18884277, 0)
+shape = SubResource("CapsuleShape3D_ke062")
+
+[node name="AnimatedRig" parent="." unique_id=1324601261 instance=ExtResource("2_qrra4")]
+
+[node name="VisionRay" type="RayCast3D" parent="." unique_id=202285246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12265837, 0.90332794, 0)
+target_position = Vector3(0, 0, -10)

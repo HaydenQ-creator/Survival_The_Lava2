@@ -83,7 +83,7 @@ public override void _Ready()
 	{
 		Level_buttons_visible = false;
 		Player.can_move = true;
-		string gameScenePath = "res://Level3.tscn";
+		string gameScenePath = "res://Level3Concept.tscn";
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		GetTree().ChangeSceneToFile(gameScenePath);
 	}

@@ -22,7 +22,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18884277, 0)
 shape = SubResource("CapsuleShape3D_ke062")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=788691572]
-visible = false
 mesh = SubResource("CapsuleMesh_ke062")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1042505024]

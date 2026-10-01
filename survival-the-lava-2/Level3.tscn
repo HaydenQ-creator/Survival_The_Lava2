@@ -21,6 +21,7 @@ volumetric_fog_density = 0.1328
 [node name="Level3" type="Node3D" unique_id=935952789]
 
 [node name="LivingRoom" parent="." unique_id=327580798 instance=ExtResource("1_84iim")]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0.006263733, -0.023055553, 0.0026082993)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1358543125]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.88554, 8.223602, 0.3951652)
@@ -87,7 +88,7 @@ navigation_mesh = SubResource("NavigationMesh_l1vy1")
 environment = SubResource("Environment_l1vy1")
 
 [node name="Player" parent="." unique_id=25935713 instance=ExtResource("4_xcs05")]
-transform = Transform3D(-8.702938e-08, 0, 1.991, 0, 1.991, 0, -1.991, 0, -8.702938e-08, -3.610549, 3.9054775, -8.434422)
+transform = Transform3D(-8.702938e-08, 0, 1.991, 0, 1.991, 0, -1.991, 0, -8.702938e-08, 0.71834993, 3.9054775, -8.434422)
 
 [node name="PlayerLight" type="OmniLight3D" parent="Player" unique_id=5592402]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3973856, 0)
@@ -105,8 +106,22 @@ visible = false
 omni_range = 7.088019
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CSGBox3D" unique_id=28030997]
-transform = Transform3D(-4.371139e-08, 0.051527515, 0.9986716, 0, -0.9986716, 0.051527515, 1, 2.25234e-09, 4.3653323e-08, -1.4062496, 0.28729212, 4.0620094e-08)
+transform = Transform3D(-4.371139e-08, 0.051527515, 0.9986716, 0, -0.9986716, 0.051527515, 1, 2.2523392e-09, 4.3653323e-08, -0.7800808, 0.287292, 4.0620094e-08)
 light_energy = 4.29
-light_volumetric_fog_energy = 0.5
+light_volumetric_fog_energy = 0.2
+spot_range = 20.31965
+spot_angle = 57.887177
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="CSGBox3D" unique_id=1028950368]
+transform = Transform3D(-4.371139e-08, 0.051527515, 0.9986716, 0, -0.9986716, 0.051527515, 1, 2.2523392e-09, 4.3653323e-08, -0.7800808, 0.287292, -5.5862036)
+light_energy = 4.29
+light_volumetric_fog_energy = 0.2
+spot_range = 20.31965
+spot_angle = 57.887177
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="CSGBox3D" unique_id=2131136011]
+transform = Transform3D(-4.371139e-08, 0.051527515, 0.9986716, 0, -0.9986716, 0.051527515, 1, 2.2523392e-09, 4.3653323e-08, -0.7800808, 0.287292, 4.8404813)
+light_energy = 4.29
+light_volumetric_fog_energy = 0.2
 spot_range = 20.31965
 spot_angle = 57.887177

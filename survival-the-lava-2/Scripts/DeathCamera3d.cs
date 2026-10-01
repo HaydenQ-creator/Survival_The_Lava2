@@ -3,7 +3,7 @@ using System;
 
 public partial class DeathCamera3d : Camera3D
 {
-	[Export] public Node3D TargetPlayer;
+	[Export] public CharacterBody3D TargetPlayer;
 
 
 	private float _currentAngle = 0.0f;

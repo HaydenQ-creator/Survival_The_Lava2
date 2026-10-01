@@ -33,7 +33,10 @@ public partial class Camera3dFIRSTPERSON : Camera3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-
+		if(Player.can_move == false)
+		{
+			Current = false;
+		}
 	}
 	
 	public override void _Input(InputEvent @event)

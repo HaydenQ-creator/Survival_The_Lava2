@@ -55,7 +55,7 @@ public override void _Ready()
 	private void OnTestButtonPressed()
 	{
 		Player.can_move = true;
-		string gameScenePath = "res://Test.tscn"; 
+		string gameScenePath = "res://Scenes/Test.tscn"; 
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		GetTree().ChangeSceneToFile(gameScenePath);
 	}
@@ -67,7 +67,7 @@ public override void _Ready()
 	{
 		Level_buttons_visible = false;
 		Player.can_move = true;
-		string gameScenePath = "res://Level1.tscn"; 
+		string gameScenePath = "res://Scenes/Level1.tscn"; 
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		GetTree().ChangeSceneToFile(gameScenePath);
 	}
@@ -75,7 +75,7 @@ public override void _Ready()
 	{
 		Level_buttons_visible = false;
 		Player.can_move = true;
-		string gameScenePath = "res://Level2.tscn";
+		string gameScenePath = "res://Scenes/Level2.tscn";
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		GetTree().ChangeSceneToFile(gameScenePath);
 	}
@@ -83,7 +83,7 @@ public override void _Ready()
 	{
 		Level_buttons_visible = false;
 		Player.can_move = true;
-		string gameScenePath = "res://Level3Concept.tscn";
+		string gameScenePath = "res://Scenes/Level3Concept.tscn";
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		GetTree().ChangeSceneToFile(gameScenePath);
 	}

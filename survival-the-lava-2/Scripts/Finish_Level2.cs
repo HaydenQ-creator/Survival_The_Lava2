@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Finish_Level1 : Node3D
+public partial class Finish_Level2 : Node3D
 {
 	private Timer _timer;
 	private bool _timerStarted = false; 
@@ -30,6 +30,6 @@ public partial class Finish_Level1 : Node3D
 
 	private void OnTimerTimeout()
 	{
-		Callable.From(() => GetTree().ChangeSceneToFile("res://Level2.tscn")).CallDeferred();
+		Callable.From(() => GetTree().ChangeSceneToFile("res://MenuChooser.tscn")).CallDeferred();
 	}
 }

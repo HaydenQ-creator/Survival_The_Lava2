@@ -7,7 +7,7 @@ public partial class NewSpringArm3d : SpringArm3D
 	[Export] public float mouse_sensitivity = 0.002f;
 
 	
-	// Called when the node enters the scene tree for the first time.
+	
 	public override void _Ready()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -15,7 +15,7 @@ public partial class NewSpringArm3d : SpringArm3D
 	
 	public override void _UnhandledInput(InputEvent @event)
 	{
-		// 1. Cast the event to InputEventMouseMotion using pattern matching
+	
 		if (@event is InputEventMouseMotion mouseMotionEvent)
 		{
 			Vector3 currentRotation = Rotation;

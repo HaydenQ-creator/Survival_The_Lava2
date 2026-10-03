@@ -6,7 +6,7 @@ public partial class PlayerFP : CharacterBody3D
 	[Export] public float NormalSpeed = 7.0f;
 	[Export] public float JumpVelocity = 4.5f;
 	[Export] public float SprintSpeed = 10.0f;
-	[Export] public float Speed = 5.0f;
+	[Export] public float Speed = 7.0f;
 	[Export] private float normalAnimationSpeed = 1.0f;
 	[Export] private float sprintAnimationSpeed = 1.6f; 
 	

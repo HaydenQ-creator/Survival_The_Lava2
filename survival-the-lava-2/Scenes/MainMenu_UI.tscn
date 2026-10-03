@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dunmmkmsds188"]
 
 [ext_resource type="Script" uid="uid://cr8fubibydaqa" path="res://Scripts/MainMenu.cs" id="1_m2lub"]
-[ext_resource type="Script" uid="uid://coif1hi8nag8m" path="res://LevelButtons.cs" id="2_2p34a"]
+[ext_resource type="Script" uid="uid://coif1hi8nag8m" path="res://Scripts/LevelButtons.cs" id="2_2p34a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2p34a"]
 line_spacing = 7.27

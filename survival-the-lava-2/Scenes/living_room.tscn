@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://ci47soai0sq42"]
 
-[ext_resource type="PackedScene" uid="uid://cpibvcekjl6ns" path="res://Models/LivingRoom.glb" id="1_efgsu"]
-[ext_resource type="Material" uid="uid://diy43poggoi04" path="res://ROcky.tres" id="2_378y4"]
-[ext_resource type="Texture2D" uid="uid://d1at782ese4vx" path="res://Models/pngs/Rock/Rock035_1K-JPG_AmbientOcclusion.jpg" id="2_w7u4w"]
-[ext_resource type="Texture2D" uid="uid://1y3616dkmrq6" path="res://Models/pngs/Rock/Rock035_1K-JPG_NormalGL.jpg" id="3_qxcby"]
-[ext_resource type="Texture2D" uid="uid://occhrix32u11" path="res://Models/pngs/Rock/Rock035_1K-JPG_Displacement.jpg" id="4_mjt0p"]
-[ext_resource type="Texture2D" uid="uid://b42ue4tj0aftx" path="res://Models/pngs/Rock/Rock035_1K-JPG_NormalDX.jpg" id="5_jm2cs"]
+[ext_resource type="PackedScene" uid="uid://cpibvcekjl6ns" path="res://Models/LivingRoom.glb" id="1_wf7x3"]
+[ext_resource type="Texture2D" uid="uid://d1at782ese4vx" path="res://Models/pngs/Rock/Rock035_1K-JPG_AmbientOcclusion.jpg" id="2_dr6f2"]
+[ext_resource type="Texture2D" uid="uid://1y3616dkmrq6" path="res://Models/pngs/Rock/Rock035_1K-JPG_NormalGL.jpg" id="3_1n8lk"]
+[ext_resource type="Texture2D" uid="uid://occhrix32u11" path="res://Models/pngs/Rock/Rock035_1K-JPG_Displacement.jpg" id="4_wfv14"]
+[ext_resource type="Texture2D" uid="uid://b42ue4tj0aftx" path="res://Models/pngs/Rock/Rock035_1K-JPG_NormalDX.jpg" id="5_462bk"]
+[ext_resource type="Material" uid="uid://diy43poggoi04" path="res://ROcky.tres" id="6_jwmef"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_amcw0"]
 load_path = "res://.godot/imported/Rock035_1K-JPG_Color.jpg-62a41711967dedc84bcd03126eb5ad5e.s3tc.ctex"
@@ -13,17 +13,17 @@ load_path = "res://.godot/imported/Rock035_1K-JPG_Color.jpg-62a41711967dedc84bcd
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sigte"]
 albedo_texture = SubResource("CompressedTexture2D_amcw0")
 normal_enabled = true
-normal_texture = ExtResource("5_jm2cs")
+normal_texture = ExtResource("5_462bk")
 bent_normal_enabled = true
-bent_normal_texture = ExtResource("3_qxcby")
+bent_normal_texture = ExtResource("3_1n8lk")
 ao_enabled = true
 ao_light_affect = 1.0
-ao_texture = ExtResource("2_w7u4w")
+ao_texture = ExtResource("2_dr6f2")
 heightmap_scale = 1.0
 heightmap_deep_parallax = true
 heightmap_min_layers = 8
 heightmap_max_layers = 32
-heightmap_texture = ExtResource("4_mjt0p")
+heightmap_texture = ExtResource("4_wfv14")
 uv1_scale = Vector3(0.94, 0.94, 0.94)
 uv1_triplanar = true
 
@@ -84,7 +84,7 @@ data = PackedVector3Array(-176.10779, 27.311499, -20.955599, -171.9418, 27.3224,
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_is08k"]
 data = PackedVector3Array(-53.182, 27.3118, 72.455894, -49.0746, 27.3223, 99.2772, -53.182, 27.3118, 99.2772, -53.182, 27.3118, 72.455894, -49.0746, 27.3223, 72.455894, -49.0746, 27.3223, 99.2772, -48.9823, 1.7858, 72.455894, -49.0746, 27.3223, 99.2772, -49.0746, 27.3223, 72.455894, -48.9823, 1.7858, 72.455894, -48.9823, 1.7858, 99.2772, -49.0746, 27.3223, 99.2772, -48.9823, 1.7858, 99.2772, -53.182, 27.3118, 99.2772, -49.0746, 27.3223, 99.2772, -48.9823, 1.7858, 99.2772, -53.0897, 1.7757, 99.2772, -53.182, 27.3118, 99.2772, -53.0897, 1.7757, 99.2772, -48.9823, 1.7858, 72.455894, -53.0897, 1.7757, 72.455894, -53.0897, 1.7757, 99.2772, -48.9823, 1.7858, 99.2772, -48.9823, 1.7858, 72.455894, -53.0897, 1.7757, 72.455894, -49.0746, 27.3223, 72.455894, -53.182, 27.3118, 72.455894, -53.0897, 1.7757, 72.455894, -48.9823, 1.7858, 72.455894, -49.0746, 27.3223, 72.455894, -53.0897, 1.7757, 99.2772, -53.182, 27.3118, 72.455894, -53.182, 27.3118, 99.2772, -53.0897, 1.7757, 99.2772, -53.0897, 1.7757, 72.455894, -53.182, 27.3118, 72.455894)
 
-[node name="LivingRoom" unique_id=327580798 instance=ExtResource("1_efgsu")]
+[node name="LivingRoom" unique_id=327580798 instance=ExtResource("1_wf7x3")]
 transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0, 0)
 
 [node name="Ceiling" parent="." index="0" unique_id=1855633950]
@@ -98,7 +98,7 @@ shape = SubResource("ConcavePolygonShape3D_w7u4w")
 
 [node name="Cube" parent="." index="1" unique_id=1956922437]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, -0.011686377)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=1070699240]
 
@@ -107,7 +107,7 @@ shape = SubResource("ConcavePolygonShape3D_qxcby")
 
 [node name="Cube_001" parent="." index="2" unique_id=1340256817]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, -0.011686377)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_001" index="0" unique_id=428632422]
 
@@ -116,7 +116,7 @@ shape = SubResource("ConcavePolygonShape3D_mjt0p")
 
 [node name="Cube_002" parent="." index="3" unique_id=713051497]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, -0.011686377)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_002" index="0" unique_id=1662856896]
 
@@ -125,7 +125,7 @@ shape = SubResource("ConcavePolygonShape3D_jm2cs")
 
 [node name="Cube_004" parent="." index="4" unique_id=878564144]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123, 0.064, -0.012)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_004" index="0" unique_id=1375349097]
 
@@ -134,7 +134,7 @@ shape = SubResource("ConcavePolygonShape3D_amcw0")
 
 [node name="Cube_005" parent="." index="5" unique_id=1789593773]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, -0.011686377)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_005" index="0" unique_id=221256987]
 
@@ -143,7 +143,7 @@ shape = SubResource("ConcavePolygonShape3D_sigte")
 
 [node name="Cube_006" parent="." index="6" unique_id=1118148174]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, -0.011686377)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_006" index="0" unique_id=843197170]
 
@@ -152,7 +152,7 @@ shape = SubResource("ConcavePolygonShape3D_6sk78")
 
 [node name="Cube_007" parent="." index="7" unique_id=1795070404]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, -0.011686377)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_007" index="0" unique_id=567952441]
 
@@ -161,7 +161,7 @@ shape = SubResource("ConcavePolygonShape3D_parq5")
 
 [node name="Cube_008" parent="." index="8" unique_id=853084077]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, -0.011686377)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_008" index="0" unique_id=333860516]
 
@@ -170,7 +170,7 @@ shape = SubResource("ConcavePolygonShape3D_pd0i2")
 
 [node name="Cube_009" parent="." index="9" unique_id=1447671367]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, 2.4687793)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_009" index="0" unique_id=283792867]
 
@@ -179,7 +179,7 @@ shape = SubResource("ConcavePolygonShape3D_6utvc")
 
 [node name="Cube_010" parent="." index="10" unique_id=1731230124]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003, 0.064, 2.469)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_010" index="0" unique_id=1299730630]
 
@@ -188,7 +188,7 @@ shape = SubResource("ConcavePolygonShape3D_2uuqs")
 
 [node name="Cube_011" parent="." index="11" unique_id=2072324412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.445631, 0.063780196, -0.011686377)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_011" index="0" unique_id=939447853]
 
@@ -197,7 +197,7 @@ shape = SubResource("ConcavePolygonShape3D_mogh0")
 
 [node name="Cube_012" parent="." index="12" unique_id=1507867924]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, -0.011686377)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_012" index="0" unique_id=290286024]
 
@@ -206,7 +206,7 @@ shape = SubResource("ConcavePolygonShape3D_j7inc")
 
 [node name="Cube_014" parent="." index="13" unique_id=68443962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128, 0.064, -0.012)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_014" index="0" unique_id=2024094121]
 
@@ -215,7 +215,7 @@ shape = SubResource("ConcavePolygonShape3D_weu2t")
 
 [node name="Cube_016" parent="." index="14" unique_id=1464338887]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, -4.363925)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_016" index="0" unique_id=177094956]
 
@@ -224,7 +224,7 @@ shape = SubResource("ConcavePolygonShape3D_mj6ii")
 
 [node name="Cube_017" parent="." index="15" unique_id=617107616]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, 4.1439996)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_017" index="0" unique_id=1027951922]
 
@@ -233,7 +233,7 @@ shape = SubResource("ConcavePolygonShape3D_joy5l")
 
 [node name="Cube_018" parent="." index="16" unique_id=455445958]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, -0.011686377)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_018" index="0" unique_id=566296901]
 
@@ -242,7 +242,7 @@ shape = SubResource("ConcavePolygonShape3D_s8sbf")
 
 [node name="Cube_019" parent="." index="17" unique_id=1863057664]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, -0.011686377)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_019" index="0" unique_id=1556154158]
 
@@ -251,7 +251,7 @@ shape = SubResource("ConcavePolygonShape3D_nrb5j")
 
 [node name="Cube_021" parent="." index="18" unique_id=1021982774]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052712414, 0.063780196, -2.6133878)
-material_override = ExtResource("2_378y4")
+material_override = ExtResource("6_jwmef")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_021" index="0" unique_id=1858005479]
 

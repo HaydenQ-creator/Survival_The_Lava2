@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ds8ni8qpsxagm"]
+
+[ext_resource type="Script" uid="uid://bulvw2grmpsw3" path="res://Scripts/MenuChooser.cs" id="1_jt2nx"]
+[ext_resource type="Texture2D" uid="uid://dqpl62o4eojc2" path="res://Models/pngs/FlightBurping.jpg" id="2_ime5x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1vy1"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_it6ar"]
+albedo_texture = ExtResource("2_ime5x")
+
+[node name="Node3D" type="Node3D" unique_id=1106615458]
+script = ExtResource("1_jt2nx")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=651396948]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=19547645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6532373)
+material_override = SubResource("StandardMaterial3D_l1vy1")
+size = Vector3(5.5634766, 3.6542969, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=219791951]
+transform = Transform3D(0.4692607, 0, 0, 0, 0.4692607, 0, 0, 0, 0.4692607, 0, 0.10274497, -1.1585065)
+material_override = SubResource("StandardMaterial3D_it6ar")
+size = Vector3(2.1953125, 2.0742188, 0.111572266)
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1197142239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15880877, -1.1212686)
+text = "Peak loading"

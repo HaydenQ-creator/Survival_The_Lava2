@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://beqtmxvf8kll5" path="res://Audio/Earthquake Low-Frequency Rumble - Sound Effect (HD).mp3" id="5_iwfq2"]
 [ext_resource type="Texture2D" uid="uid://curb8subblpcc" path="res://Models/pngs/T_smoke_b7.png" id="6_cqjrg"]
 [ext_resource type="Texture2D" uid="uid://b1xcpoiy8gjmt" path="res://Models/pngs/FireEmber.png" id="7_cqjrg"]
-[ext_resource type="PackedScene" uid="uid://dunmmkmsds188" path="res://MainMenu_UI.tscn" id="8_e2xy7"]
+[ext_resource type="PackedScene" uid="uid://dunmmkmsds188" path="res://Scenes/MainMenu_UI.tscn" id="8_e2xy7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eiy7p"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

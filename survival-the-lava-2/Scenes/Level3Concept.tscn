@@ -1,0 +1,992 @@
+[gd_scene format=3 uid="uid://ocklvl0onlcv"]
+
+[ext_resource type="Material" uid="uid://diy43poggoi04" path="res://ROcky.tres" id="1_n8cle"]
+[ext_resource type="Shader" uid="uid://cge1y2lqtm7ja" path="res://LavaMoving.gdshader" id="2_ma7mk"]
+[ext_resource type="Texture2D" uid="uid://cmkr60gqfjpn2" path="res://Models/pngs/lava/Lava005_1K-JPG_Color.jpg" id="3_fowgc"]
+[ext_resource type="Texture2D" uid="uid://6y674wp66rhx" path="res://Models/pngs/lava/Lava005_1K-JPG_NormalGL.jpg" id="4_p65dy"]
+[ext_resource type="Texture2D" uid="uid://cumrb1qmvctvg" path="res://Models/pngs/lava/Lava005_1K-JPG_Emission.jpg" id="5_rq8qg"]
+[ext_resource type="Texture2D" uid="uid://bx6qq63bqqvsx" path="res://Models/pngs/lava/Lava005_1K-JPG_Displacement.jpg" id="6_msjdb"]
+[ext_resource type="Texture2D" uid="uid://f5itqmwsrt7y" path="res://Models/pngs/lava/Lava005_1K-JPG_NormalDX.jpg" id="7_brhnw"]
+[ext_resource type="Texture2D" uid="uid://dak08h7dd8oe5" path="res://Models/pngs/lava/Lava005_1K-JPG_Roughness.jpg" id="8_xfe84"]
+[ext_resource type="PackedScene" uid="uid://ce8qr4u4qiixw" path="res://Scenes/wooden_support_2.tscn" id="9_brhnw"]
+[ext_resource type="Script" uid="uid://d1mq2kij4essb" path="res://Scripts/LavaArea3d.cs" id="9_msjdb"]
+[ext_resource type="PackedScene" uid="uid://b4j7qan210c6c" path="res://Scenes/Player.tscn" id="10_msjdb"]
+[ext_resource type="Texture2D" uid="uid://b1xcpoiy8gjmt" path="res://Models/pngs/FireEmber.png" id="10_xfe84"]
+[ext_resource type="Script" uid="uid://cqc7ybphklx80" path="res://Scripts/DeathCamera3d.cs" id="11_brhnw"]
+[ext_resource type="Script" uid="uid://bkke2t3a2u3io" path="res://Scripts/DeathTitle.cs" id="12_xfe84"]
+[ext_resource type="AudioStream" uid="uid://cqokudl84ik54" path="res://Audio/CoolGuyDeath.mp3" id="13_wotjm"]
+[ext_resource type="Script" uid="uid://c0ei2a2ms6bwm" path="res://Scripts/DeathAudioPlayer.cs" id="14_nv0oh"]
+[ext_resource type="Script" uid="uid://batoh4ep7cl1a" path="res://Scripts/Finish_Level3.cs" id="17_vlk6x"]
+[ext_resource type="Script" uid="uid://blua3vuuree8d" path="res://Scripts/Level1_Finish.cs" id="18_u87k5"]
+[ext_resource type="AudioStream" uid="uid://cldu8d8u54uaa" path="res://Audio/Success.mp3" id="19_e1qmo"]
+[ext_resource type="Script" uid="uid://lwj6h5gk3g6d" path="res://Scripts/AudioStreamPlayerFinish.cs" id="20_h5ydq"]
+[ext_resource type="Script" uid="uid://ckcscfblvdfj4" path="res://Scripts/Timer_Level1.cs" id="21_wmkqq"]
+[ext_resource type="AudioStream" uid="uid://dkfu78p7q2bvb" path="res://Audio/Fire/soundreality-fire-sound-334130.mp3" id="22_33e1c"]
+[ext_resource type="Script" uid="uid://4d28x6u882tk" path="res://Scripts/Level1_bgm.cs" id="23_tojww"]
+[ext_resource type="AudioStream" uid="uid://brvcppxyqujsg" path="res://Audio/Warframe OST - Heart of Deimos - Ambience Music.mp3" id="24_qs3k3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wotjm"]
+render_priority = 0
+shader = ExtResource("2_ma7mk")
+shader_parameter/albedo = Color(0.8855951, 0.5289715, 0, 1)
+shader_parameter/texture_albedo = ExtResource("3_fowgc")
+shader_parameter/albedo_texture_size = Vector2i(1024, 1024)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("8_xfe84")
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/texture_emission = ExtResource("5_rq8qg")
+shader_parameter/emission = Color(1, 1, 0, 1)
+shader_parameter/emission_energy = 16.0
+shader_parameter/texture_normal = ExtResource("7_brhnw")
+shader_parameter/normal_scale = 16.0
+shader_parameter/texture_bent_normal = ExtResource("4_p65dy")
+shader_parameter/texture_heightmap = ExtResource("6_msjdb")
+shader_parameter/heightmap_scale = -16.0
+shader_parameter/heightmap_min_layers = 8
+shader_parameter/heightmap_max_layers = 32
+shader_parameter/heightmap_flip = Vector2(1, 1)
+shader_parameter/uv1_scale = Vector3(24.325, 24.325, 24.325)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1vy1"]
+size = Vector3(1, 9.595154, 15.174805)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wotjm"]
+transparency = 1
+albedo_texture = ExtResource("10_xfe84")
+emission_enabled = true
+emission = Color(0.84294647, 0.32604545, 7.70092e-07, 1)
+emission_energy_multiplier = 100.0
+emission_operator = 1
+emission_texture = ExtResource("10_xfe84")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow_amount = -16.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nv0oh"]
+lifetime_randomness = 1.0
+gravity = Vector3(0, 0.275, 3.29)
+use_scale_3d = true
+scale_3d_min = Vector3(-25.485, -25.485, -25.485)
+scale_3d_max = Vector3(-1.435, -1.435, -1.435)
+turbulence_enabled = true
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 6.465
+turbulence_noise_speed_random = 1.63
+turbulence_influence_min = 0.0
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 1.490116e-06
+
+[sub_resource type="QuadMesh" id="QuadMesh_oh0am"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_emtbv"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+sky_cover_modulate = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_ke062"]
+sky_material = SubResource("ProceduralSkyMaterial_emtbv")
+
+[sub_resource type="Environment" id="Environment_ke062"]
+background_mode = 2
+sky = SubResource("Sky_ke062")
+ssao_enabled = true
+ssao_intensity = 16.0
+ssao_power = 29.54692
+ssao_horizon = 0.26
+ssao_light_affect = 0.82
+sdfgi_enabled = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 2.39
+glow_bloom = 0.05
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(1, 0.5529412, 0.60784316, 1)
+fog_density = 1.0
+fog_depth_curve = 1.3660408
+fog_depth_begin = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.62352943, 0.37254903, 0.37254903, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oh0am"]
+size = Vector3(219.72644, 11.188477, 154.49707)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5eth8"]
+size = Vector3(13.239258, 8.665527, 54.834595)
+
+[node name="Level3" type="Node3D" unique_id=935952789]
+
+[node name="Level" type="Node3D" parent="." unique_id=2085411415]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Level" unique_id=1289185618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.906372, 10.184666, 0)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(193.40991, 1, 116.75757)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Level" unique_id=1017052505]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -18.906372, 16.09663, 8.018249)
+material_override = SubResource("ShaderMaterial_wotjm")
+size = Vector3(137.77539, 1, 217.20898)
+
+[node name="Ceiling" type="CSGBox3D" parent="Level" unique_id=681073599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.906372, 67.29274, 0)
+visible = false
+use_collision = true
+size = Vector3(341.64624, 1, 116.75757)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Level" unique_id=937607302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.18024, 34.17102, -32.20627)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(3.2366943, 69.34204, 52.34503)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Level" unique_id=1151549027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.18024, 34.17102, 32.30863)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(3.2366943, 69.34204, 52.34503)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Level" unique_id=1125495078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.906372, 33.680725, 56.985474)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(193.40991, 68.36145, 2.786621)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Level" unique_id=1599659346]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.906372, 33.680725, -57.266144)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(193.40991, 68.36145, 2.786621)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Level" unique_id=1624487371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -213.8681, 33.680725, -7.806944)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(193.40991, 68.36145, 2.786621)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Level" unique_id=790316158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.80437, 33.680725, 7.518036)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(193.40991, 68.36145, 2.786621)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Level" unique_id=77477719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.03479, 33.680725, -7.806944)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(193.40991, 68.36145, 2.786621)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Level" unique_id=1764796395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.09853, 33.680725, 7.518036)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(193.40991, 68.36145, 2.786621)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Level" unique_id=2138384374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.66122, 16.860016, 0)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(206.2829, 34.72003, 13.084961)
+
+[node name="CSGBox3D56" type="CSGBox3D" parent="Level" unique_id=2133246688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.10419, 55.578102, 0)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(206.283, 27.038715, 13.085)
+
+[node name="CSGBox3D57" type="CSGBox3D" parent="Level" unique_id=312760990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -216.38, 59.414, 0)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(206.283, 34.71, 13.085)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Level" unique_id=898823602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.801025, 34.17102, -32.20627)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(3.2366943, 69.34204, 52.34503)
+
+[node name="CSGBox3D52" type="CSGBox3D" parent="Level" unique_id=569684923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -296.3343, 34.17102, -14.11113)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(3.2366943, 69.34204, 88.53531)
+
+[node name="CSGBox3D53" type="CSGBox3D" parent="Level" unique_id=918855791]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229.22382, 34.17102, -14.11113)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(3.2366943, 69.34204, 88.53531)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Level" unique_id=228986638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.801025, 34.17102, 32.691757)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(3.2366943, 69.34204, 52.34503)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Level" unique_id=2007383655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -195.88876, 16.860016, 0)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(216.97443, 34.72003, 13.084961)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Level" unique_id=455522657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.01742, 13.57991, -2.9566288)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Level" unique_id=554178536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.775127, 13.57991, 1.1007843)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="Level" unique_id=547926771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.870754, 13.57991, 3.1200466)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D51" type="CSGBox3D" parent="Level" unique_id=995182361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.4786, 13.57991, 9.350582)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Level" unique_id=1343371625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.483938, 13.57991, -1.705761)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Level" unique_id=225446966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.396086, 13.57991, -1.0722828)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Level" unique_id=1496855864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.812588, 13.57991, -6.3431196)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Level" unique_id=2011789091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.039528, 13.57991, -7.903984)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Level" unique_id=275190071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.151932, 13.57991, -7.903984)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Level" unique_id=1660643274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90453243, 13.57991, -7.903984)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="Level" unique_id=213543615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90453243, 13.57991, 0.030182838)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="Level" unique_id=334072900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90453243, 13.57991, 10.9208355)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="Level" unique_id=2041630173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8473473, 13.57991, 6.5693684)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="Level" unique_id=1228437944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8473473, 13.57991, -2.3158283)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="Level" unique_id=655652869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.336651, 13.57991, 2.498331)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="Level" unique_id=80927209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.049942, 13.57991, -7.109029)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="Level" unique_id=1864631256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.562466, 13.57991, -7.109029)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="Level" unique_id=2045862159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.126118, 13.57991, -1.8938684)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="Level" unique_id=471732397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.747524, 13.57991, -1.8938684)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="Level" unique_id=559344263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.947746, 13.57991, 5.275634)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="Level" unique_id=341196039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.901737, 13.57991, 5.275634)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="Level" unique_id=39302130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.901737, 13.57991, -6.8585405)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="Level" unique_id=1837966405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.492706, 13.57991, -6.8585405)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="Level" unique_id=1313915634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.492706, 13.57991, 4.305087)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="Level" unique_id=993897543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.8976, 13.57991, -0.47985172)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="Level" unique_id=415270981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.89852, 13.57991, -0.47985172)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="Level" unique_id=825927228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.31627, 13.57991, 3.8064241)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="Level" unique_id=40216658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.56871, 13.57991, -4.3584185)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="Level" unique_id=13707886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.952347, 13.57991, -1.5695925)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="Level" unique_id=555269334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.07445, 13.57991, -4.18688)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="Level" unique_id=1857153925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.52406, 14.148293, -5.884595)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 29.296585, 2.6513672)
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="Level" unique_id=1861002245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.000046, 14.472401, -2.580099)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 29.944801, 2.6513672)
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="Level" unique_id=793398608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.995, 14.988065, -5.9718595)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 30.97613, 2.6513672)
+
+[node name="CSGBox3D54" type="CSGBox3D" parent="Level" unique_id=247463592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.04961, 15.426411, -0.92457247)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 31.852821, 2.6513672)
+
+[node name="CSGBox3D55" type="CSGBox3D" parent="Level" unique_id=799875132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.45689, 15.953287, 2.9459429)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 32.906574, 2.6513672)
+
+[node name="CSGBox3D58" type="CSGBox3D" parent="Level" unique_id=2048899047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.30424, 16.287678, 2.9459429)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 33.575356, 2.6513672)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Level" unique_id=101268732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.483938, 13.57991, 6.6762524)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Level" unique_id=831793430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.799253, 13.57991, 3.5258732)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Level" unique_id=1016569765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.799253, 13.57991, 11.651405)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Level" unique_id=166202862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.842451, 13.57991, 7.623537)
+material_override = ExtResource("1_n8cle")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="WoodenSupport2" parent="Level" unique_id=604144617 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 76.8181, 34.370476, 0.14401224)
+
+[node name="WoodenSupport13" parent="Level" unique_id=857754004 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 84.455055, 34.370476, 0.14401191)
+
+[node name="WoodenSupport14" parent="Level" unique_id=1620793770 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 101.97597, 34.370476, 0.14401115)
+
+[node name="WoodenSupport15" parent="Level" unique_id=1119920055 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 117.57075, 34.370476, 0.14401047)
+
+[node name="WoodenSupport16" parent="Level" unique_id=2103304098 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 126.782936, 34.370476, 0.14401007)
+
+[node name="WoodenSupport3" parent="Level" unique_id=1868632080 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 92.81102, 34.370476, 0.14401154)
+
+[node name="WoodenSupport4" parent="Level" unique_id=270267176 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 107.61627, 34.370476, 0.1440109)
+
+[node name="WoodenSupport5" parent="Level" unique_id=1577318807 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 136.58488, 34.370476, 0.14400963)
+
+[node name="WoodenSupport6" parent="Level" unique_id=1859157775 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 136.58488, 34.370476, 0.14400963)
+
+[node name="WoodenSupport7" parent="Level" unique_id=146056093 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -114.02612, 34.370476, 0.1440206)
+
+[node name="WoodenSupport8" parent="Level" unique_id=1535021263 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -129.59094, 34.370476, 0.14402129)
+
+[node name="WoodenSupport11" parent="Level" unique_id=715182727 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -141.38045, 34.370476, 0.14402181)
+
+[node name="WoodenSupport12" parent="Level" unique_id=532666702 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -120.97243, 34.370476, 0.14402092)
+
+[node name="WoodenSupport9" parent="Level" unique_id=1272148367 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -157.78085, 34.370476, 0.14402251)
+
+[node name="WoodenSupport10" parent="Level" unique_id=1543697371 instance=ExtResource("9_brhnw")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -192.29053, 34.370476, 0.14402401)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level" unique_id=1695816806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.22432, 34.98782, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/StaticBody3D" unique_id=1474176353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3682098, 3.2599182, 0)
+shape = SubResource("BoxShape3D_l1vy1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Level/StaticBody3D" unique_id=418373004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -192.81941, 3.2599182, 0)
+shape = SubResource("BoxShape3D_l1vy1")
+
+[node name="EmberEffects2" type="Node3D" parent="Level" unique_id=1981419273]
+transform = Transform3D(-0.9995928, 0, -0.02853599, 0, 1, 0, 0.02853599, 0, -0.9995928, -255.39677, -17.898178, 132.25848)
+
+[node name="Ember18" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=542673027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 100.98404)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember19" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=491188306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 124.0656)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember20" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1525194409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 157.174)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember21" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=940082012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 163.27216)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember22" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=287220021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 141.42398)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember23" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1302529776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 174.1497)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember24" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1587994964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 74.54018)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember26" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=917958334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 84.6234)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember27" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=807679381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 107.6234)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember28" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1595853789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 133.6234)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember29" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1744896803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 169.1683)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember30" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1528683572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 181.22116)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember31" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1971077437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 148.12756)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember25" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=2076515442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 74.54018)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="EmberEffects3" type="Node3D" parent="Level" unique_id=2052077449]
+transform = Transform3D(-0.9995928, 0, -0.02853599, 0, 1, 0, 0.02853599, 0, -0.9995928, -105.48289, -25.560171, 127.978806)
+
+[node name="Ember18" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=1382029010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.7841, 37.19433, 100.98404)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember19" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=685917504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.84543, 37.19433, 124.0656)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember20" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=598249482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.41074, 37.19433, 157.174)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember21" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=2073703152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.0319, 37.19433, 163.27216)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember22" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=396193914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -151.3388, 37.19433, 141.42398)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember23" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=203588537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.48848, 37.19433, 174.1497)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember24" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=1953514863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 74.54018)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember26" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=158581606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.167854, 37.19433, 84.6234)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember27" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=797725245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.52149, 37.19433, 107.6234)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember28" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=254561049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.708626, 37.19433, 133.6234)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember29" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=1771437684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.90653, 37.19433, 169.1683)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember30" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=800724748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 181.22116)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember31" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=1166999508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.29932, 37.19433, 148.12756)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember25" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=263394190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.75092, 37.19433, 74.54018)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1681408716]
+environment = SubResource("Environment_ke062")
+
+[node name="Player" parent="." unique_id=25935713 instance=ExtResource("10_msjdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1887989, 35.0174, 52.443245)
+
+[node name="DeathCamera3D2" type="Camera3D" parent="Player" unique_id=635923968 node_paths=PackedStringArray("TargetPlayer")]
+transform = Transform3D(1, 0, 0, 0, 0.09042075, 0.9959037, 0, -0.9959037, 0.09042075, 0, 25.547993, 1.4236412)
+current = true
+script = ExtResource("11_brhnw")
+TargetPlayer = NodePath("..")
+
+[node name="Label3D" type="Label3D" parent="Player/DeathCamera3D2" unique_id=1079938753]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 2.173313, -3.7192757)
+double_sided = false
+outline_render_priority = 2
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "You Burned!
+"
+font_size = 198
+outline_size = 21
+script = ExtResource("12_xfe84")
+
+[node name="Label3D2" type="Label3D" parent="Player/DeathCamera3D2" unique_id=485730659]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 7.450581e-09, 0, -7.450581e-09, 0.99999994, 0, 0.096996814, -3.7192745)
+double_sided = false
+outline_render_priority = 2
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Press R to restart the level
+Press T to return to Main Menu
+Press Y to quit to desktop"
+font_size = 133
+script = ExtResource("12_xfe84")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player/DeathCamera3D2" unique_id=2078793897]
+stream = ExtResource("13_wotjm")
+script = ExtResource("14_nv0oh")
+
+[node name="LavaArea3D" type="Area3D" parent="." unique_id=1827611220 node_paths=PackedStringArray("TargetNode", "TargetNode2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.484959, 9.8192005, 0)
+script = ExtResource("9_msjdb")
+TargetNode = NodePath("../Player")
+TargetNode2 = NodePath("../Player/DeathCamera3D2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaArea3D" unique_id=1973643540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.845703, 1.9150934, 9.076635)
+shape = SubResource("BoxShape3D_oh0am")
+debug_color = Color(0.3254872, 0.49017316, 1, 0.41960785)
+
+[node name="Finish" type="Node3D" parent="." unique_id=24183455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.14872, 33.765068, 11.120132)
+script = ExtResource("17_vlk6x")
+
+[node name="Area3D" type="Area3D" parent="Finish" unique_id=1539040732 node_paths=PackedStringArray("TargetNode")]
+transform = Transform3D(-0.046335127, 0, -0.9989259, 0, 1, 0, 0.9989259, 0, -0.046335127, -173.59229, 6.017023, 41.943462)
+script = ExtResource("18_u87k5")
+TargetNode = NodePath("../../Player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Finish/Area3D" unique_id=1051602107]
+transform = Transform3D(-0.017452406, 0, 0.9998508, 0, 1, 0, -0.9998508, 0, -0.017452406, -172.15556, -2.8997955, -79.67891)
+shape = SubResource("BoxShape3D_5eth8")
+debug_color = Color(0.83674014, 0.38745573, 0, 0.41960785)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Finish/Area3D" unique_id=1426921008]
+stream = ExtResource("19_e1qmo")
+script = ExtResource("20_h5ydq")
+
+[node name="Timer" type="Timer" parent="Finish" unique_id=268566823]
+wait_time = 3.0
+script = ExtResource("21_wmkqq")
+
+[node name="LavaAmbience" type="AudioStreamPlayer" parent="." unique_id=1853874212]
+stream = ExtResource("22_33e1c")
+volume_db = -7.92
+autoplay = true
+script = ExtResource("23_tojww")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1006356862]
+stream = ExtResource("24_qs3k3")
+volume_db = -7.92
+autoplay = true
+script = ExtResource("23_tojww")

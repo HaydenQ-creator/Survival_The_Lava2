@@ -15,5 +15,9 @@ public partial class Level1_bgm : AudioStreamPlayer
 		{
 			Playing = false;
 		}
+		else if (Player.finished == true)
+		{
+			Playing = false;
+		}
 	}
 }

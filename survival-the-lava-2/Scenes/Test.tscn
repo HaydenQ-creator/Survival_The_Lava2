@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://booysh6yuwfqi"]
 
-[ext_resource type="PackedScene" uid="uid://b4j7qan210c6c" path="res://Player.tscn" id="1_njov2"]
-[ext_resource type="PackedScene" uid="uid://bwdracwviq18k" path="res://FloatingLand.tscn" id="2_njov2"]
+[ext_resource type="PackedScene" uid="uid://b4j7qan210c6c" path="res://Scenes/Player.tscn" id="1_njov2"]
+[ext_resource type="PackedScene" uid="uid://bwdracwviq18k" path="res://Scenes/FloatingLand.tscn" id="2_njov2"]
 [ext_resource type="PackedScene" uid="uid://d2xdlrk8rdhtl" path="res://Models/CoolGuy.glb" id="3_2au82"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a202f"]

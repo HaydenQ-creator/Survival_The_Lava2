@@ -46,7 +46,7 @@ public partial class Player : CharacterBody3D
 
 	public override void _Ready()
 	{
-		// Safe node fetching with HasNode guards to prevent console noise
+
 		if (HasNode("JumpSFX")) _audioPlayer = GetNode<AudioStreamPlayer>("JumpSFX");
 		if (HasNode("WalkSFX")) _WalkPlayer = GetNode<AudioStreamPlayer>("WalkSFX");
 		
@@ -73,6 +73,10 @@ public partial class Player : CharacterBody3D
 	public override void _Process(double delta)
 	{
 		
+		if (Input.IsActionJustReleased("escape"))
+		{
+			GetTree().ChangeSceneToFile("res://Scenes/MenuChooser.tscn");
+		}
 		
 		if (_WalkPlayer == null) return; // Completely stops NullReference Exception crashes
 
@@ -118,10 +122,7 @@ public partial class Player : CharacterBody3D
 		Vector3 velocity = Velocity;
 		UpdateAnimations(velocity);
 
-		if (Input.IsActionJustReleased("escape"))
-		{
-			GetTree().ChangeSceneToFile("res://MenuChooser.tscn");
-		}
+
 
 		if (!IsOnFloor())
 		{
@@ -151,7 +152,7 @@ public partial class Player : CharacterBody3D
 			Vector3 rawDirection = new Vector3(inputDir.X, 0, inputDir.Y);
 			Vector3 direction = Vector3.Zero;
 
-			if (_camera != null && rawDirection != Vector3.Zero)
+			if (GodotObject.IsInstanceValid(_camera) && rawDirection != Vector3.Zero)
 			{
 				direction = rawDirection.Rotated(Vector3.Up, _camera.GlobalRotation.Y).Normalized();
 			}

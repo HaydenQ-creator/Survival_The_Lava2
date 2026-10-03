@@ -11,16 +11,17 @@ public partial class MenuChooser : Node3D
 	
 	public override void _Ready()
 	{
+		Input.MouseMode = Input.MouseModeEnum.Visible;
 		int MenuChooser = Random(1,2);
 		
 		if (MenuChooser == 1)
 		{
-			string gameScenePath = "res://MainMenu.tscn";
+			string gameScenePath = "res://Scenes/MainMenu.tscn";
 			GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, gameScenePath);
 		}
 		else if (MenuChooser == 2)
 		{
-			string gameScenePath = "res://MainMenu2.tscn";
+			string gameScenePath = "res://Scenes/MainMenu2.tscn";
 			GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, gameScenePath);
 		}
 	}

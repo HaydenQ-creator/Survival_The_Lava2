@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dqc08tgwjq0ti"]
 
-[ext_resource type="PackedScene" uid="uid://ci47soai0sq42" path="res://living_room.tscn" id="1_84iim"]
-[ext_resource type="PackedScene" uid="uid://ce8qr4u4qiixw" path="res://wooden_support_2.tscn" id="2_f63rs"]
-[ext_resource type="PackedScene" uid="uid://bu0dn64r2dwhr" path="res://black_door.tscn" id="3_f63rs"]
-[ext_resource type="PackedScene" uid="uid://c76shwhrdmo2a" path="res://PlayerFP.tscn" id="4_xcs05"]
+[ext_resource type="PackedScene" uid="uid://ci47soai0sq42" path="res://Scenes/living_room.tscn" id="1_84iim"]
+[ext_resource type="PackedScene" uid="uid://ce8qr4u4qiixw" path="res://Scenes/wooden_support_2.tscn" id="2_f63rs"]
+[ext_resource type="PackedScene" uid="uid://bu0dn64r2dwhr" path="res://Scenes/black_door.tscn" id="3_f63rs"]
+[ext_resource type="PackedScene" uid="uid://c76shwhrdmo2a" path="res://Scenes/PlayerFP.tscn" id="4_xcs05"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_l1vy1"]
 

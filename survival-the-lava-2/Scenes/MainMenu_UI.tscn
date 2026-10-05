@@ -172,8 +172,9 @@ offset_left = 395.0
 offset_top = -3.0
 offset_right = 1546.0
 offset_bottom = 218.0
-text = "Surival the Lava 2
-sequel to that one game"
+text = "Survival the Lava 2
+sequel to that one game
+Web Version"
 label_settings = SubResource("LabelSettings_2p34a")
 horizontal_alignment = 1
 vertical_alignment = 1

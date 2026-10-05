@@ -107,7 +107,7 @@ public partial class Player : CharacterBody3D
 			}
 			else if (Input.IsActionPressed("exitToMenu"))
 			{
-				GetTree().ChangeSceneToFile("res://MenuChooser.tscn");
+				GetTree().ChangeSceneToFile("res://Scenes/MenuChooser.tscn");
 			}
 			else if (Input.IsActionPressed("QuitToDesktop"))
 			{

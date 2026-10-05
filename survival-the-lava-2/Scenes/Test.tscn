@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://b4j7qan210c6c" path="res://Scenes/Player.tscn" id="1_njov2"]
 [ext_resource type="PackedScene" uid="uid://bwdracwviq18k" path="res://Scenes/FloatingLand.tscn" id="2_njov2"]
 [ext_resource type="PackedScene" uid="uid://d2xdlrk8rdhtl" path="res://Models/CoolGuy.glb" id="3_2au82"]
-[ext_resource type="Texture2D" uid="uid://dqpl62o4eojc2" path="res://special/FlightBurping.jpg" id="4_f2nln"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a202f"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -35,23 +34,14 @@ volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.7708395, 0.77083945, 0.77083945, 1)
 volumetric_fog_temporal_reprojection_enabled = false
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mma61"]
-albedo_color = Color(0, 0, 0, 1)
-albedo_texture = ExtResource("4_f2nln")
-albedo_texture_force_srgb = true
-albedo_texture_msdf = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0dy5s"]
+metallic = 1.0
 metallic_specular = 1.0
 roughness = 0.0
-roughness_texture = ExtResource("4_f2nln")
 emission_enabled = true
-emission_energy_multiplier = 3.92
-emission_texture = ExtResource("4_f2nln")
-heightmap_enabled = true
-heightmap_scale = 16.0
-heightmap_deep_parallax = true
-heightmap_min_layers = 8
-heightmap_max_layers = 32
-heightmap_texture = ExtResource("4_f2nln")
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+emission_operator = 1
 
 [node name="Node3D" type="Node3D" unique_id=590037695]
 
@@ -164,11 +154,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67442, 6.2214413, 10.1955
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1127513234]
 transform = Transform3D(0.9163248, 0, 0.40043607, 0, 1, 0, -0.40043607, 0, 0.9163248, -29.287899, 10.570549, -14.022577)
-text = "Mr. Lemke why does my player model turns the 
+double_sided = false
+text = " why does my player model turns the 
 wrong way if it rotates differently?"
 font_size = 317
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=29526247]
-transform = Transform3D(0.4517073, 0, 0.12714669, 0, 0.4692607, 0, -0.12714669, 0, 0.4517073, -29.067667, 11.3297825, -28.159966)
-material_override = SubResource("StandardMaterial3D_mma61")
-size = Vector3(55.327087, 38.4281, 44.830383)
+transform = Transform3D(0.4517073, 0, 0.12714669, 0, 0.4692607, 0, -0.12714669, 0, 0.4517073, -40.92157, 9.336478, -28.737823)
+material_override = SubResource("StandardMaterial3D_0dy5s")
+size = Vector3(107.81198, 38.4281, 44.830383)

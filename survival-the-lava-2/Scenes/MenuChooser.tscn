@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ds8ni8qpsxagm"]
 
 [ext_resource type="Script" uid="uid://bulvw2grmpsw3" path="res://Scripts/MenuChooser.cs" id="1_jt2nx"]
-[ext_resource type="Texture2D" uid="uid://dqpl62o4eojc2" path="res://Models/pngs/FlightBurping.jpg" id="2_ime5x"]
+[ext_resource type="Texture2D" uid="uid://dqpl62o4eojc2" path="res://special/FlightBurping.jpg" id="2_ime5x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1vy1"]
 albedo_color = Color(0, 0, 0, 1)

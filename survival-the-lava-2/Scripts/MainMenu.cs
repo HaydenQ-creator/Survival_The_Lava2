@@ -48,7 +48,7 @@ public override void _Ready()
 	{
 		Level_buttons_visible = false;
 		Player.can_move = true;
-		string gameScenePath = "res://Level1.tscn"; 
+		string gameScenePath = "res://Scenes/Level1.tscn"; 
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		GetTree().ChangeSceneToFile(gameScenePath);
 	}
@@ -89,7 +89,7 @@ public override void _Ready()
 	}
 	private void OnChooseLevelButtonPressed()
 	{
-		Level_buttons_visible = true;
+		Level_buttons_visible = !Level_buttons_visible;
 		
 	}
 }

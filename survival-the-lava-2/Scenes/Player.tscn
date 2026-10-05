@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://csmchm88x64r2" path="res://Scripts/NewSpringArm3d.cs" id="6_tdg3f"]
 [ext_resource type="Script" uid="uid://bhc8eifd1wpsd" path="res://Scripts/Camera3d.cs" id="7_5ncpa"]
 [ext_resource type="AudioStream" uid="uid://bv0qno2cxards" path="res://Audio/PlayerAudio/roblox-walking-sound-effect`-made-with-Voicemod.mp3" id="7_dtqjt"]
-[ext_resource type="Script" uid="uid://nrqpy8rrus1x" path="res://Scripts/WhereIsFlight.cs" id="8_bhhdu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ke062"]
 height = 2.1408691
@@ -57,6 +56,3 @@ script = ExtResource("6_tdg3f")
 current = true
 far = 400000.0
 script = ExtResource("7_5ncpa")
-
-[node name="Node" type="Node" parent="." unique_id=474061775]
-script = ExtResource("8_bhhdu")

@@ -1,13 +1,9 @@
-[gd_scene format=3 uid="uid://c1pyjsej1sh8o"]
+[gd_scene format=3 uid="uid://ocklvl0onlcv"]
 
-[ext_resource type="Script" uid="uid://blgrmirpr80f0" path="res://Scripts/Level2NODE.cs" id="1_e3avg"]
-[ext_resource type="PackedScene" uid="uid://edy0rv6kpao4" path="res://Models/VolcanoLandBackDrop.glb" id="1_s8dg4"]
-[ext_resource type="Script" uid="uid://crc4gynjf1snl" path="res://Scripts/VolcanoLight.cs" id="2_0rx21"]
+[ext_resource type="Material" uid="uid://diy43poggoi04" path="res://ROcky.tres" id="1_6skh4"]
+[ext_resource type="Shader" uid="uid://cge1y2lqtm7ja" path="res://LavaMoving.gdshader" id="3_ejprb"]
 [ext_resource type="PackedScene" uid="uid://b4j7qan210c6c" path="res://Scenes/Player.tscn" id="3_psxy2"]
-[ext_resource type="PackedScene" uid="uid://bamph2k2l522y" path="res://Scenes/large_grass_plane.tscn" id="3_s8dg4"]
 [ext_resource type="Script" uid="uid://cqc7ybphklx80" path="res://Scripts/DeathCamera3d.cs" id="4_0xt02"]
-[ext_resource type="PackedScene" uid="uid://xrcs2nkga2db" path="res://Scenes/large_grass_land.tscn" id="4_fvkd4"]
-[ext_resource type="Shader" uid="uid://bj1l5fxuy2s1d" path="res://Level1LAVA.gdshader" id="5_pj4lr"]
 [ext_resource type="Script" uid="uid://bkke2t3a2u3io" path="res://Scripts/DeathTitle.cs" id="5_q0xi3"]
 [ext_resource type="Texture2D" uid="uid://cmkr60gqfjpn2" path="res://Models/pngs/lava/Lava005_1K-JPG_Color.jpg" id="6_00xh1"]
 [ext_resource type="AudioStream" uid="uid://cqokudl84ik54" path="res://Audio/CoolGuyDeath.mp3" id="6_nwnlh"]
@@ -15,99 +11,56 @@
 [ext_resource type="Script" uid="uid://c0ei2a2ms6bwm" path="res://Scripts/DeathAudioPlayer.cs" id="7_e3avg"]
 [ext_resource type="Texture2D" uid="uid://cumrb1qmvctvg" path="res://Models/pngs/lava/Lava005_1K-JPG_Emission.jpg" id="8_jw1dd"]
 [ext_resource type="Texture2D" uid="uid://bx6qq63bqqvsx" path="res://Models/pngs/lava/Lava005_1K-JPG_Displacement.jpg" id="9_0xt02"]
+[ext_resource type="PackedScene" uid="uid://ce8qr4u4qiixw" path="res://Scenes/wooden_support_2.tscn" id="10_0way5"]
 [ext_resource type="Texture2D" uid="uid://f5itqmwsrt7y" path="res://Models/pngs/lava/Lava005_1K-JPG_NormalDX.jpg" id="10_q0xi3"]
-[ext_resource type="Script" uid="uid://dqseor0dpdcxk" path="res://Scripts/RayCast3d.cs" id="11_mgfd6"]
 [ext_resource type="Texture2D" uid="uid://dak08h7dd8oe5" path="res://Models/pngs/lava/Lava005_1K-JPG_Roughness.jpg" id="11_nwnlh"]
 [ext_resource type="Texture2D" uid="uid://b1xcpoiy8gjmt" path="res://Models/pngs/FireEmber.png" id="12_e3avg"]
 [ext_resource type="Script" uid="uid://d1mq2kij4essb" path="res://Scripts/LavaArea3d.cs" id="13_pj4lr"]
-[ext_resource type="PackedScene" uid="uid://3pi2fmuwmbb3" path="res://Scenes/rock_pillar.tscn" id="18_q0xi3"]
-[ext_resource type="AudioStream" uid="uid://bmqgedvemy1sm" path="res://Audio/jci21-rocket-launch-sfx-253937.mp3" id="19_nwnlh"]
+[ext_resource type="Script" uid="uid://daxggidoxjuaa" path="res://Scripts/Finish_Level2.cs" id="17_6skh4"]
+[ext_resource type="Script" uid="uid://blua3vuuree8d" path="res://Scripts/Level1_Finish.cs" id="18_ie22q"]
+[ext_resource type="AudioStream" uid="uid://cldu8d8u54uaa" path="res://Audio/Success.mp3" id="19_uxnm3"]
+[ext_resource type="Script" uid="uid://lwj6h5gk3g6d" path="res://Scripts/AudioStreamPlayerFinish.cs" id="20_dgfc6"]
+[ext_resource type="AudioStream" uid="uid://dkfu78p7q2bvb" path="res://Audio/Fire/soundreality-fire-sound-334130.mp3" id="22_5fn7l"]
 [ext_resource type="Script" uid="uid://ckcscfblvdfj4" path="res://Scripts/Timer_Level1.cs" id="22_a454t"]
-[ext_resource type="Script" uid="uid://cpqpl6vvkitx2" path="res://Scripts/VolcanoTimer.cs" id="22_fx3gb"]
+[ext_resource type="Script" uid="uid://4d28x6u882tk" path="res://Scripts/Level1_bgm.cs" id="23_sj5x0"]
+[ext_resource type="AudioStream" uid="uid://brvcppxyqujsg" path="res://Audio/Music/Warframe OST - Heart of Deimos - Ambience Music.mp3" id="24_uelq8"]
+[ext_resource type="Environment" uid="uid://bmbeb7sdxa1sw" path="res://Level3_Environment.tres" id="25_1gnxd"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fvkd4"]
-sky_horizon_color = Color(0.03241882, 0.033944722, 0.03712394, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wotjm"]
+render_priority = 0
+shader = ExtResource("3_ejprb")
+shader_parameter/albedo = Color(0.8855951, 0.5289715, 0, 1)
+shader_parameter/texture_albedo = ExtResource("6_00xh1")
+shader_parameter/albedo_texture_size = Vector2i(1024, 1024)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("11_nwnlh")
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/texture_emission = ExtResource("8_jw1dd")
+shader_parameter/emission = Color(1, 1, 0, 1)
+shader_parameter/emission_energy = 16.0
+shader_parameter/texture_normal = ExtResource("10_q0xi3")
+shader_parameter/normal_scale = 16.0
+shader_parameter/texture_bent_normal = ExtResource("7_8tfmj")
+shader_parameter/texture_heightmap = ExtResource("9_0xt02")
+shader_parameter/heightmap_scale = -16.0
+shader_parameter/heightmap_min_layers = 8
+shader_parameter/heightmap_max_layers = 32
+shader_parameter/heightmap_flip = Vector2(1, 1)
+shader_parameter/uv1_scale = Vector3(24.325, 24.325, 24.325)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
-[sub_resource type="Sky" id="Sky_pj4lr"]
-sky_material = SubResource("ProceduralSkyMaterial_fvkd4")
+[sub_resource type="BoxShape3D" id="BoxShape3D_oh0am"]
+size = Vector3(219.72644, 11.188477, 154.49707)
 
-[sub_resource type="Environment" id="Environment_00xh1"]
-background_mode = 2
-sky = SubResource("Sky_pj4lr")
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 1.17
-glow_strength = 1.23
-glow_bloom = 0.2
-glow_hdr_luminance_cap = 256.0
-fog_light_color = Color(0.23921569, 1, 0.29803923, 1)
-fog_light_energy = 16.0
-fog_density = 0.0064
-fog_sky_affect = 0.0
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.0182
-volumetric_fog_albedo = Color(0.60122335, 0.6012229, 0.60122293, 1)
-volumetric_fog_emission_energy = 0.0
-volumetric_fog_gi_inject = 1.24
-volumetric_fog_ambient_inject = 1.2
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1vy1"]
+size = Vector3(1, 9.595154, 15.174805)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cove1"]
-load_path = "res://.godot/imported/T_smoke_b7.png-9816ee40de55f1477e1d8f24b1cb18e4.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwdpc"]
-transparency = 1
-albedo_texture = SubResource("CompressedTexture2D_cove1")
-emission_enabled = true
-emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 359.2
-emission_operator = 1
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-grow_amount = 0.703
-
-[sub_resource type="Gradient" id="Gradient_6faey"]
-offsets = PackedFloat32Array(0, 0.2674897, 0.5349794, 1)
-colors = PackedColorArray(1, 0, 0, 1, 0.8271605, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_eiy7p"]
-gradient = SubResource("Gradient_6faey")
-
-[sub_resource type="Curve" id="Curve_nc7oo"]
-_limits = [0.1500001, 45.608177, 0.0, 1.0]
-_data = [Vector2(0.026022308, 0.1500001), 0.0, 0.0, 0, 0, Vector2(0.35687733, 2.1999998), 0.0, 0.0, 0, 0, Vector2(0.73977697, 7.9), 0.0, 0.0, 0, 0, Vector2(1, 25.540579), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_eiy7p"]
-curve = SubResource("Curve_nc7oo")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6x3wt"]
-angle_min = -650.4
-angle_max = 720.0
-gravity = Vector3(0, 5, 0)
-use_scale_3d = true
-scale_3d_min = Vector3(106.435, 106.435, 106.435)
-scale_3d_max = Vector3(441.735, 441.735, 441.735)
-scale_curve = SubResource("CurveTexture_eiy7p")
-color = Color(0, 0, 0, 1)
-color_ramp = SubResource("GradientTexture1D_eiy7p")
-hue_variation_min = -2.2351742e-08
-hue_variation_max = 0.99999994
-turbulence_noise_strength = 12.87
-turbulence_noise_scale = 4.714
-turbulence_influence_max = 1.0
-turbulence_initial_displacement_min = -52.5
-turbulence_initial_displacement_max = 1.490116e-06
-
-[sub_resource type="QuadMesh" id="QuadMesh_3453u"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqrl8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wotjm"]
 transparency = 1
 albedo_texture = ExtResource("12_e3avg")
 emission_enabled = true
@@ -121,9 +74,9 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 grow_amount = -16.0
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0rx21"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nv0oh"]
 lifetime_randomness = 1.0
-gravity = Vector3(0, 2.635, 18.24)
+gravity = Vector3(-3.29, 0.275, 0)
 use_scale_3d = true
 scale_3d_min = Vector3(-25.485, -25.485, -25.485)
 scale_3d_max = Vector3(-1.435, -1.435, -1.435)
@@ -135,109 +88,898 @@ turbulence_influence_min = 0.0
 turbulence_initial_displacement_min = 1.490116e-06
 turbulence_initial_displacement_max = 1.490116e-06
 
-[sub_resource type="QuadMesh" id="QuadMesh_mgfd6"]
+[sub_resource type="QuadMesh" id="QuadMesh_oh0am"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fvkd4"]
-lifetime_randomness = 1.0
-gravity = Vector3(-18.24, 2.635, 0)
-use_scale_3d = true
-scale_3d_min = Vector3(-25.485, -25.485, -25.485)
-scale_3d_max = Vector3(-1.435, -1.435, -1.435)
-turbulence_enabled = true
-turbulence_noise_strength = 20.0
-turbulence_noise_scale = 6.465
-turbulence_noise_speed_random = 1.63
-turbulence_influence_min = 0.0
-turbulence_initial_displacement_min = 1.490116e-06
-turbulence_initial_displacement_max = 1.490116e-06
+[sub_resource type="BoxShape3D" id="BoxShape3D_5eth8"]
+size = Vector3(13.239258, 8.665527, 54.834595)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bjei"]
-render_priority = 0
-shader = ExtResource("5_pj4lr")
-shader_parameter/time_speed = 1.0
-shader_parameter/albedo = Color(0.93983006, 0.8904601, 0.8931231, 1)
-shader_parameter/texture_albedo = ExtResource("6_00xh1")
-shader_parameter/albedo_texture_size = Vector2i(1024, 1024)
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/texture_roughness = ExtResource("11_nwnlh")
-shader_parameter/specular = 1.0
-shader_parameter/metallic = 1.0
-shader_parameter/texture_emission = ExtResource("8_jw1dd")
-shader_parameter/emission = Color(1, 1, 0, 1)
-shader_parameter/emission_energy = 16.0
-shader_parameter/refraction = 1.0
-shader_parameter/refraction_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/texture_normal = ExtResource("10_q0xi3")
-shader_parameter/normal_scale = 9.15
-shader_parameter/texture_bent_normal = ExtResource("7_8tfmj")
-shader_parameter/texture_heightmap = ExtResource("9_0xt02")
-shader_parameter/heightmap_scale = 5.0
-shader_parameter/heightmap_min_layers = 8
-shader_parameter/heightmap_max_layers = 32
-shader_parameter/heightmap_flip = Vector2(1, 1)
-shader_parameter/uv1_blend_sharpness = 1.0
-shader_parameter/uv1_scale = Vector3(-0.245, -0.245, -0.245)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
+[node name="Level3" type="Node3D" unique_id=935952789]
 
-[sub_resource type="QuadMesh" id="QuadMesh_0rx21"]
-material = SubResource("ShaderMaterial_1bjei")
+[node name="Level" type="Node3D" parent="." unique_id=2085411415]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_00xh1"]
-size = Vector3(108.27356, 11.188477, 102.917725)
+[node name="CSGBox3D" type="CSGBox3D" parent="Level" unique_id=1289185618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.906372, 10.184666, 0)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(193.40991, 1, 116.75757)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_l1vy1"]
-size = Vector3(279.49725, 1, 24.532227)
+[node name="Lava" type="CSGBox3D" parent="Level" unique_id=1017052505]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -18.906372, 16.09663, 8.018249)
+material_override = SubResource("ShaderMaterial_wotjm")
+size = Vector3(137.77539, 1, 217.20898)
 
-[node name="Level2" type="Node3D" unique_id=935952789]
-script = ExtResource("1_e3avg")
+[node name="LavaArea3D" type="Area3D" parent="Level/Lava" unique_id=1827611220 node_paths=PackedStringArray("TargetNode", "TargetNode2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -24.503208, -6.2774296, -18.90637)
+script = ExtResource("13_pj4lr")
+TargetNode = NodePath("../../../Player")
+TargetNode2 = NodePath("../../../Player/DeathCamera3D2")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1295337129]
-environment = SubResource("Environment_00xh1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Lava/LavaArea3D" unique_id=1973643540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.845703, 1.9150934, 9.076635)
+shape = SubResource("BoxShape3D_oh0am")
+debug_color = Color(0.3254872, 0.49017316, 1, 0.41960785)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2025558226]
-transform = Transform3D(1, 0, 0, 0, -0.9824749, 0.1863948, 0, -0.1863948, -0.9824749, 0, 0, 0)
+[node name="Ceiling" type="CSGBox3D" parent="Level" unique_id=681073599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.906372, 67.29274, 0)
 visible = false
-light_color = Color(0.88269603, 0.88269603, 0, 1)
-light_energy = 16.0
-light_indirect_energy = 2.005
-light_specular = 1.894
-shadow_enabled = true
-shadow_bias = 0.0
-shadow_normal_bias = 10.0
-shadow_blur = 4.41
-script = ExtResource("2_0rx21")
+use_collision = true
+size = Vector3(341.64624, 1, 116.75757)
 
-[node name="VolcanoLandBackDrop" parent="." unique_id=744439042 instance=ExtResource("1_s8dg4")]
-transform = Transform3D(1.695, 0, 0, 0, 1.695, 0, 0, 0, 1.695, 0, -77.40336, -5361.3936)
+[node name="CSGBox3D10" type="CSGBox3D" parent="Level" unique_id=937607302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.18024, 65.037155, -30.7275)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(3.2366943, 109.252, 52.34503)
 
-[node name="Volcano_smoke_particle" type="GPUParticles3D" parent="VolcanoLandBackDrop" unique_id=243134850]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.633301, 440.0084, -7.0033646)
-material_override = SubResource("StandardMaterial3D_wwdpc")
-amount = 50
-lifetime = 50.0
-preprocess = 50.0
-speed_scale = 0.5
+[node name="CSGBox3D11" type="CSGBox3D" parent="Level" unique_id=1151549027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.18024, 65.037155, 31.058353)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(3.2366943, 109.252, 52.34503)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Level" unique_id=1125495078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.906372, 64.54686, 56.985474)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(193.40991, 109.252, 2.786621)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Level" unique_id=881065621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.42676, 64.54686, 56.985474)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(193.40991, 109.252, 2.786621)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Level" unique_id=1599659346]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.906372, 64.54686, -57.266144)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(193.40991, 109.252, 2.786621)
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="Level" unique_id=720266796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -210.50482, 64.54686, -57.266144)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(193.40991, 109.252, 2.786621)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Level" unique_id=77477719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.03479, 33.680725, -6.3281765)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(193.40991, 68.36145, 2.786621)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Level" unique_id=1764796395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.09853, 33.680725, 6.2677574)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(193.40991, 68.36145, 2.786621)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Level" unique_id=2138384374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.66122, 16.860016, 0)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(206.2829, 34.72003, 13.084961)
+
+[node name="CSGBox3D56" type="CSGBox3D" parent="Level" unique_id=2133246688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.78293, 80.97891, -4.5474735e-13)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(118.41023, 77.84035, 13.085)
+
+[node name="CSGBox3D52" type="CSGBox3D" parent="Level" unique_id=569684923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.58058, 34.17102, -14.11113)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(3.2366943, 69.34204, 88.53531)
+
+[node name="CSGBox3D63" type="CSGBox3D" parent="Level" unique_id=145438721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.42162, 34.17102, 17.796518)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(3.2366943, 69.34204, 24.720009)
+
+[node name="CSGBox3D53" type="CSGBox3D" parent="Level" unique_id=918855791]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229.22382, 34.17102, -14.11113)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(3.2366943, 69.34204, 88.53531)
+
+[node name="EndPart3" type="CSGBox3D" parent="Level" unique_id=2007383655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.85658, 16.860016, 0)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(124.910065, 34.72003, 13.084961)
+
+[node name="CSGBox3D61" type="CSGBox3D" parent="Level/EndPart3" unique_id=1322294177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.442215, -3.2801056, -0.38259888)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="Level/EndPart3" unique_id=1857153925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.33252, -2.7117233, -5.884595)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 29.296585, 2.6513672)
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="Level/EndPart3" unique_id=1861002245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.85654, -2.3876152, -2.580099)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 29.944801, 2.6513672)
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="Level/EndPart3" unique_id=793398608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.86158, -1.8719511, -5.9718595)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 30.97613, 2.6513672)
+
+[node name="CSGBox3D54" type="CSGBox3D" parent="Level/EndPart3" unique_id=247463592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.80698, -1.4336052, -0.92457247)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 31.852821, 2.6513672)
+
+[node name="CSGBox3D55" type="CSGBox3D" parent="Level/EndPart3" unique_id=799875132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.3997, -0.90672874, 2.9459429)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 32.906574, 2.6513672)
+
+[node name="CSGBox3D58" type="CSGBox3D" parent="Level/EndPart3" unique_id=2048899047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.552345, -0.5723381, 2.9459429)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 33.575356, 2.6513672)
+
+[node name="CSGBox3D62" type="CSGBox3D" parent="Level" unique_id=1045219939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.77284, 16.860016, 24.918343)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(14.96825, 34.72003, 37.187637)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Level" unique_id=455522657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.01742, 13.57991, -2.9566288)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Level" unique_id=554178536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.775127, 13.57991, 1.1007843)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="Level" unique_id=547926771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.870754, 13.57991, 3.1200466)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D51" type="CSGBox3D" parent="Level" unique_id=995182361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.4786, 13.57991, 9.350582)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Level" unique_id=1343371625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.483938, 13.57991, -1.705761)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Level" unique_id=225446966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.396086, 13.57991, -1.0722828)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Level" unique_id=1496855864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.812588, 13.57991, -6.3431196)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Level" unique_id=2011789091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.039528, 13.57991, -7.903984)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Level" unique_id=275190071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.151932, 13.57991, -7.903984)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Level" unique_id=1660643274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90453243, 13.57991, -7.903984)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="Level" unique_id=213543615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90453243, 13.57991, 0.030182838)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="Level" unique_id=334072900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90453243, 13.57991, 10.9208355)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="Level" unique_id=2041630173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8473473, 13.57991, 6.5693684)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="Level" unique_id=1228437944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8473473, 13.57991, -2.3158283)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="Level" unique_id=655652869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.336651, 13.57991, 2.498331)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="Level" unique_id=80927209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.049942, 13.57991, -7.109029)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="Level" unique_id=1864631256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.562466, 13.57991, -7.109029)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="Level" unique_id=2045862159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.126118, 13.57991, -1.8938684)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="Level" unique_id=471732397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.747524, 13.57991, -1.8938684)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="Level" unique_id=559344263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.947746, 13.57991, 5.275634)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="Level" unique_id=341196039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.901737, 13.57991, 5.275634)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="Level" unique_id=39302130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.901737, 13.57991, -6.8585405)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="Level" unique_id=1837966405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.492706, 13.57991, -6.8585405)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="Level" unique_id=1313915634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.492706, 13.57991, 4.305087)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="Level" unique_id=993897543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.8976, 13.57991, -0.47985172)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="Level" unique_id=415270981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.89852, 13.57991, -0.47985172)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="Level" unique_id=825927228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.31627, 13.57991, 3.8064241)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="Level" unique_id=40216658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.56871, 13.57991, -4.3584185)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="Level" unique_id=13707886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.952347, 13.57991, -1.5695925)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D59" type="CSGBox3D" parent="Level" unique_id=454644103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.211132, 13.57991, 2.7543964)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="Level" unique_id=555269334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.07445, 13.57991, -4.18688)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D60" type="CSGBox3D" parent="Level" unique_id=42504563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.07445, 13.57991, 0.8032217)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Level" unique_id=101268732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.483938, 13.57991, 6.6762524)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Level" unique_id=831793430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.799253, 13.57991, 3.5258732)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Level" unique_id=1016569765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.799253, 13.57991, 11.651405)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Level" unique_id=166202862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.842451, 13.57991, 7.623537)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(4.201172, 28.15982, 2.6513672)
+
+[node name="WoodenSupport2" parent="Level" unique_id=604144617 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 76.8181, 34.370476, 0.14401224)
+
+[node name="WoodenSupport13" parent="Level" unique_id=857754004 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 84.455055, 34.370476, 0.14401191)
+
+[node name="WoodenSupport14" parent="Level" unique_id=1620793770 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 101.97597, 34.370476, 0.14401115)
+
+[node name="WoodenSupport15" parent="Level" unique_id=1119920055 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 117.57075, 34.370476, 0.14401047)
+
+[node name="WoodenSupport16" parent="Level" unique_id=2103304098 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 126.782936, 34.370476, 0.14401007)
+
+[node name="WoodenSupport3" parent="Level" unique_id=1868632080 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 92.81102, 34.370476, 0.14401154)
+
+[node name="WoodenSupport4" parent="Level" unique_id=270267176 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 107.61627, 34.370476, 0.1440109)
+
+[node name="WoodenSupport5" parent="Level" unique_id=1577318807 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 136.58488, 34.370476, 0.14400963)
+
+[node name="WoodenSupport17" parent="Level" unique_id=1801811486 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 144.2548, 34.370476, 0.1440093)
+
+[node name="WoodenSupport18" parent="Level" unique_id=779989479 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 153.467, 34.370476, 0.1440089)
+
+[node name="WoodenSupport19" parent="Level" unique_id=705050055 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 163.26895, 34.370476, 0.14400847)
+
+[node name="WoodenSupport6" parent="Level" unique_id=1859157775 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 136.58488, 34.370476, 0.14400963)
+
+[node name="WoodenSupport7" parent="Level" unique_id=146056093 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -114.02612, 34.370476, 0.1440206)
+
+[node name="WoodenSupport8" parent="Level" unique_id=1535021263 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -129.59094, 34.370476, 0.14402129)
+
+[node name="WoodenSupport11" parent="Level" unique_id=715182727 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -135.70995, 34.370476, 0.14402156)
+
+[node name="WoodenSupport12" parent="Level" unique_id=532666702 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -120.97243, 34.370476, 0.14402092)
+
+[node name="WoodenSupport9" parent="Level" unique_id=1272148367 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -140.94713, 34.370476, 0.14402178)
+
+[node name="WoodenSupport10" parent="Level" unique_id=1543697371 instance=ExtResource("10_0way5")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -150.02995, 34.370476, 0.14402217)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level" unique_id=1695816806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.22432, 34.98782, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/StaticBody3D" unique_id=1474176353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3682098, 3.2599182, 0)
+shape = SubResource("BoxShape3D_l1vy1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Level/StaticBody3D" unique_id=418373004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -192.81941, 3.2599182, 0)
+shape = SubResource("BoxShape3D_l1vy1")
+
+[node name="EmberEffects2" type="Node3D" parent="Level" unique_id=1981419273]
+transform = Transform3D(-0.9995928, 0, -0.02853599, 0, 1, 0, 0.02853599, 0, -0.9995928, -255.39677, -17.898178, 132.25848)
+
+[node name="Ember18" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=542673027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 100.98404)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
 randomness = 1.0
-process_material = SubResource("ParticleProcessMaterial_6x3wt")
-draw_pass_1 = SubResource("QuadMesh_3453u")
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
 
-[node name="LargeGrassPlane" parent="." unique_id=248944075 instance=ExtResource("3_s8dg4")]
-transform = Transform3D(0.6867116, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06124878, 0)
+[node name="Ember19" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=491188306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 124.0656)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember20" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1525194409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 157.174)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember21" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=940082012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 163.27216)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember22" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=287220021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 141.42398)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember23" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1302529776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 174.1497)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember24" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1587994964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 74.54018)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember26" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=917958334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 84.6234)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember27" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=807679381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 107.6234)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember28" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1595853789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 133.6234)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember29" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1744896803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 169.1683)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember30" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1528683572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 181.22116)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember31" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=1971077437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 148.12756)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember25" type="GPUParticles3D" parent="Level/EmberEffects2" unique_id=2076515442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 74.54018)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="EmberEffects3" type="Node3D" parent="Level" unique_id=2052077449]
+transform = Transform3D(-0.9995928, 0, -0.02853599, 0, 1, 0, 0.02853599, 0, -0.9995928, -105.48289, -25.560171, 127.978806)
+
+[node name="Ember18" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=1382029010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.7841, 37.19433, 100.98404)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember19" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=685917504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.84543, 37.19433, 124.0656)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember20" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=598249482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.41074, 37.19433, 157.174)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember21" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=2073703152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.0319, 37.19433, 163.27216)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember22" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=396193914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -151.3388, 37.19433, 141.42398)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember23" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=203588537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.48848, 37.19433, 174.1497)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember24" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=1953514863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 74.54018)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember26" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=158581606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.167854, 37.19433, 84.6234)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember27" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=797725245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.52149, 37.19433, 107.6234)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember28" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=254561049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.708626, 37.19433, 133.6234)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember29" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=1771437684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.90653, 37.19433, 169.1683)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember30" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=800724748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.72659, 37.19433, 181.22116)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember31" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=1166999508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.29932, 37.19433, 148.12756)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="Ember25" type="GPUParticles3D" parent="Level/EmberEffects3" unique_id=263394190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.75092, 37.19433, 74.54018)
+material_override = SubResource("StandardMaterial3D_wotjm")
+amount = 200
+lifetime = 60.0
+preprocess = 60.0
+speed_scale = 9.76
+randomness = 1.0
+fixed_fps = 50
+visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
+process_material = SubResource("ParticleProcessMaterial_nv0oh")
+draw_pass_1 = SubResource("QuadMesh_oh0am")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Level" unique_id=676776148]
+transform = Transform3D(-4.371139e-08, -0.5770789, 0.8166884, 0, 0.8166884, 0.5770789, -1, 2.5224917e-08, -3.5698584e-08, 212.03879, 49.35781, -2.8234984e-07)
+light_energy = 16.0
+light_indirect_energy = 16.0
+spot_range = 53.11063
+spot_angle = 32.267742
+
+[node name="BackWall" type="Node3D" parent="Level" unique_id=245785860]
+
+[node name="CSGBox3D57" type="CSGBox3D" parent="Level/BackWall" unique_id=312760990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.73119, 80.84636, 0)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(96.985374, 77.57472, 13.085)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Level/BackWall" unique_id=898823602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.801025, 65.037155, -30.481617)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(3.2366943, 109.252, 52.34503)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Level/BackWall" unique_id=228986638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.801025, 65.037155, 31.910416)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(3.2366943, 109.252, 52.34503)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Level/BackWall" unique_id=1624487371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.74585, 33.680725, -6.0822926)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(105.165405, 68.36145, 2.786621)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Level/BackWall" unique_id=790316158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.67162, 33.680725, 6.7366943)
+material_override = ExtResource("1_6skh4")
+use_collision = true
+size = Vector3(37.14441, 68.36145, 2.786621)
+
+[node name="Finish" type="Node3D" parent="Level" unique_id=24183455]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.120129, 33.765068, -87.14872)
+script = ExtResource("17_6skh4")
+
+[node name="Area3D" type="Area3D" parent="Level/Finish" unique_id=1539040732 node_paths=PackedStringArray("TargetNode")]
+transform = Transform3D(-0.046335127, 0, -0.9989259, 0, 1, 0, 0.9989259, 0, -0.046335127, -173.59229, 6.017023, 41.943462)
+script = ExtResource("18_ie22q")
+TargetNode = NodePath("../../../Player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Finish/Area3D" unique_id=1051602107]
+transform = Transform3D(-0.052336104, 0, 0.9986326, 0, 1, 0, -0.9986326, 0, -0.052336104, -171.97896, -2.8997955, -78.39943)
+shape = SubResource("BoxShape3D_5eth8")
+debug_color = Color(0.83674014, 0.38745573, 0, 0.41960785)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Level/Finish/Area3D" unique_id=1426921008]
+stream = ExtResource("19_uxnm3")
+script = ExtResource("20_dgfc6")
+
+[node name="Timer" type="Timer" parent="Level/Finish" unique_id=268566823]
+wait_time = 3.0
+script = ExtResource("22_a454t")
 
 [node name="Player" parent="." unique_id=25935713 instance=ExtResource("3_psxy2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.490347, 2.169, 527.224)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -72.44735, 35.0174, -0.3766345)
 
-[node name="DeathCamera3D2" type="Camera3D" parent="Player" unique_id=1023059955 node_paths=PackedStringArray("TargetPlayer")]
-transform = Transform3D(1, 0, 0, 0, 0.09042075, 0.9959037, 0, -0.9959037, 0.09042075, 0, 9.86786, 0)
+[node name="DeathCamera3D2" type="Camera3D" parent="Player" unique_id=635923968 node_paths=PackedStringArray("TargetPlayer")]
+transform = Transform3D(1, 0, 0, 0, 0.09042075, 0.9959037, 0, -0.9959037, 0.09042075, 0, 25.547993, 1.4236412)
 current = true
 script = ExtResource("4_0xt02")
 TargetPlayer = NodePath("..")
 
-[node name="Label3D" type="Label3D" parent="Player/DeathCamera3D2" unique_id=391748270]
+[node name="Label3D" type="Label3D" parent="Player/DeathCamera3D2" unique_id=1079938753]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 2.173313, -3.7192757)
 double_sided = false
 outline_render_priority = 2
@@ -249,7 +991,7 @@ font_size = 198
 outline_size = 21
 script = ExtResource("5_q0xi3")
 
-[node name="Label3D2" type="Label3D" parent="Player/DeathCamera3D2" unique_id=774025889]
+[node name="Label3D2" type="Label3D" parent="Player/DeathCamera3D2" unique_id=485730659]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 7.450581e-09, 0, -7.450581e-09, 0.99999994, 0, 0.096996814, -3.7192745)
 double_sided = false
 outline_render_priority = 2
@@ -261,694 +1003,21 @@ Press Y to quit to desktop"
 font_size = 133
 script = ExtResource("5_q0xi3")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player/DeathCamera3D2" unique_id=914985772]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player/DeathCamera3D2" unique_id=2078793897]
 stream = ExtResource("6_nwnlh")
 script = ExtResource("7_e3avg")
 
-[node name="EmberEffects2" type="Node3D" parent="Player" unique_id=223080397]
-transform = Transform3D(-0.028535947, 0, 0.9995928, 0, 1, 0, -0.9995928, 0, -0.028535947, -150.10945, -36.848473, -716.1246)
-
-[node name="Ember18" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=825026383]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 100.98404)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember19" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=1446497759]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 124.0656)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember20" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=2079569254]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 161.1011)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember21" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=2062012325]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 200.59016)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember22" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=332292548]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 141.42398)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember23" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=1584772173]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 178.43933)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember24" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=1189171238]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 74.54018)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember26" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=1516660090]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 84.6234)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember27" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=233289490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 107.6234)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember28" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=1201259752]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 133.6234)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember29" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=603411456]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 170.6234)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember30" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=2012560908]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 188.6234)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember31" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=1925820205]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 151.43433)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember25" type="GPUParticles3D" parent="Player/EmberEffects2" unique_id=2145635526]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.0251, 37.19433, 74.54018)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 9.76
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_0rx21")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="RayCast3D" type="RayCast3D" parent="Player" unique_id=1121204845]
-transform = Transform3D(1, 0, 0, 0, -1.1594445e-06, 1, 0, -26.525, -4.371139e-08, 0, 0.94896364, -7.2176514)
-script = ExtResource("11_mgfd6")
-
-[node name="EmberEffects" type="Node3D" parent="." unique_id=1546632883]
-transform = Transform3D(0.88677955, 0, -0.46219265, 0, 1, 0, 0.46219265, 0, 0.88677955, -14.387853, 0, 625.782)
-
-[node name="Ember18" type="GPUParticles3D" parent="EmberEffects" unique_id=1842792165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -99.10364)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember19" type="GPUParticles3D" parent="EmberEffects" unique_id=196465633]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -83.20227)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember20" type="GPUParticles3D" parent="EmberEffects" unique_id=1757907870]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -65.9292)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember21" type="GPUParticles3D" parent="EmberEffects" unique_id=2057354061]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -48.15442)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember22" type="GPUParticles3D" parent="EmberEffects" unique_id=1531685477]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -27.093079)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember23" type="GPUParticles3D" parent="EmberEffects" unique_id=636246151]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -11.093079)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember24" type="GPUParticles3D" parent="EmberEffects" unique_id=738597813]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, -11.093079)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember25" type="GPUParticles3D" parent="EmberEffects" unique_id=189650380]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 4.3896484)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember26" type="GPUParticles3D" parent="EmberEffects" unique_id=1385395952]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 20.291016)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember27" type="GPUParticles3D" parent="EmberEffects" unique_id=768213253]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 37.564087)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember28" type="GPUParticles3D" parent="EmberEffects" unique_id=984708118]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 55.338867)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember29" type="GPUParticles3D" parent="EmberEffects" unique_id=1718879532]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 76.40021)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember30" type="GPUParticles3D" parent="EmberEffects" unique_id=1078541570]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 92.40021)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember31" type="GPUParticles3D" parent="EmberEffects" unique_id=1369918085]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.36937, 4.750348, 92.40021)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember32" type="GPUParticles3D" parent="EmberEffects" unique_id=89873311]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -99.10364)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember33" type="GPUParticles3D" parent="EmberEffects" unique_id=1732098321]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -83.20227)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember34" type="GPUParticles3D" parent="EmberEffects" unique_id=700065143]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -65.9292)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember35" type="GPUParticles3D" parent="EmberEffects" unique_id=420818982]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -48.15442)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember36" type="GPUParticles3D" parent="EmberEffects" unique_id=1357671194]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -27.093079)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember37" type="GPUParticles3D" parent="EmberEffects" unique_id=1411348430]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -11.093079)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember38" type="GPUParticles3D" parent="EmberEffects" unique_id=2057521071]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, -11.093079)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember39" type="GPUParticles3D" parent="EmberEffects" unique_id=1173893834]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 4.3896484)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember40" type="GPUParticles3D" parent="EmberEffects" unique_id=1457655325]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 20.291016)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember41" type="GPUParticles3D" parent="EmberEffects" unique_id=1921126508]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 37.564087)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember42" type="GPUParticles3D" parent="EmberEffects" unique_id=1503727406]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 55.338867)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember43" type="GPUParticles3D" parent="EmberEffects" unique_id=1788593706]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 76.40021)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember44" type="GPUParticles3D" parent="EmberEffects" unique_id=2005225704]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 92.40021)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="Ember45" type="GPUParticles3D" parent="EmberEffects" unique_id=88603156]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.343414, 4.750348, 92.40021)
-material_override = SubResource("StandardMaterial3D_nqrl8")
-amount = 200
-lifetime = 60.0
-preprocess = 60.0
-speed_scale = 3.0
-randomness = 1.0
-fixed_fps = 50
-visibility_aabb = AABB(-4.9361343, -28.669516, -4585.72, 3784.5776, 493.16965, 4587.8496)
-process_material = SubResource("ParticleProcessMaterial_fvkd4")
-draw_pass_1 = SubResource("QuadMesh_mgfd6")
-
-[node name="SmallGrassLand3" parent="." unique_id=1360604594 instance=ExtResource("4_fvkd4")]
-transform = Transform3D(-6.8382747e-07, 0, 35.58539, 0, 1, 0, -15.644149, 0, -1.5554867e-06, 14.200944, -7.969634, 891.397)
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=720505756]
-transform = Transform3D(-4527.29, 1.9982612e-05, 9.5175075e-14, 0, -9.991306e-06, 24.906002, 0.00039578826, 228.57443, 1.088676e-06, -33.631046, 0.74375176, 659.90247)
-mesh = SubResource("QuadMesh_0rx21")
-
-[node name="LavaArea3D" type="Area3D" parent="." unique_id=399556237 node_paths=PackedStringArray("TargetNode")]
-transform = Transform3D(4.1493716, 0, 0, 0, 1, 0, 0, 0, 1, 164.11635, -8.988448, 580.25507)
-script = ExtResource("13_pj4lr")
-TargetNode = NodePath("../Player")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaArea3D" unique_id=1749270373]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.191345, 1.9150934, 9.076635)
-shape = SubResource("BoxShape3D_00xh1")
-debug_color = Color(0.3254872, 0.49017316, 1, 0.41960785)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=865541301]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6792622, 545.67773)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=441925130]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0230408, -2.24827, 2.3466187)
-shape = SubResource("BoxShape3D_l1vy1")
-debug_color = Color(0.52399635, 0.57360786, 1.92523e-07, 0.41960785)
-debug_fill = false
-
-[node name="RockPillars" type="Node3D" parent="." unique_id=1798949034]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.058586, 0.9387512, 397.11987)
-
-[node name="RockPillar" parent="RockPillars" unique_id=1453532831 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(3.3792515, 0, 0, 0, 1, 0, 0, 0, 1, -55.41938, 0, 98.84213)
-
-[node name="RockPillar2" parent="RockPillars" unique_id=1359561635 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.12897, 0, 55.50064)
-
-[node name="RockPillar3" parent="RockPillars" unique_id=518332409 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.20975, 0, 11.696991)
-
-[node name="RockPillar4" parent="RockPillars" unique_id=1812080957 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0186195, 0, 73.32858)
-
-[node name="RockPillar5" parent="RockPillars" unique_id=470872894 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.763016, 0, 28.85025)
-
-[node name="RockPillar6" parent="RockPillars" unique_id=1118643634 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.00296)
-
-[node name="RockPillar7" parent="RockPillars" unique_id=1574672338 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.695915, 0, -19.407806)
-
-[node name="RockPillar8" parent="RockPillars" unique_id=1730781101 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.81815, 0, -19.407806)
-
-[node name="RockPillar9" parent="RockPillars" unique_id=194712025 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.99402, 0, 92.24188)
-
-[node name="RockPillar10" parent="RockPillars" unique_id=1466231017 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.99402, 0, -59.54962)
-
-[node name="RockPillar11" parent="RockPillars" unique_id=2111776354 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.71761, 0, 20.186218)
-
-[node name="RockPillar12" parent="RockPillars" unique_id=438816085 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.650162, 0, -80.06818)
-
-[node name="RockPillar13" parent="RockPillars" unique_id=1262423894 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.02649, 0, -129.40048)
-
-[node name="RockPillar14" parent="RockPillars" unique_id=1070234215 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.898895, 0, -187.14102)
-
-[node name="RockPillar15" parent="RockPillars" unique_id=816889113 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.27579, 0, -227.78845)
-
-[node name="RockPillar16" parent="RockPillars" unique_id=1453492221 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.06192, 0, -200.95978)
-
-[node name="RockPillar17" parent="RockPillars" unique_id=1532647362 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.46553, 0, -247.6089)
-
-[node name="RockPillar18" parent="RockPillars" unique_id=1523956239 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.64018, 0, -247.6089)
-
-[node name="RockPillar19" parent="RockPillars" unique_id=1517590460 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.05678, 0, -321.22165)
-
-[node name="RockPillar20" parent="RockPillars" unique_id=1857797593 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.84256, 0, -288.80988)
-
-[node name="RockPillar21" parent="RockPillars" unique_id=977674098 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.312218, 0, -319.59714)
-
-[node name="RockPillar22" parent="RockPillars" unique_id=409593242 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.312218, 0, -366.30182)
-
-[node name="RockPillar23" parent="RockPillars" unique_id=1845203414 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.32688, 0, -366.30182)
-
-[node name="RockPillar24" parent="RockPillars" unique_id=1997745913 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.68466, 0, -445.65167)
-
-[node name="RockPillar25" parent="RockPillars" unique_id=553914468 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.77266, 0, -472.4847)
-
-[node name="RockPillar28" parent="RockPillars" unique_id=349125214 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.28346, 0, -575.21185)
-
-[node name="RockPillar29" parent="RockPillars" unique_id=1558503415 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.57016, 0, -438.83502)
-
-[node name="RockPillar30" parent="RockPillars" unique_id=1068899105 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.24391, 0, -531.86743)
-
-[node name="RockPillar26" parent="RockPillars" unique_id=1858275160 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.266747, 0, -520.62354)
-
-[node name="RockPillar27" parent="RockPillars" unique_id=1376939529 instance=ExtResource("18_q0xi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.266747, 0, -520.62354)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1297178443]
-stream = ExtResource("19_nwnlh")
-volume_db = -1.793
-pitch_scale = 0.18
-
-[node name="Volcano" type="Node3D" parent="." unique_id=567699424]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.14872, 0, 0)
-script = ExtResource("22_fx3gb")
-
-[node name="Timer" type="Timer" parent="Volcano" unique_id=2128522308]
-wait_time = 3.0
-script = ExtResource("22_a454t")
+[node name="LavaAmbience" type="AudioStreamPlayer" parent="." unique_id=1853874212]
+stream = ExtResource("22_5fn7l")
+volume_db = -7.92
+autoplay = true
+script = ExtResource("23_sj5x0")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1006356862]
+stream = ExtResource("24_uelq8")
+volume_db = -7.92
+autoplay = true
+script = ExtResource("23_sj5x0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2066025874]
+environment = ExtResource("25_1gnxd")

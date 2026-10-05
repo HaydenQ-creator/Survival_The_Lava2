@@ -30,6 +30,6 @@ public partial class Finish_Level2 : Node3D
 
 	private void OnTimerTimeout()
 	{
-		Callable.From(() => GetTree().ChangeSceneToFile("res://MenuChooser.tscn")).CallDeferred();
+		Callable.From(() => GetTree().ChangeSceneToFile("res://Scenes/Level3.tscn")).CallDeferred();
 	}
 }

@@ -1,0 +1,31 @@
+[gd_resource type="Environment" format=3 uid="uid://bmbeb7sdxa1sw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_emtbv"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+sky_cover_modulate = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_ke062"]
+sky_material = SubResource("ProceduralSkyMaterial_emtbv")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_ke062")
+ssao_enabled = true
+ssao_intensity = 16.0
+ssao_power = 29.54692
+ssao_horizon = 0.26
+ssao_light_affect = 0.82
+sdfgi_enabled = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 2.39
+glow_bloom = 0.05
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(1, 0.5529412, 0.60784316, 1)
+fog_density = 1.0
+fog_depth_curve = 1.3660408
+fog_depth_begin = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.62352943, 0.37254903, 0.37254903, 1)

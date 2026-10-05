@@ -41,7 +41,7 @@ void vertex() {
 }
 
 void fragment() {
-	vec2 base_uv = UV - vec2(TIME * 0.05, 0.0);
+	vec2 base_uv = UV - vec2(TIME * 0.15, 0.0);
 	
 
 	{

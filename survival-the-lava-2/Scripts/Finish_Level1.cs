@@ -30,6 +30,6 @@ public partial class Finish_Level1 : Node3D
 
 	private void OnTimerTimeout()
 	{
-		Callable.From(() => GetTree().ChangeSceneToFile("res://Level2.tscn")).CallDeferred();
+		Callable.From(() => GetTree().ChangeSceneToFile("res://Scenes/Level2.tscn")).CallDeferred();
 	}
 }

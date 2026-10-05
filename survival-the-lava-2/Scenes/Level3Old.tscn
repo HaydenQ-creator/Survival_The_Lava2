@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://dqc08tgwjq0ti"]
+
+[ext_resource type="PackedScene" uid="uid://ci47soai0sq42" path="res://Scenes/living_room.tscn" id="1_84iim"]
+[ext_resource type="PackedScene" uid="uid://ce8qr4u4qiixw" path="res://Scenes/wooden_support_2.tscn" id="2_f63rs"]
+[ext_resource type="PackedScene" uid="uid://bu0dn64r2dwhr" path="res://Scenes/black_door.tscn" id="3_f63rs"]
+[ext_resource type="PackedScene" uid="uid://c76shwhrdmo2a" path="res://Scenes/PlayerFP.tscn" id="4_xcs05"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_l1vy1"]
+
+[sub_resource type="Environment" id="Environment_l1vy1"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.15
+glow_enabled = true
+glow_normalized = true
+glow_bloom = 1.0
+fog_light_color = Color(0, 0, 0, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1328
+
+[node name="Level3" type="Node3D" unique_id=935952789]
+
+[node name="LivingRoom" parent="." unique_id=327580798 instance=ExtResource("1_84iim")]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0.006263733, -0.023055553, 0.0026082993)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1358543125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.88554, 8.223602, 0.3951652)
+light_color = Color(1, 0.68235296, 0, 1)
+light_energy = 13.125
+light_indirect_energy = 2.62
+light_volumetric_fog_energy = 0.1
+omni_range = 10.456775
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="." unique_id=2134062442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.755135, 9.819914, 0.3951652)
+light_color = Color(1, 0.68235296, 0, 1)
+light_energy = 13.125
+light_indirect_energy = 2.62
+light_volumetric_fog_energy = 0.1
+omni_range = 10.456775
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=734172632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2277994, 9.248314, 0.3951652)
+light_color = Color(1, 0.68235296, 0, 1)
+light_energy = 6.79
+light_indirect_energy = 2.62
+light_volumetric_fog_energy = 0.1
+omni_range = 14.233536
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="." unique_id=2069846227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2277994, 8.223602, 20.083948)
+light_color = Color(1, 0.68235296, 0, 1)
+light_energy = 6.79
+light_indirect_energy = 2.62
+light_volumetric_fog_energy = 0.1
+omni_range = 14.233536
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1384051963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.782753, 8.223602, 0.3951652)
+light_color = Color(1, 0.68235296, 0, 1)
+light_energy = 6.675
+light_volumetric_fog_energy = 0.1
+omni_range = 10.456775
+
+[node name="WoodenSupport2" parent="." unique_id=604144617 instance=ExtResource("2_f63rs")]
+transform = Transform3D(-5.4992885e-08, 0, 1, 0, 1.1793603, 0, -1.2580905, 0, -4.371139e-08, -2.3223336, 0.77153015, 0.6525235)
+
+[node name="WoodenSupport4" parent="." unique_id=561406205 instance=ExtResource("2_f63rs")]
+transform = Transform3D(-5.4992885e-08, 0, 1, 0, 1.1793603, 0, -1.2580905, 0, -4.371139e-08, -29.264673, 0.77153015, 0.6525247)
+
+[node name="WoodenSupport5" parent="." unique_id=2011938566 instance=ExtResource("2_f63rs")]
+transform = Transform3D(-5.4992885e-08, 0, 1, 0, 1.1793603, 0, -1.2580905, 0, -4.371139e-08, -50.280025, 0.77153015, 0.6525256)
+
+[node name="WoodenSupport6" parent="." unique_id=1862391051 instance=ExtResource("2_f63rs")]
+transform = Transform3D(-5.4992885e-08, 0, 1, 0, 1.1793603, 0, -1.2580905, 0, -4.371139e-08, -63.242, 0.77153015, 0.6525262)
+
+[node name="BlackDoor" parent="." unique_id=1766518180 instance=ExtResource("3_f63rs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.083363, 0.033112288, 23.279554)
+
+[node name="BlackDoor2" parent="." unique_id=894739776 instance=ExtResource("3_f63rs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.28544, -0.32420754, -16.819118)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1675837285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.13674259, 0)
+navigation_mesh = SubResource("NavigationMesh_l1vy1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1754765486]
+environment = SubResource("Environment_l1vy1")
+
+[node name="Player" parent="." unique_id=25935713 instance=ExtResource("4_xcs05")]
+transform = Transform3D(-8.702938e-08, 0, 1.991, 0, 1.991, 0, -1.991, 0, -8.702938e-08, 0.71834993, 3.9054775, -8.434422)
+
+[node name="PlayerLight" type="OmniLight3D" parent="Player" unique_id=5592402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3973856, 0)
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+omni_range = 8.656844
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=106834802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.769346, 4.837264, 0)
+size = Vector3(1, 7.7128906, 12.891602)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGBox3D" unique_id=465316891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2175446, 0, 0)
+visible = false
+omni_range = 7.088019
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGBox3D" unique_id=28030997]
+transform = Transform3D(-4.371139e-08, 0.051527515, 0.9986716, 0, -0.9986716, 0.051527515, 1, 2.2523392e-09, 4.3653323e-08, -0.7800808, 0.287292, 4.0620094e-08)
+light_energy = 4.29
+light_volumetric_fog_energy = 0.2
+spot_range = 20.31965
+spot_angle = 57.887177
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="CSGBox3D" unique_id=1028950368]
+transform = Transform3D(-4.371139e-08, 0.051527515, 0.9986716, 0, -0.9986716, 0.051527515, 1, 2.2523392e-09, 4.3653323e-08, -0.7800808, 0.287292, -5.5862036)
+light_energy = 4.29
+light_volumetric_fog_energy = 0.2
+spot_range = 20.31965
+spot_angle = 57.887177
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="CSGBox3D" unique_id=2131136011]
+transform = Transform3D(-4.371139e-08, 0.051527515, 0.9986716, 0, -0.9986716, 0.051527515, 1, 2.2523392e-09, 4.3653323e-08, -0.7800808, 0.287292, 4.8404813)
+light_energy = 4.29
+light_volumetric_fog_energy = 0.2
+spot_range = 20.31965
+spot_angle = 57.887177

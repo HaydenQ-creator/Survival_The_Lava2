@@ -15,10 +15,6 @@ font_size = 42
 line_spacing = 7.27
 font_size = 37
 
-[sub_resource type="LabelSettings" id="LabelSettings_oft6u"]
-line_spacing = 7.27
-font_size = 24
-
 [node name="MainMenu" type="Control" unique_id=137588895]
 layout_mode = 3
 anchors_preset = 0
@@ -118,11 +114,11 @@ script = ExtResource("2_2p34a")
 
 [node name="Label4" type="Label" parent="Level1" unique_id=113090158]
 layout_mode = 0
-offset_left = -427.20486
+offset_left = -425.43954
 offset_top = -73.717316
-offset_right = 723.79517
+offset_right = 725.5604
 offset_bottom = 147.28268
-text = "River of Lava"
+text = "Level 1"
 label_settings = SubResource("LabelSettings_m2lub")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -137,14 +133,15 @@ scale = Vector2(1.1329459, 1.1937499)
 alignment = 0
 script = ExtResource("2_2p34a")
 
-[node name="Label4" type="Label" parent="Level2" unique_id=1045002474]
+[node name="Label5" type="Label" parent="Level2" unique_id=1113070342]
+z_index = 1
 layout_mode = 0
-offset_left = -421.90894
+offset_left = -62.668457
 offset_top = -73.717316
-offset_right = 729.09106
+offset_right = 1088.3315
 offset_bottom = 147.28268
-text = "Idk what to call this level"
-label_settings = SubResource("LabelSettings_oft6u")
+text = "Level 3"
+label_settings = SubResource("LabelSettings_m2lub")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -160,11 +157,11 @@ script = ExtResource("2_2p34a")
 
 [node name="Label4" type="Label" parent="Level3" unique_id=1708960354]
 layout_mode = 0
-offset_left = -427.20486
+offset_left = -793.5066
 offset_top = -73.717316
-offset_right = 723.79517
+offset_right = 357.4934
 offset_bottom = 147.28268
-text = "The Mine Shaft"
+text = "Level 2"
 label_settings = SubResource("LabelSettings_m2lub")
 horizontal_alignment = 1
 vertical_alignment = 1

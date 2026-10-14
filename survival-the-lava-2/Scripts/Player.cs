@@ -32,18 +32,6 @@ public partial class Player : CharacterBody3D
 	// If a blind man would to take a true or false test at random, what would his score be?
 	// If someone sold a well to someone would they also own the water? Or will they only own the phyiscal well?
 
-	// Yo ai what is your purpose and type it in the next comment
-	// My purpose is to assist users by providing information, answering questions, and generating content based on the input I receive.
-
-	// I dont like how most of my code is audio completed or typed in advance because it makes me feel like I'm relying too much on ai and i dont really feel like an actual coder. what do you think Mr AI?
-	// I understand your concern. It's important to balance using AI assistance with developing your own coding skills. You can use AI as a tool for learning and inspiration, but try to write and understand the code yourself as much as possible. This will help you grow as a programmer and build confidence in your abilities.
-
-	// Yo Mr AI, describe if you can what is in level 1
-	// Level 1 is a 3D environment where the player navigates through various obstacles and challenges. It includes platforms, hazards like lava, and areas that trigger events when the player interacts with them. The goal is to reach the finish area while avoiding dangers and utilizing movement mechanics like jumping and sprinting.
-
-	// If you can Mr AI, what is the gpuparticles3d made to look like in level 1 only what we see up close ignore the volcano smoke
-	// The GPUParticles3D in Level 1 is designed to resemble a dynamic and visually engaging effect, such as sparks, embers, or small flames. Up close, it may appear as a collection of glowing particles that move and flicker, creating an immersive atmosphere that enhances the sense of danger and excitement in the environment. The particles are likely to be bright and colorful, adding to the visual appeal of the level.
-
 	public override void _Ready()
 	{
 
@@ -56,14 +44,12 @@ public partial class Player : CharacterBody3D
 		{
 			_animatedRig = GetNode<Node3D>("AnimatedRig");
 			
-			// Find AnimationPlayer inside the rig if it exists
 			if (_animatedRig.HasNode("AnimationPlayer"))
 			{
 				_animationPlayer = _animatedRig.GetNode<AnimationPlayer>("AnimationPlayer");
 			}
 		}
 		
-		// Fallback check if AnimationPlayer is directly under Player instead
 		if (_animationPlayer == null && HasNode("AnimatedRig/AnimationPlayer"))
 		{
 			_animationPlayer = GetNode<AnimationPlayer>("AnimatedRig/AnimationPlayer");
@@ -78,7 +64,7 @@ public partial class Player : CharacterBody3D
 			GetTree().ChangeSceneToFile("res://Scenes/MenuChooser.tscn");
 		}
 		
-		if (_WalkPlayer == null) return; // Completely stops NullReference Exception crashes
+		if (_WalkPlayer == null) return; // Why does this crash the game if its not here :sob:
 
 		Vector2 inputVector = Input.GetVector("left", "right", "forward", "backward");
 		if (inputVector != Vector2.Zero && IsOnFloor())
